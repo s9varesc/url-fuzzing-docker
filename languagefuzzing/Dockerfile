@@ -21,6 +21,7 @@ WORKDIR /
 
 ## C
 WORKDIR /home
+RUN apt-get install -y lcov
 RUN git clone https://github.com/uriparser/uriparser.git 
 WORKDIR /home/uriparser
 RUN git checkout a50e789733c105765fbae413f040c2178added34
@@ -46,14 +47,14 @@ RUN apt-get install -y ruby ruby-bundler
 
 ## JavaScript
 RUN apt-get install -y npm
-WORKDIR /home/url-fuzzing/languagefuzzinh/JavaScriptCoverage
+WORKDIR /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 RUN npm install urijs
 
 RUN npm install -g istanbul
 
 ## PHP
 WORKDIR /home
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli phpunit composer
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer
 WORKDIR /home/url-fuzzing/languagefuzzing/PHPCoverage
 RUN sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 RUN composer --prefer-source require league/uri
@@ -62,13 +63,21 @@ RUN composer --prefer-source require league/uri
 WORKDIR /home
 RUN apt-get install -y golang-go
 
-## copy files				#TODO move to appropriate place, only one block of copying
+## Prepare Tribble  TODO
+
+## instrument and prepare libs that can't be (easily) instrumented on the fly				
 WORKDIR /home/instrumenting
 COPY *.sh /home/instrumenting/
 
 RUN chmod a+rx /home/instrumenting/*.sh  
 RUN /home/instrumenting/instrumentC.sh
-RUN /home/instrumenting/instrumentCpp.sh
+RUN /home/instrumenting/instrumentCpp.sh ##TODO include again
 RUN /home/instrumenting/instrumentJava.sh
 RUN /home/instrumenting/instrumentRuby.sh
+
+
+VOLUME ["/home/coverageReports"]
+
+ENTRYPOINT ["/home/instrumenting/executeFuzzing.sh"]
+
 
