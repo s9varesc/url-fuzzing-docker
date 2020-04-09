@@ -1,6 +1,6 @@
 #!/bin/bash
 
-"TODO: rub tribble to generate test files"
+
 mkdir /home/coverageReports/Python
 mkdir /home/coverageReports/C
 mkdir /home/coverageReports/Cpp
@@ -10,8 +10,16 @@ mkdir /home/coverageReports/Ruby
 mkdir /home/coverageReports/Go
 mkdir /home/coverageReports/PHP
 
+
 cd /home/url-fuzzing/
 git pull
+
+cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+cd /home/tribble
+./gradlew build
+mv ./build/libs/tribble-0.1.jar tribble.jar
+java -jar tribble.jar --help
+
 
 echo "fuzzing Python"
 cd /home/url-fuzzing/languagefuzzing/PythonCoverage

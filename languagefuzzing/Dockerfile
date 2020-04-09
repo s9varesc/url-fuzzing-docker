@@ -63,7 +63,10 @@ RUN composer --prefer-source require league/uri
 WORKDIR /home
 RUN apt-get install -y golang-go
 
-## Prepare Tribble  TODO
+## Tribble
+RUN git clone https://github.com/havrikov/tribble.git
+WORKDIR /home/tribble
+RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
 
 ## instrument and prepare libs that can't be (easily) instrumented on the fly				
 WORKDIR /home/instrumenting
