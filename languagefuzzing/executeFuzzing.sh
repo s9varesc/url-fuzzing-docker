@@ -15,10 +15,13 @@ cd /home/url-fuzzing/
 git pull
 
 cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+
 cd /home/tribble
 ./gradlew build
 mv ./build/libs/tribble-0.1.jar tribble.jar
-java -jar tribble.jar --help
+mkdir /home/test
+java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/test
+ls /home/test
 
 
 echo "fuzzing Python"
@@ -52,6 +55,7 @@ genhtml main_coverage.info --output-directory coverage
 cp -r coverage/* /home/coverageReports/Cpp/ 
 
 echo "fuzzing Java"
+/home/instrumenting/instrumentJava.sh
 cd /home/url-fuzzing/languagefuzzing/JavaCoverage
 mkdir classes
 javac TestJavaMain.java  -d ./classes
@@ -86,5 +90,5 @@ go tool cover -html=urlcoverage.out -o coverage/index.html
 
 cp -r coverage/* /home/coverageReports/Go/
 
-ls /home/coverageReports/*
+
 

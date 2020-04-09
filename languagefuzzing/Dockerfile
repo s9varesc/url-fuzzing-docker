@@ -67,6 +67,8 @@ RUN apt-get install -y golang-go
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
 RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
+WORKDIR /home/tribble
+RUN ./gradlew build
 
 ## instrument and prepare libs that can't be (easily) instrumented on the fly				
 WORKDIR /home/instrumenting
@@ -74,8 +76,7 @@ COPY *.sh /home/instrumenting/
 
 RUN chmod a+rx /home/instrumenting/*.sh  
 RUN /home/instrumenting/instrumentC.sh
-RUN /home/instrumenting/instrumentCpp.sh ##TODO include again
-RUN /home/instrumenting/instrumentJava.sh
+RUN /home/instrumenting/instrumentCpp.sh 
 RUN /home/instrumenting/instrumentRuby.sh
 
 
