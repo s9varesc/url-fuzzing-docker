@@ -10,6 +10,7 @@ mkdir -p /home/coverageReports/Ruby
 mkdir -p /home/coverageReports/Go
 mkdir -p /home/coverageReports/PHP
 mkdir -p /home/coverageReports/Exceptions
+mkdir -p /home/coverageReports/output
 
 
 cd /home/url-fuzzing/
@@ -17,6 +18,7 @@ git pull
 
 cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
+echo "building tribble"
 cd /home/tribble
 ./gradlew build >>/home/coverageReports/output/tribblebuild.txt
 mv ./build/libs/tribble-0.1.jar tribble.jar
@@ -63,7 +65,7 @@ cp ./CppExceptions.txt /home/coverageReports/Exceptions/
 
 
 echo "fuzzing Java"
-/home/instrumenting/instrumentJava.sh
+/home/instrumenting/instrumentJava.sh >>/home/coverageReports/output/javainstr.txt
 cd /home/url-fuzzing/languagefuzzing/JavaCoverage
 mkdir classes
 javac TestJavaMain.java  -d ./classes
@@ -82,7 +84,7 @@ cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing JavaScript"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-istanbul cover --report=html --no-default-excludes -x TestJavaScriptMain.js TestJavaScriptMain.js
+istanbul cover --report=html --no-default-excludes -x TestJavaScriptMain.js TestJavaScriptMain.js >>/home/coverageReports/output/istanbulout.txt
 
 cp -r coverage/* /home/coverageReports/JavaScript/
 cp ./JavaScriptExceptions.txt /home/coverageReports/Exceptions/
