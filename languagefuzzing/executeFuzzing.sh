@@ -18,10 +18,10 @@ git pull
 cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 cd /home/tribble
-./gradlew build
+./gradlew build >>/home/coverageReports/output/tribblebuild.txt
 mv ./build/libs/tribble-0.1.jar tribble.jar
 mkdir /home/test
-java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/url-fuzzing/languagefuzzing/urls
+java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/url-fuzzing/languagefuzzing/urls >>/home/coverageReports/output/tribblegen.txt
 
 cd /home/url-fuzzing/languagefuzzing/
 python generatePlainURLs.py
@@ -55,8 +55,8 @@ g++ -g -coverage -o TestCppMain TestCppMain.cpp -lPocoFoundationd
 LD_LIBRARY_PATH=/usr/local/lib
 export LD_LIBRARY_PATH
 ./TestCppMain
-lcov -c --directory /home/poco/cmake-build/Foundation/CMakeFiles/Foundation.dir/src/ --output-file=main_coverage.info >>/home/coverageReports/lcovcppout.txt
-genhtml main_coverage.info --output-directory coverage >>/home/coverageReports/genhtmlcppout.txt
+lcov -c --directory /home/poco/cmake-build/Foundation/CMakeFiles/Foundation.dir/src/ --output-file=main_coverage.info >>/home/coverageReports/output/lcovcppout.txt
+genhtml main_coverage.info --output-directory coverage >>/home/coverageReports/output/genhtmlcppout.txt
 
 cp -r coverage/* /home/coverageReports/Cpp/ 
 cp ./CppExceptions.txt /home/coverageReports/Exceptions/
@@ -89,7 +89,7 @@ cp ./JavaScriptExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing PHP"
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
-phpunit --whitelist ./vendor/league/uri/src/UriString.php --coverage-html coverage PHPMainTest.php
+phpunit --whitelist ./vendor/league/uri/src/UriString.php --coverage-html coverage PHPMainTest.php >>/home/coverageReports/output/phpout.txt
 
 cp -r coverage/* /home/coverageReports/PHP/
 cp ./PHPExceptions.txt /home/coverageReports/Exceptions/
