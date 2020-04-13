@@ -44,6 +44,7 @@ RUN git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
 
 ## Ruby
 RUN apt-get install -y ruby ruby-bundler
+RUN bundle install
 
 ## JavaScript
 RUN apt-get install -y npm
