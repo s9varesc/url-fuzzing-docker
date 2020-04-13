@@ -57,6 +57,8 @@ lcov -c --directory /home/poco/cmake-build/Foundation/CMakeFiles/Foundation.dir/
 genhtml main_coverage.info --output-directory coverage
 
 cp -r coverage/* /home/coverageReports/Cpp/ 
+cp ./CppExceptions.txt /home/coverageReports/Exceptions/
+
 
 echo "fuzzing Java"
 /home/instrumenting/instrumentJava.sh
@@ -67,6 +69,7 @@ java -javaagent:/home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar=im=
 java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -include java.net.* -src /usr/lib/jvm/openjdk-8/src -format html -output report result.xml
 
 cp -r report/* /home/coverageReports/Java/
+cp ./JavaExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing Ruby"
 cd /home/url-fuzzing/languagefuzzing/RubyCoverage
@@ -85,6 +88,7 @@ cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 phpunit --whitelist ./vendor/league/uri/src/UriString.php --coverage-html coverage PHPMainTest.php
 
 cp -r coverage/* /home/coverageReports/PHP/
+cp ./PHPExceptions.txt /home/coverageReports/Exceptions/vvvvvvvvvvvv
 
 echo "fuzzing Go"
 cd /home/url-fuzzing/languagefuzzing/GoCoverage
