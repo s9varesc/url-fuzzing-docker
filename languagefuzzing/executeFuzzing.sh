@@ -1,14 +1,15 @@
 #!/bin/bash
 
 
-mkdir /home/coverageReports/Python
-mkdir /home/coverageReports/C
-mkdir /home/coverageReports/Cpp
-mkdir /home/coverageReports/Java
-mkdir /home/coverageReports/JavaScript
-mkdir /home/coverageReports/Ruby
-mkdir /home/coverageReports/Go
-mkdir /home/coverageReports/PHP
+mkdir -p /home/coverageReports/Python
+mkdir -p /home/coverageReports/C
+mkdir -p /home/coverageReports/Cpp
+mkdir -p /home/coverageReports/Java
+mkdir -p /home/coverageReports/JavaScript
+mkdir -p /home/coverageReports/Ruby
+mkdir -p /home/coverageReports/Go
+mkdir -p /home/coverageReports/PHP
+mkdir -p /home/coverageReports/Exceptions
 
 
 cd /home/url-fuzzing/
@@ -20,8 +21,10 @@ cd /home/tribble
 ./gradlew build
 mv ./build/libs/tribble-0.1.jar tribble.jar
 mkdir /home/test
-java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/test
-ls /home/test
+java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/url-fuzzing/languagefuzzing/urls
+
+cd /home/url-fuzzing/languagefuzzing/
+python generatePlainURLs.py
 
 
 echo "fuzzing Python"
@@ -30,6 +33,7 @@ coverage run -L TestPythonMain.py
 coverage html
 
 cp -r htmlcov/* /home/coverageReports/Python/
+cp ./PythonExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing C"
 cd /home/url-fuzzing/languagefuzzing/CCoverage
