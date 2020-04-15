@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /home/url-fuzzing/languagefuzzing/RubyCoverage
-bundle install >>/home/coverageReports/output/bundleinstall.txt
+bundle install
 
 mkdir /home/url-fuzzing/languagefuzzing/RubyCoverage/testuri
 cp -r /usr/lib/ruby/*/uri /home/url-fuzzing/languagefuzzing/RubyCoverage/testuri/uri
