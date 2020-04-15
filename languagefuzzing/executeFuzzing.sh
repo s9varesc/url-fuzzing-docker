@@ -45,8 +45,9 @@ gcc --coverage -L /home/uriparser TestCMain.c -o TestCMain -luriparser
 LD_LIBRARY_PATH=/usr/local/lib
 export LD_LIBRARY_PATH
 ./TestCMain
-lcov -c --directory /home/uriparser/CMakeFiles/uriparser.dir/src/ --output-file main_coverage.info
-genhtml main_coverage.info --output-directory coverage
+lcov -c --directory /home/uriparser/CMakeFiles/uriparser.dir/src/ --output-file main_coverage.info >>/home/coverageReports/output/lcovcout.txt
+genhtml main_coverage.info --output-directory coverage >>/home/coverageReports/output/lcovcout.txt
+
 
 cp -r coverage/* /home/coverageReports/C/
 cp ./CExceptions.txt /home/coverageReports/Exceptions/
@@ -65,7 +66,7 @@ cp ./CppExceptions.txt /home/coverageReports/Exceptions/
 
 
 echo "fuzzing Java"
-/home/instrumenting/instrumentJava.sh >>/home/coverageReports/output/javainstr.txt
+/home/instrumenting/instrumentJava.sh 
 cd /home/url-fuzzing/languagefuzzing/JavaCoverage
 mkdir classes
 javac TestJavaMain.java  -d ./classes
@@ -99,8 +100,10 @@ cp ./PHPExceptions.txt /home/coverageReports/Exceptions/
 echo "fuzzing Go"
 cd /home/url-fuzzing/languagefuzzing/GoCoverage
 mkdir coverage
-go test -coverprofile=urlcoverage.out net/url
-go tool cover -html=urlcoverage.out -o coverage/index.html
+go test >>/home/coverageReports/output/gotest.txt
+go test -coverprofile=urlcoverage.out -run TestGoMain_test.go net/url >>/home/coverageReports/output/gocovertest.txt
+go tool cover -html=urlcoverage.out -o coverage/index.html >>/home/coverageReports/output/gocover.txt
+
 
 cp -r coverage/* /home/coverageReports/Go/
 cp ./GoExceptions.txt /home/coverageReports/Exceptions/
