@@ -32,3 +32,5 @@ RUN ls /root/.cargo/bin
 RUN /root/.cargo/bin/rustup default nightly
 RUN SHELL=/bin/bash ./mach configure
 RUN SHELL=/bin/bash ./mach build 
+
+COPY ./livingstandard-url.scala /home/grammar/
