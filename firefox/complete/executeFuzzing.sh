@@ -3,6 +3,11 @@
 
 mkdir -p /mountdir/coverageReport/
 
+cd /home/url-fuzzing/
+git pull
+
+cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+
 echo "building tribble"
 cd /home/tribble
 ./gradlew build >>/tmp/output/tribblebuild.txt
