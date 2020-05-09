@@ -29,6 +29,7 @@ WORKDIR /mozilla-unified
  
 RUN PATH=$PATH:/root/.cargo/bin 
 RUN export PATH
+RUN /root/.cargo/bin/rustup toolchain install nightly
 RUN /root/.cargo/bin/rustup default nightly
 RUN SHELL=/bin/bash ./mach configure
 RUN SHELL=/bin/bash ./mach build 
