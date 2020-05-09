@@ -30,7 +30,7 @@ WORKDIR /mozilla-unified
 RUN PATH=$PATH:/root/.cargo/bin 
 RUN export PATH
 RUN ls /root/.cargo/bin
-RUN /root/.cargo/bin/rustup default nightly
+#RUN /root/.cargo/bin/rustup default nightly
 RUN SHELL=/bin/bash ./mach configure
 RUN SHELL=/bin/bash ./mach build 
 
