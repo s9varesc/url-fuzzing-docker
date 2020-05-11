@@ -25,17 +25,12 @@ cd /home/url-fuzzing/firefox
 python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
 
 echo "executing tests"
+RUN cargo install grcov
+RUN PATH=$PATH:/root/.cargo/bin
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
 mkdir -p /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
 
-ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test
-
-
-
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/
-
-ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
-
 cp /home/url-fuzzing/firefox/moz.build /mozilla-unified/netwerk/test/
 cd /mozilla-unified
 
