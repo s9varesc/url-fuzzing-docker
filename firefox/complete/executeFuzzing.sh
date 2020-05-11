@@ -32,7 +32,7 @@ ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test
 
 
 
-cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/
 
 ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
 
@@ -41,6 +41,6 @@ cd /mozilla-unified
 
 
 
-./mach test ./netwerk/test/URLTestFiles/test_URIs_26.js
+./mach test ./netwerk/test/URLTestFiles
 grcov ./mozilla-unified -t lcov >lcov.info
 genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info
