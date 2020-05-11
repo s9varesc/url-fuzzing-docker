@@ -43,6 +43,7 @@ RUN mv ./build/libs/tribble-0.1.jar tribble.jar
 RUN apt-get install -y cargo #TODO move to other installs
 RUN cargo install grcov
 RUN PATH=$PATH:/root/.cargo/bin
+RUN SHELL=/bin/bash
 
 COPY *.sh /home/generateTests/  
 
