@@ -30,14 +30,17 @@ mkdir -p /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/U
 
 ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test
 
-ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+
 
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+
+ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+
 cp /home/url-fuzzing/firefox/moz.build /mozilla-unified/netwerk/test/
 cd /mozilla-unified
 
 
 
-./mach test ./netwerk/test/URLTestFiles
+./mach test ./netwerk/test/URLTestFiles/test_URIs_26.js
 grcov ./mozilla-unified -t lcov >lcov.info
 genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info
