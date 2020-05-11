@@ -44,6 +44,7 @@ RUN apt-get install -y cargo #TODO move to other installs
 RUN cargo install grcov
 RUN PATH=$PATH:/root/.cargo/bin
 RUN SHELL=/bin/bash
+RUN export SHELL
 
 COPY *.sh /home/generateTests/  
 
