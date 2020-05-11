@@ -5,6 +5,9 @@ mkdir -p /mountdir/coverageReport/
 mkdir -p /tmp/output/
 mkdir -p /home/firefoxfuzzing/URLTestFiles
 
+SHELL=/bin/bash
+export SHELL
+
 cd /home/url-fuzzing/
 git pull
 
