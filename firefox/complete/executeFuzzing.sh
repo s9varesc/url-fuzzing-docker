@@ -3,7 +3,7 @@
 
 mkdir -p /mountdir/coverageReport/
 mkdir -p /tmp/output/
-mkdir -p /home/firefoxfuzzing/
+mkdir -p /home/firefoxfuzzing/URLTestFiles
 
 cd /home/url-fuzzing/
 git pull
