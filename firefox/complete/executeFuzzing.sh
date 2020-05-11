@@ -24,6 +24,9 @@ python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
 cp -r /home/firefoxfuzzing/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
 cd /mozilla-unified
 
+cargo install grcov
+PATH=$PATH:/root/.cargo/bin
+
 ./mach test ./netwerk/test/URLTestFiles
 grcov ./mozilla-unified -t lcov >lcov.info
 genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info
