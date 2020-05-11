@@ -21,7 +21,7 @@ java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/hom
 cd /home/url-fuzzing/firefox
 python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
 
-cp -r /home/firefoxfuzzing/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
+cp -r /home/url-fuzzing/firefoxfuzzing/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
 cd /mozilla-unified
 
 cargo install grcov

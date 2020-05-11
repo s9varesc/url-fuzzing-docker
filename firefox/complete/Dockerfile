@@ -40,6 +40,8 @@ WORKDIR /home/tribble
 RUN ./gradlew build 
 RUN mv ./build/libs/tribble-0.1.jar tribble.jar
 
+RUN apt-get install -y cargo
+
 COPY *.sh /home/generateTests/  
 
 RUN chmod a+rx /home/generateTests/*.sh  
