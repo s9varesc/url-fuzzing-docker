@@ -34,8 +34,9 @@ cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linu
 cp /home/url-fuzzing/firefox/moz.build /mozilla-unified/netwerk/test/
 cd /mozilla-unified
 
-
-
 ./mach test ./netwerk/test/URLTestFiles
+
+cd ..
+echo "generating reports"
 grcov ./mozilla-unified -t lcov >lcov.info
 genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info
