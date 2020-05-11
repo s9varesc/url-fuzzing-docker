@@ -50,4 +50,4 @@ RUN chmod a+rx /home/generateTests/*.sh
 
 VOLUME ["/mountdir"]
 
-ENTRYPOINT ["SHELL=/bin/bash /home/generateTests/executeFuzzing.sh"]
+ENTRYPOINT ["/home/generateTests/executeFuzzing.sh"]
