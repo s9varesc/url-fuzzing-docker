@@ -27,6 +27,7 @@ python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
 ls /home/url-fuzzing/firefox/URLTestFiles
 
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
+cp /home/url-fuzzing/firefox/moz.build /mozilla-unified/netwerk/test/
 cd /mozilla-unified
 
 
