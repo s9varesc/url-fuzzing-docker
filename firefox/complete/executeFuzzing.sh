@@ -24,9 +24,14 @@ java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/hom
 cd /home/url-fuzzing/firefox
 python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
 
-
+echo "executing tests"
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/netwerk/test/URLTestFiles
 mkdir -p /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+
+ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test
+
+ls /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
+
 cp -r /home/url-fuzzing/firefox/URLTestFiles /mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
 cp /home/url-fuzzing/firefox/moz.build /mozilla-unified/netwerk/test/
 cd /mozilla-unified
