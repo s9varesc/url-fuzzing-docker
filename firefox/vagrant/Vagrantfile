@@ -5,4 +5,6 @@ Vagrant.configure("2") do |config|
     vb.memory = "12288"
     vb.cpus = "8"
   end
+  config.vm.define :firefox_vm do |t|
+  end
 end
