@@ -14,7 +14,7 @@ RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
 
-RUN ls /home/chromium/src
+RUN ls /home/chromium
 RUN ./build/install-build-deps.sh
 RUN gclient runhooks
 
