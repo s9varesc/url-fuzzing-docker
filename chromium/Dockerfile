@@ -13,6 +13,8 @@ ENV PATH=$PATH:/home/depot_tools
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
+
+RUN ls .
 RUN ./build/install-build-deps.sh
 RUN gclient runhooks
 
