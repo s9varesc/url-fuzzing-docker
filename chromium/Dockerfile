@@ -6,15 +6,14 @@ RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercuri
 WORKDIR /home
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
-RUN mkdir /home/chromium && cd /home/chromium
+RUN mkdir /home/chromium 
 
 ENV PATH=$PATH:/home/depot_tools
 
+WORKDIR /home/chromium
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
-
-RUN ls /home/
 RUN ./build/install-build-deps.sh
 RUN gclient runhooks
 
