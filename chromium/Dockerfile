@@ -14,10 +14,10 @@ WORKDIR /home/chromium
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
-RUN apt-get install -y lsb-release sudo
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
 
 
-RUN DEBIAN_FRONTEND=noninteractive ./build/install-build-deps.sh --no-prompt 
+RUN  ./build/install-build-deps.sh --no-prompt 
 RUN gclient runhooks
 
 RUN gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
