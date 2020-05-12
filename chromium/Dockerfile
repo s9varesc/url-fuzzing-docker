@@ -14,7 +14,7 @@ WORKDIR /home/chromium
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
-RUN apt-get install -y lsb-release
+RUN apt-get install -y lsb-release sudo
 
 RUN ./build/install-build-deps.sh
 RUN gclient runhooks
