@@ -16,7 +16,7 @@ WORKDIR /home/chromium/src
 
 RUN apt-get install -y lsb-release sudo
 
-RUN ./build/install-build-deps.sh --no-prompt
+RUN ./build/install-build-deps.sh --no-prompt --no-nacl
 RUN gclient runhooks
 
 RUN gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
