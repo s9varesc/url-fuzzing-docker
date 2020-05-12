@@ -8,6 +8,7 @@ RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 RUN PATH=$PATH:/home/depot_tools
 RUN export PATH
 RUN mkdir /home/chromium && cd /home/chromium
+RUN echo $PATH
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
