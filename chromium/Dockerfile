@@ -16,8 +16,8 @@ WORKDIR /home/chromium/src
 
 RUN apt-get install -y lsb-release sudo
 
-ENV DEBIAN_FRONTEND=noninteractive
-RUN ./build/install-build-deps.sh --no-prompt 
+
+RUN DEBIAN_FRONTEND="noninteractive" ./build/install-build-deps.sh --no-prompt 
 RUN gclient runhooks
 
 RUN gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
