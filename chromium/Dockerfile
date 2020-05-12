@@ -14,8 +14,9 @@ WORKDIR /home/chromium
 RUN fetch --nohooks --no-history chromium
 WORKDIR /home/chromium/src
 
-RUN apt-get install -y lsb-release sudo tzdata
+RUN apt-get install -y lsb-release sudo
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN ./build/install-build-deps.sh --no-prompt 
 RUN gclient runhooks
 
