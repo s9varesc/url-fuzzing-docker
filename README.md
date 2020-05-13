@@ -1,9 +1,13 @@
 
-# Docker build and run for languages:
+# Dockerfiles for fuzzing firefox, chromium and some language url parsers
 
-```cd languagefuzzing
-docker build -t languagefuzzing .
-docker run -v .../results/coverageReports:/home/coverageReports languagefuzzing:latest
-```
+## Firefox
+[with Vagrant](firefox/vagrant/README.md)
+[with Docker](firefox/complete/README.md)
 
-coverage reports can be found in the mounted directory (i.e. .../results/coverageReports) after run
+## Chromium
+[with Vagrant](chromium/vagrant/README.md)
+[with Docker](chromium/README.md)
+
+## Languages
+[with Docker](languagefuzzing/README.md)
