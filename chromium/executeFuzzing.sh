@@ -25,5 +25,5 @@ cd /mozilla-unified
 
 ##TODO run generated tests
 cd /home/chromium/src
-python tools/code_coverage/coverage.py url_unittests -b out/coverage -o out/report -c 'out/coverage/url_unittests --gtest_filter=URLParser' -f url/
+python tools/code_coverage/coverage.py url_unittests -b out/coverage -o out/report -c 'out/coverage/url_unittests --gtest_filter=URLParser.*' -f url/
 cp -r out/report/ /mountdir/coverageReport/
