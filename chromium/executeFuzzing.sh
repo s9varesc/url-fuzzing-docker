@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-mkdir -p /mountdir/coverageReport/
+#mkdir -p /mountdir/coverageReport/
 
 cd /home/url-fuzzing/
 git pull
