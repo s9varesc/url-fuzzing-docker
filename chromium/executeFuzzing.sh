@@ -24,6 +24,7 @@ cd /mozilla-unified
 ####
 
 ##TODO run generated tests
+cp /home/url-fuzzing/chromium/BUILD.gn /home/chromium/src/url/
 cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/chromium/src/url/
 
 cd /home/chromium/src
