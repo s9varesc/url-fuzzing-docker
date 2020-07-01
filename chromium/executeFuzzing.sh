@@ -2,6 +2,7 @@
 
 
 #mkdir -p /mountdir/coverageReport/
+mkdir -p /tmp/output/
 
 cd /home/url-fuzzing/
 git pull
