@@ -20,7 +20,7 @@ mv ./build/libs/tribble-0.1.jar tribble.jar
 java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/URLTestFilesRaw >>/tmp/output/tribblegen.txt
 
 cd /home/url-fuzzing/chromium
-python urlfileconversion.py -dir /home/URLTestFilesRaw
+python urlfileconversion.py -dir /home/URLTestFilesRaw/chromium
 
 cp /home/url-fuzzing/chromium/BUILD.gn /home/chromium/src/url/
 cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/chromium/src/url/
