@@ -34,7 +34,7 @@ WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
 RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
-RUN cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+#RUN cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 WORKDIR /home/tribble
 RUN ./gradlew build 
