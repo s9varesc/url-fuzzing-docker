@@ -8,9 +8,7 @@ cd /home/url-fuzzing/
 git pull
 
 
-#cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution 
-#TODO:change back to tribble-additions/comp... after folder set up is fixed
-cp -r /home/url-fuzzing/tribble-additions/testnewversion/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
+cp -r /home/url-fuzzing/tribble-additions/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
 cp /home/url-fuzzing/tribble-additions/onlyChromiumComponents/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 echo "building tribble"
