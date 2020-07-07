@@ -16,7 +16,8 @@ mkdir -p /home/coverageReports/output
 cd /home/url-fuzzing/
 git pull
 
-cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+cp -r /home/url-fuzzing/tribble-additions/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
+cp /home/url-fuzzing/tribble-additions/onlyPlain/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 echo "building tribble"
 cd /home/tribble
