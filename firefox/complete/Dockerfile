@@ -34,12 +34,9 @@ RUN /root/.cargo/bin/rustup default nightly-2020-03-11
 RUN SHELL=/bin/bash ./mach configure
 RUN SHELL=/bin/bash ./mach build 
 
-RUN cp -r /home/url-fuzzing/tribble-additions/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
-RUN cp /home/url-fuzzing/tribble-additions/onlyFirefoxComponents/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 WORKDIR /home/tribble
 RUN ./gradlew build 
-RUN mv ./build/libs/tribble-0.1.jar tribble.jar
 
 RUN apt-get install -y cargo #TODO move to other installs
 RUN cargo install grcov
