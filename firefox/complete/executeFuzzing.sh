@@ -11,7 +11,8 @@ export SHELL
 cd /home/url-fuzzing/
 git pull
 
-cp -r /home/url-fuzzing/tribble-additions/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
+cp -r /home/url-fuzzing/tribble-additions/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
+cp /home/url-fuzzing/tribble-additions/onlyFirefoxComponents/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
 
 echo "building tribble"
 cd /home/tribble
@@ -22,7 +23,7 @@ echo "generating test files"
 java -jar tribble.jar generate --mode=2-path-30 --suffix=.md --grammar-file=/home/url-fuzzing/livingstandard-url.scala --out-dir=/home/firefoxfuzzing/URLTestFilesRaw >>/tmp/output/tribblegen.txt
 
 cd /home/url-fuzzing/firefox
-python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw
+python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw/firefox
 
 echo "executing tests"
 cargo install grcov
