@@ -40,4 +40,4 @@ cd /mozilla-unified
 cd ..
 echo "generating reports"
 grcov ./mozilla-unified -t lcov >lcov.info
-genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info
+genhtml -o /mountdir/coverageReport --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
