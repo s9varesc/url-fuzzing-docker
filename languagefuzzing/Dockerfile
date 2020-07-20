@@ -8,8 +8,8 @@ RUN apt-get update
 
 
 ## Python
-RUN apt-get install -y python3 python-pip
-RUN pip install coverage
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install coverage
 
 ## Git
 RUN apt-get install -y git
