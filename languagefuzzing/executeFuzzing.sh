@@ -5,12 +5,15 @@ mkdir -p /home/coverageReports/Python
 mkdir -p /home/coverageReports/C
 mkdir -p /home/coverageReports/Cpp
 mkdir -p /home/coverageReports/Java
-mkdir -p /home/coverageReports/JavaScript
+mkdir -p /home/coverageReports/JavaScript/urijs
+mkdir -p /home/coverageReports/JavaScript/whatwg-url
 mkdir -p /home/coverageReports/Ruby
 mkdir -p /home/coverageReports/Go
 mkdir -p /home/coverageReports/PHP
 mkdir -p /home/coverageReports/Exceptions
 mkdir -p /home/coverageReports/output
+
+rm /home/coverageReports/output/*.txt
 
 
 cd /home/url-fuzzing/
@@ -86,10 +89,16 @@ cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing JavaScript"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-istanbul cover --report=html --no-default-excludes -x TestJavaScriptMain.js TestJavaScriptMain.js >>/home/coverageReports/output/istanbulout.txt
+istanbul cover --report=html --no-default-excludes -x TestJavaScriptMainurijs.js TestJavaScriptMainurijs.js >>/home/coverageReports/output/istanbulout.txt
 
-cp -r coverage/* /home/coverageReports/JavaScript/
-cp ./JavaScriptExceptions.txt /home/coverageReports/Exceptions/
+cp -r coverage/* /home/coverageReports/JavaScript/urijs/
+rm -r coverage/
+
+istanbul cover --report=html --no-default-excludes -x TestJavaScriptMainWhatwg.js TestJavaScriptMainWhatwg.js >>/home/coverageReports/output/istanbulout2.txt
+
+cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
+cp ./JavaScriptExceptionsurijs.txt /home/coverageReports/Exceptions/
+cp ./JavaScriptExceptionswhatwg-url.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing PHP"
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage

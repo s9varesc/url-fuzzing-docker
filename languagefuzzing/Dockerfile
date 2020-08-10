@@ -1,10 +1,7 @@
 FROM ubuntu:18.04
 
 
-RUN apt-get update
-
-
-
+RUN apt-get clean && apt-get update
 
 
 ## Python
@@ -12,7 +9,7 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install coverage
 
 ## Git
-RUN apt-get install -y git
+RUN apt-get install -y git curl
 
 ##clone url-fuzzing repository
 WORKDIR /home
@@ -37,7 +34,7 @@ RUN git checkout 3fc3e5f5b8462f7666952b43381383a79b8b5d92
 
 ## Java
 WORKDIR /home
-RUN apt-get install -y openjdk-8-jdk openjdk-8-source
+RUN apt-get install -y openjdk-8-jdk openjdk-8-source --fix-missing
 RUN git clone https://github.com/wrobelm/jcov-build.git
 WORKDIR /home/jcov-build
 RUN git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
@@ -46,11 +43,15 @@ RUN git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
 RUN apt-get install -y ruby ruby-bundler
 
 ## JavaScript
-RUN apt-get install -y npm
+RUN apt-get install -y nodejs npm
+RUN npm install -g n
+RUN n 10
+RUN PATH="$PATH"
 WORKDIR /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-RUN npm install urijs
 
 RUN npm install -g istanbul
+
+RUN npm install whatwg-url urijs
 
 ## PHP
 WORKDIR /home
