@@ -1,0 +1,208 @@
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+> Task :compileJava NO-SOURCE
+> Task :compileScala
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :compileTestScala
+> Task :processTestResources UP-TO-DATE
+> Task :testClasses
+
+> Task :test
+[36mDiscovery starting.[0m
+12:09:30.673 [ScalaTest-main] DEBUG AutomatonCache - Reading stored automata from automata
+12:09:30.863 [ScalaTest-main] INFO  AutomatonCache - Read 45 automata from persistent storage "automata"
+12:09:30.889 [ScalaTest-main] DEBUG AutomatonCache - Reading stored automata from automata
+12:09:30.921 [ScalaTest-main] INFO  AutomatonCache - Read 45 automata from persistent storage "automata"
+12:09:30.954 [ScalaTest-main] DEBUG AutomatonCache - Reading stored automata from automata
+12:09:30.981 [ScalaTest-main] INFO  AutomatonCache - Read 45 automata from persistent storage "automata"
+12:09:30.993 [ScalaTest-main] DEBUG AutomatonCache - Reading stored automata from automata
+12:09:31.022 [ScalaTest-main] INFO  AutomatonCache - Read 45 automata from persistent storage "automata"
+[36mDiscovery completed in 1 second, 474 milliseconds.[0m
+[36mRun starting. Expected test count is: 31[0m
+12:09:31.637 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.639 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.653 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:31.658 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 2 iterations.
+12:09:31.663 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 1 productions and 1 nodes
+12:09:31.670 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.673 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.674 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:31.681 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:31.688 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 2 productions and 2 nodes
+12:09:31.693 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.694 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.695 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:31.698 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:31.703 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 2 productions and 4 nodes
+12:09:31.850 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.853 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.855 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 2 nodes
+12:09:31.863 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:31.864 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 2 productions and 6 nodes
+12:09:31.925 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.927 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.928 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:31.929 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:31.930 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 2 productions and 3 nodes
+12:09:31.932 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.933 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.935 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:31.942 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 4 iterations.
+12:09:31.946 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 3 productions and 3 nodes
+12:09:31.949 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:31.956 [ScalaTest-2-running-ModelAssemblerSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:31.957 [ScalaTest-2-running-ModelAssemblerSpec] INFO  NodeDisambiguation - Disambiguated 5 nodes
+12:09:31.966 [ScalaTest-2-running-ModelAssemblerSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:31.975 [ScalaTest-2-running-ModelAssemblerSpec] INFO  GrammarStatistics - The Grammar has 3 productions and 13 nodes
+12:09:31.982 [ScalaTest-2-running-MaxDepthGeneratorSpec] DEBUG MaxDepthGeneratorSpec - Testing with seed -1680867884
+12:09:32.010 [ScalaTest-2-running-MaxDepthGeneratorSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:32.013 [ScalaTest-2-running-MaxDepthGeneratorSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:32.021 [ScalaTest-2-running-MaxDepthGeneratorSpec] INFO  NodeDisambiguation - Disambiguated 1 nodes
+12:09:32.028 [ScalaTest-2-running-MaxDepthGeneratorSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:32.035 [ScalaTest-2-running-MaxDepthGeneratorSpec] INFO  GrammarStatistics - The Grammar has 3 productions and 14 nodes
+12:09:33.100 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:33.106 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:33.107 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  NodeDisambiguation - Disambiguated 2 nodes
+12:09:33.110 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:33.116 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  GrammarStatistics - The Grammar has 3 productions and 9 nodes
+12:09:33.118 [ScalaTest-2-running-ShortestTreeGeneratorSpec] DEBUG ShortestTreeGeneratorSpec - Testing with seed -922064794
+12:09:33.213 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals
+12:09:33.215 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals
+12:09:33.216 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals
+12:09:33.218 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals
+12:09:33.220 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals
+12:09:33.221 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals
+12:09:33.224 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:33.224 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  AutomatonAssembly - Constructed 0 automata.
+12:09:33.225 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  NodeDisambiguation - Disambiguated 0 nodes
+12:09:33.226 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 3 iterations.
+12:09:33.227 [ScalaTest-2-running-ShortestTreeGeneratorSpec] INFO  GrammarStatistics - The Grammar has 3 productions and 6 nodes
+12:09:33.227 [ScalaTest-2-running-ShortestTreeGeneratorSpec] DEBUG ShortestTreeGeneratorSpec - Testing with seed 382865947
+[32mGrammarSpec:[0m
+[32mThe Grammar[0m
+[32m- should be usable like a map (40 milliseconds)[0m
+12:09:33.256 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals
+12:09:33.258 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals
+[32m- should have an appropriate string representation (14 milliseconds)[0m
+12:09:33.311 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.321 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals (and removed 2 productions in the process)
+12:09:33.326 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 3 productions in the process)
+12:09:33.334 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 0 literals
+12:09:33.363 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.364 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 1 productions in the process)
+12:09:33.365 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals (and removed 1 productions in the process)
+12:09:33.365 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals (and removed 1 productions in the process)
+12:09:33.367 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 2 productions in the process)
+12:09:33.412 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.416 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.423 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.427 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.430 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 1 literals (and removed 1 productions in the process)
+12:09:33.432 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 2 literals (and removed 1 productions in the process)
+12:09:33.440 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 2 productions in the process)
+12:09:33.445 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 2 productions in the process)
+12:09:33.451 [ScalaTest-1-running-LiteralMergeSpec] INFO  LiteralMerge - Merged 3 literals (and removed 2 productions in the process)
+[32mRegexGeneratorSpec:[0m
+[32mThe regex generator[0m
+[32m- should generate correct strings (771 milliseconds)[0m
+[32mTestSpecification:[0m
+[32mModelAssemblerSpec:[0m
+[32mThe ModelAssembler[0m
+[32m- should assemble simple grammars correctly (160 milliseconds)[0m
+[32m- should detect invalid grammars (74 milliseconds)[0m
+[32m- should be able to eliminate all instances of Int.MaxValue from shortest derivations (184 milliseconds)[0m
+[32mMaxDepthGeneratorSpec:[0m
+[32mMaxDepthGenerator[0m
+[32m- should respect the maximum depth (1 second, 76 milliseconds)[0m
+[32mParserSpec:[0m
+[32mThe grammar parser[0m
+[32m- should parse simple rules (318 milliseconds)[0m
+[32m- should parse string escapes correctly (89 milliseconds)[0m
+[32m- should parse unescaped string literals correctly (47 milliseconds)[0m
+[32m- should parse quantifications correctly (116 milliseconds)[0m
+[32m- should parse concatenations correctly (84 milliseconds)[0m
+[32m- should parse alternations correctly (72 milliseconds)[0m
+[32m- should also merge equal alternations (23 milliseconds)[0m
+[32m- should ignore comments (29 milliseconds)[0m
+[32m- should ignore comments in literals and quants (58 milliseconds)[0m
+[32m- should parse regular expressions correctly (50 milliseconds)[0m
+[32m- should fail on incorrect inputs (124 milliseconds)[0m
+[32mDTreeSpec:[0m
+[32mThe leaves method of DTree[0m
+[32m- should return the leaves in the right order (17 milliseconds)[0m
+[32mShortestTreeGeneratorSpec:[0m
+[32mThe ShortestTreeGenerator[0m
+[32m- should respect the close-off choice in alternations (123 milliseconds)[0m
+[32m- should respect the close-off choice in quantifications (51 milliseconds)[0m
+[32mLiteralMergeSpec:[0m
+[32mThe LiteralMerge[0m
+[32m- should merge concatenations correctly (137 milliseconds)[0m
+[32m- should merge references correctly (58 milliseconds)[0m
+[32m- should merge combinations of literals and references correctly (32 milliseconds)[0m
+[32m- should merge literals correctly in the context of other DerivationRules (87 milliseconds)[0m
+[32mGrammarLoaderSpec:[0m
+[32mThe GrammarLoader[0m
+[32mUtilSpec:[0m
+[32mThe choose function[0m
+[32m- should work properly (165 milliseconds)[0m
+[32m- should throw an Exception on an empty set (1 millisecond)[0m
+[32mAutomatonTransformerSpec:[0m
+[32mThe AutomatonTransformer[0m
+[32m- should transform simple sequences correctly (72 milliseconds)[0m
+[32m- should transform operators correctly (24 milliseconds)[0m
+12:09:50.380 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:50.503 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 3 automata.
+12:09:50.509 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 80 nodes
+12:09:50.579 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 6 iterations.
+12:09:50.581 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 53 productions and 254 nodes
+12:09:56.160 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:09:56.172 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 13 automata.
+12:09:56.178 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 63 nodes
+12:09:56.208 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 4 iterations.
+12:09:56.209 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 50 productions and 255 nodes
+12:10:13.517 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:13.536 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 14 automata.
+12:10:13.546 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 830 nodes
+12:10:13.646 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 5 iterations.
+12:10:13.651 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 173 productions and 1652 nodes
+12:10:15.051 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:15.054 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 3 automata.
+12:10:15.056 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 13 nodes
+12:10:15.059 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 4 iterations.
+12:10:15.059 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 13 productions and 52 nodes
+12:10:16.806 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:16.814 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 10 automata.
+12:10:16.815 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 26 nodes
+12:10:16.823 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 4 iterations.
+12:10:16.823 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 28 productions and 123 nodes
+12:10:18.583 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:18.586 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 5 automata.
+12:10:18.587 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 27 nodes
+12:10:18.594 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 5 iterations.
+12:10:18.595 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 17 productions and 103 nodes
+12:10:26.482 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:26.490 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 7 automata.
+12:10:26.493 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 362 nodes
+12:10:26.575 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 11 iterations.
+12:10:26.578 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 139 productions and 1014 nodes
+12:10:27.978 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructing regex automata...
+12:10:27.984 [ScalaTest-2-running-GrammarLoaderSpec] INFO  AutomatonAssembly - Constructed 5 automata.
+12:10:27.984 [ScalaTest-2-running-GrammarLoaderSpec] INFO  NodeDisambiguation - Disambiguated 21 nodes
+12:10:27.988 [ScalaTest-2-running-GrammarLoaderSpec] INFO  ShortestDerivationComputation - Computed shortest derivations in 7 iterations.
+12:10:27.989 [ScalaTest-2-running-GrammarLoaderSpec] INFO  GrammarStatistics - The Grammar has 13 productions and 92 nodes
+[32m- should be able to load a valid grammar (54 seconds, 705 milliseconds)[0m
+[32m- should not compile empty grammars (499 milliseconds)[0m
+[36mRun completed in 58 seconds, 953 milliseconds.[0m
+[36mTotal number of tests run: 31[0m
+[36mSuites: completed 13, aborted 0[0m
+[36mTests: succeeded 31, failed 0, canceled 0, ignored 0, pending 0[0m
+[32mAll tests passed.[0m
+
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 1m 56s
+6 actionable tasks: 4 executed, 2 up-to-date

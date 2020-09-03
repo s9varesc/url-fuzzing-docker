@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for webidl-conversions/lib/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">webidl-conversions/lib/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.36% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>68/182</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.28% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/114</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.38% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.36% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>68/182</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">4971×</span>
+<span class="cline-any cline-yes">4971×</span>
+<span class="cline-any cline-yes">4971×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _(message, opts) {</span>
+<span class="cstat-no" title="statement not covered" >    return `${opts &amp;&amp; opts.context ? opts.context : "Value"} ${message}.`;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function type(V) {</span>
+<span class="cstat-no" title="statement not covered" >    if (V === null) {</span>
+<span class="cstat-no" title="statement not covered" >        return "Null";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    switch (typeof V) {</span>
+        case "undefined":
+<span class="cstat-no" title="statement not covered" >            return "Undefined";</span>
+        case "boolean":
+<span class="cstat-no" title="statement not covered" >            return "Boolean";</span>
+        case "number":
+<span class="cstat-no" title="statement not covered" >            return "Number";</span>
+        case "string":
+<span class="cstat-no" title="statement not covered" >            return "String";</span>
+        case "symbol":
+<span class="cstat-no" title="statement not covered" >            return "Symbol";</span>
+        case "object":
+            // Falls through
+        case "function":
+            // Falls through
+        default:
+            // Per ES spec, typeof returns an implemention-defined value that is not any of the existing ones for
+            // uncallable non-standard exotic objects. Yet Type() which the Web IDL spec depends on returns Object for
+            // such cases. So treat the default case as an object.
+<span class="cstat-no" title="statement not covered" >            return "Object";</span>
+    }
+}
+&nbsp;
+// Round x to the nearest integer, choosing the even integer if it lies halfway between two.
+<span class="fstat-no" title="function not covered" >function evenRound(x) {</span>
+    // There are four cases for numbers with fractional part being .5:
+    //
+    // case |     x     | floor(x) | round(x) | expected | x &lt;&gt; 0 | x % 1 | x &amp; 1 |   example
+    //   1  |  2n + 0.5 |  2n      |  2n + 1  |  2n      |   &gt;    |  0.5  |   0   |  0.5 -&gt;  0
+    //   2  |  2n + 1.5 |  2n + 1  |  2n + 2  |  2n + 2  |   &gt;    |  0.5  |   1   |  1.5 -&gt;  2
+    //   3  | -2n - 0.5 | -2n - 1  | -2n      | -2n      |   &lt;    | -0.5  |   0   | -0.5 -&gt;  0
+    //   4  | -2n - 1.5 | -2n - 2  | -2n - 1  | -2n - 2  |   &lt;    | -0.5  |   1   | -1.5 -&gt; -2
+    // (where n is a non-negative integer)
+    //
+    // Branch here for cases 1 and 4
+<span class="cstat-no" title="statement not covered" >    if ((x &gt; 0 &amp;&amp; (x % 1) === +0.5 &amp;&amp; (x &amp; 1) === 0) ||</span>
+        (x &lt; 0 &amp;&amp; (x % 1) === -0.5 &amp;&amp; (x &amp; 1) === 1)) {
+<span class="cstat-no" title="statement not covered" >        return censorNegativeZero(Math.floor(x));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return censorNegativeZero(Math.round(x));</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function integerPart(n) {</span>
+<span class="cstat-no" title="statement not covered" >    return censorNegativeZero(Math.trunc(n));</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function sign(x) {</span>
+<span class="cstat-no" title="statement not covered" >    return x &lt; 0 ? -1 : 1;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function modulo(x, y) {</span>
+    // https://tc39.github.io/ecma262/#eqn-modulo
+    // Note that http://stackoverflow.com/a/4467559/3191 does NOT work for large modulos
+<span class="cstat-no" title="statement not covered" >    const signMightNotMatch = x % y;</span>
+<span class="cstat-no" title="statement not covered" >    if (sign(y) !== sign(signMightNotMatch)) {</span>
+<span class="cstat-no" title="statement not covered" >        return signMightNotMatch + y;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return signMightNotMatch;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function censorNegativeZero(x) {</span>
+<span class="cstat-no" title="statement not covered" >    return x === 0 ? 0 : x;</span>
+}
+&nbsp;
+function createIntegerConversion(bitLength, typeOpts) {
+    const isSigned = !typeOpts.unsigned;
+&nbsp;
+    let lowerBound;
+    let upperBound;
+    if (bitLength === 64) {
+        upperBound = Math.pow(2, 53) - 1;
+        lowerBound = !isSigned ? 0 : -Math.pow(2, 53) + 1;
+    } else if (!isSigned) {
+        lowerBound = 0;
+        upperBound = Math.pow(2, bitLength) - 1;
+    } else {
+        lowerBound = -Math.pow(2, bitLength - 1);
+        upperBound = Math.pow(2, bitLength - 1) - 1;
+    }
+&nbsp;
+    const twoToTheBitLength = Math.pow(2, bitLength);
+    const twoToOneLessThanTheBitLength = Math.pow(2, bitLength - 1);
+&nbsp;
+    return (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (opts === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >            opts = {};</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        let x = +V;</span>
+<span class="cstat-no" title="statement not covered" >        x = censorNegativeZero(x); </span>// Spec discussion ongoing: https://github.com/heycam/webidl/issues/306
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (opts.enforceRange) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!Number.isFinite(x)) {</span>
+<span class="cstat-no" title="statement not covered" >                throw new TypeError(_("is not a finite number", opts));</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            x = integerPart(x);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (x &lt; lowerBound || x &gt; upperBound) {</span>
+<span class="cstat-no" title="statement not covered" >                throw new TypeError(_(</span>
+                    `is outside the accepted range of ${lowerBound} to ${upperBound}, inclusive`, opts));
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return x;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!Number.isNaN(x) &amp;&amp; opts.clamp) {</span>
+<span class="cstat-no" title="statement not covered" >            x = Math.min(Math.max(x, lowerBound), upperBound);</span>
+<span class="cstat-no" title="statement not covered" >            x = evenRound(x);</span>
+<span class="cstat-no" title="statement not covered" >            return x;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!Number.isFinite(x) || x === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return 0;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        x = integerPart(x);</span>
+&nbsp;
+        // Math.pow(2, 64) is not accurately representable in JavaScript, so try to avoid these per-spec operations if
+        // possible. Hopefully it's an optimization for the non-64-bitLength cases too.
+<span class="cstat-no" title="statement not covered" >        if (x &gt;= lowerBound &amp;&amp; x &lt;= upperBound) {</span>
+<span class="cstat-no" title="statement not covered" >            return x;</span>
+        }
+&nbsp;
+        // These will not work great for bitLength of 64, but oh well. See the README for more details.
+<span class="cstat-no" title="statement not covered" >        x = modulo(x, twoToTheBitLength);</span>
+<span class="cstat-no" title="statement not covered" >        if (isSigned &amp;&amp; x &gt;= twoToOneLessThanTheBitLength) {</span>
+<span class="cstat-no" title="statement not covered" >            return x - twoToTheBitLength;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return x;</span>
+    };
+}
+&nbsp;
+exports.any = V =&gt; {
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+};
+&nbsp;
+exports.void = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    return undefined;</span>
+};
+&nbsp;
+exports.boolean = <span class="fstat-no" title="function not covered" >function (val) {</span>
+<span class="cstat-no" title="statement not covered" >    return !!val;</span>
+};
+&nbsp;
+exports.byte = createIntegerConversion(8, { unsigned: false });
+exports.octet = createIntegerConversion(8, { unsigned: true });
+&nbsp;
+exports.short = createIntegerConversion(16, { unsigned: false });
+exports["unsigned short"] = createIntegerConversion(16, { unsigned: true });
+&nbsp;
+exports.long = createIntegerConversion(32, { unsigned: false });
+exports["unsigned long"] = createIntegerConversion(32, { unsigned: true });
+&nbsp;
+exports["long long"] = createIntegerConversion(64, { unsigned: false });
+exports["unsigned long long"] = createIntegerConversion(64, { unsigned: true });
+&nbsp;
+exports.double = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    const x = +V;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!Number.isFinite(x)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a finite floating-point value", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return x;</span>
+};
+&nbsp;
+exports["unrestricted double"] = V =&gt; {
+<span class="cstat-no" title="statement not covered" >    const x = +V;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return x;</span>
+};
+&nbsp;
+exports.float = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    const x = +V;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!Number.isFinite(x)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a finite floating-point value", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (Object.is(x, -0)) {</span>
+<span class="cstat-no" title="statement not covered" >        return x;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    const y = Math.fround(x);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!Number.isFinite(y)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is outside the range of a single-precision floating-point value", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return y;</span>
+};
+&nbsp;
+exports["unrestricted float"] = V =&gt; {
+<span class="cstat-no" title="statement not covered" >    const x = +V;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (isNaN(x)) {</span>
+<span class="cstat-no" title="statement not covered" >        return x;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (Object.is(x, -0)) {</span>
+<span class="cstat-no" title="statement not covered" >        return x;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return Math.fround(x);</span>
+};
+&nbsp;
+exports.DOMString = function (V, opts) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (opts === undefined) {
+<span class="cstat-no" title="statement not covered" >        opts = {};</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (opts.treatNullAsEmptyString &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >V === null)</span> {
+<span class="cstat-no" title="statement not covered" >        return "";</span>
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof V === "symbol") {
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is a symbol, which cannot be converted to a string", opts));</span>
+    }
+&nbsp;
+    return String(V);
+};
+&nbsp;
+exports.ByteString = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    const x = exports.DOMString(V, opts);</span>
+<span class="cstat-no" title="statement not covered" >    let c;</span>
+<span class="cstat-no" title="statement not covered" >    for (let i = 0; (c = x.codePointAt(i)) !== undefined; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >        if (c &gt; 255) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new TypeError(_("is not a valid ByteString", opts));</span>
+        }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return x;</span>
+};
+&nbsp;
+exports.USVString = (V, opts) =&gt; {
+    const S = exports.DOMString(V, opts);
+    const n = S.length;
+    const U = [];
+    for (let i = 0; i &lt; n; ++i) {
+        const c = S.charCodeAt(i);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (c &lt; 0xD800 || <span class="branch-1 cbranch-no" title="branch not covered" >c &gt; 0xDFFF)</span> {
+            U.push(String.fromCodePoint(c));
+        } else <span class="cstat-no" title="statement not covered" >if (0xDC00 &lt;= c &amp;&amp; c &lt;= 0xDFFF) {</span>
+<span class="cstat-no" title="statement not covered" >            U.push(String.fromCodePoint(0xFFFD));</span>
+        } else <span class="cstat-no" title="statement not covered" >if (i === n - 1) {</span>
+<span class="cstat-no" title="statement not covered" >            U.push(String.fromCodePoint(0xFFFD));</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            const d = S.charCodeAt(i + 1);</span>
+<span class="cstat-no" title="statement not covered" >            if (0xDC00 &lt;= d &amp;&amp; d &lt;= 0xDFFF) {</span>
+<span class="cstat-no" title="statement not covered" >                const a = c &amp; 0x3FF;</span>
+<span class="cstat-no" title="statement not covered" >                const b = d &amp; 0x3FF;</span>
+<span class="cstat-no" title="statement not covered" >                U.push(String.fromCodePoint((2 &lt;&lt; 15) + ((2 &lt;&lt; 9) * a) + b));</span>
+<span class="cstat-no" title="statement not covered" >                ++i;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                U.push(String.fromCodePoint(0xFFFD));</span>
+            }
+        }
+    }
+&nbsp;
+    return U.join("");
+};
+&nbsp;
+exports.object = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (type(V) !== "Object") {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not an object", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+};
+&nbsp;
+// Not exported, but used in Function and VoidFunction.
+&nbsp;
+// Neither Function nor VoidFunction is defined with [TreatNonObjectAsNull], so
+// handling for that is omitted.
+<span class="fstat-no" title="function not covered" >function convertCallbackFunction(V, opts) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof V !== "function") {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a function", opts));</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+}
+&nbsp;
+const abByteLengthGetter =
+    Object.getOwnPropertyDescriptor(ArrayBuffer.prototype, "byteLength").get;
+&nbsp;
+<span class="fstat-no" title="function not covered" >function isArrayBuffer(V) {</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        abByteLengthGetter.call(V);</span>
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+    }
+}
+&nbsp;
+// I don't think we can reliably detect detached ArrayBuffers.
+exports.ArrayBuffer = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (!isArrayBuffer(V)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a view on an ArrayBuffer object", opts));</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+};
+&nbsp;
+const dvByteLengthGetter =
+    Object.getOwnPropertyDescriptor(DataView.prototype, "byteLength").get;
+exports.DataView = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        dvByteLengthGetter.call(V);</span>
+<span class="cstat-no" title="statement not covered" >        return V;</span>
+    } catch (e) {
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a view on an DataView object", opts));</span>
+    }
+};
+&nbsp;
+[
+    Int8Array, Int16Array, Int32Array, Uint8Array,
+    Uint16Array, Uint32Array, Uint8ClampedArray, Float32Array, Float64Array
+].forEach(func =&gt; {
+    const name = func.name;
+    const article = /^[AEIOU]/.test(name) ? "an" : "a";
+    exports[name] = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (!ArrayBuffer.isView(V) || V.constructor.name !== name) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new TypeError(_(`is not ${article} ${name} object`, opts));</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return V;</span>
+    };
+});
+&nbsp;
+// Common definitions
+&nbsp;
+exports.ArrayBufferView = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (!ArrayBuffer.isView(V)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not a view on an ArrayBuffer object", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+};
+&nbsp;
+exports.BufferSource = (V, opts) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (!ArrayBuffer.isView(V) &amp;&amp; !isArrayBuffer(V)) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError(_("is not an ArrayBuffer object or a view on one", opts));</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return V;</span>
+};
+&nbsp;
+exports.DOMTimeStamp = exports["unsigned long long"];
+&nbsp;
+exports.Function = convertCallbackFunction;
+&nbsp;
+exports.VoidFunction = convertCallbackFunction;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Aug 10 2020 12:12:36 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for whatwg-url/lib/urlencoded.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">whatwg-url/lib/</a> urlencoded.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.29% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>50/79</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.83% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>11/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>50/79</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">128×</span>
+<span class="cline-any cline-yes">128×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">128×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-yes">877×</span>
+<span class="cline-any cline-yes">827×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">204×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-yes">61×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">215×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
+const { isASCIIHex } = require("./infra");
+&nbsp;
+function strictlySplitByteSequence(buf, cp) {
+  const list = [];
+  let last = 0;
+  let i = buf.indexOf(cp);
+  while (i &gt;= 0) {
+    list.push(buf.slice(last, i));
+    last = i + 1;
+    i = buf.indexOf(cp, last);
+  }
+  if (last !== buf.length) {
+    list.push(buf.slice(last));
+  }
+  return list;
+}
+&nbsp;
+function replaceByteInByteSequence(buf, from, to) {
+  let i = buf.indexOf(from);
+  while (i &gt;= 0) {
+    buf[i] = to;
+    i = buf.indexOf(from, i + 1);
+  }
+  return buf;
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function percentEncode(c) {</span>
+<span class="cstat-no" title="statement not covered" >  let hex = c.toString(16).toUpperCase();</span>
+<span class="cstat-no" title="statement not covered" >  if (hex.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >    hex = "0" + hex;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return "%" + hex;</span>
+}
+&nbsp;
+function percentDecode(input) {
+  const output = Buffer.alloc(input.byteLength);
+  let ptr = 0;
+  for (let i = 0; i &lt; input.length; ++i) {
+    if (input[i] !== 37 || !isASCIIHex(input[i + 1]) || !isASCIIHex(input[i + 2])) {
+      output[ptr++] = input[i];
+    } else {
+      output[ptr++] = parseInt(input.slice(i + 1, i + 3).toString(), 16);
+      i += 2;
+    }
+  }
+  return output.slice(0, ptr);
+}
+&nbsp;
+function parseUrlencoded(input) {
+  const sequences = strictlySplitByteSequence(input, 38);
+  const output = [];
+  for (const bytes of sequences) {
+    if (bytes.length === 0) {
+      continue;
+    }
+&nbsp;
+    let name;
+    let value;
+    const indexOfEqual = bytes.indexOf(61);
+&nbsp;
+    if (indexOfEqual &gt;= 0) {
+      name = bytes.slice(0, indexOfEqual);
+      value = bytes.slice(indexOfEqual + 1);
+    } else {
+      name = bytes;
+      value = Buffer.alloc(0);
+    }
+&nbsp;
+    name = replaceByteInByteSequence(Buffer.from(name), 43, 32);
+    value = replaceByteInByteSequence(Buffer.from(value), 43, 32);
+&nbsp;
+    output.push([percentDecode(name).toString(), percentDecode(value).toString()]);
+  }
+  return output;
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function serializeUrlencodedByte(input) {</span>
+<span class="cstat-no" title="statement not covered" >  let output = "";</span>
+<span class="cstat-no" title="statement not covered" >  for (const byte of input) {</span>
+<span class="cstat-no" title="statement not covered" >    if (byte === 32) {</span>
+<span class="cstat-no" title="statement not covered" >      output += "+";</span>
+    } else <span class="cstat-no" title="statement not covered" >if (byte === 42 ||</span>
+               byte === 45 ||
+               byte === 46 ||
+               (byte &gt;= 48 &amp;&amp; byte &lt;= 57) ||
+               (byte &gt;= 65 &amp;&amp; byte &lt;= 90) ||
+               byte === 95 ||
+               (byte &gt;= 97 &amp;&amp; byte &lt;= 122)) {
+<span class="cstat-no" title="statement not covered" >      output += String.fromCodePoint(byte);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      output += percentEncode(byte);</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return output;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function serializeUrlencoded(tuples, encodingOverride = undefined) {</span>
+<span class="cstat-no" title="statement not covered" >  let encoding = "utf-8";</span>
+<span class="cstat-no" title="statement not covered" >  if (encodingOverride !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    encoding = encodingOverride;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  let output = "";</span>
+<span class="cstat-no" title="statement not covered" >  for (const [i, tuple] of tuples.entries()) {</span>
+    // TODO: handle encoding override
+<span class="cstat-no" title="statement not covered" >    const name = serializeUrlencodedByte(Buffer.from(tuple[0]));</span>
+<span class="cstat-no" title="statement not covered" >    let value = tuple[1];</span>
+<span class="cstat-no" title="statement not covered" >    if (tuple.length &gt; 2 &amp;&amp; tuple[2] !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      if (tuple[2] === "hidden" &amp;&amp; name === "_charset_") {</span>
+<span class="cstat-no" title="statement not covered" >        value = encoding;</span>
+      } else <span class="cstat-no" title="statement not covered" >if (tuple[2] === "file") {</span>
+        // value is a File object
+<span class="cstat-no" title="statement not covered" >        value = value.name;</span>
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    value = serializeUrlencodedByte(Buffer.from(value));</span>
+<span class="cstat-no" title="statement not covered" >    if (i !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >      output += "&amp;";</span>
+    }
+<span class="cstat-no" title="statement not covered" >    output += `${name}=${value}`;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return output;</span>
+}
+&nbsp;
+module.exports = {
+  percentEncode,
+  percentDecode,
+&nbsp;
+  // application/x-www-form-urlencoded string parser
+  parseUrlencoded(input) {
+    return parseUrlencoded(Buffer.from(input));
+  },
+&nbsp;
+  // application/x-www-form-urlencoded serializer
+  serializeUrlencoded
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Aug 10 2020 12:12:36 GMT+0000 (Coordinated Universal Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

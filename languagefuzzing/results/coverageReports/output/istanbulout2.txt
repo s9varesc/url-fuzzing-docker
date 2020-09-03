@@ -1,0 +1,18 @@
+TypeError: Invalid URL: 
+    at new URLImpl (/home/url-fuzzing/languagefuzzing/JavaScriptCoverage/node_modules/whatwg-url/lib/URL-impl.js:9:1300)
+    at Object.setup (/home/url-fuzzing/languagefuzzing/JavaScriptCoverage/node_modules/whatwg-url/lib/URL.js:9:4579)
+    at new URL (/home/url-fuzzing/languagefuzzing/JavaScriptCoverage/node_modules/whatwg-url/lib/URL.js:9:6268)
+    at Interface.<anonymous> (/home/url-fuzzing/languagefuzzing/JavaScriptCoverage/TestJavaScriptMainWhatwg.js:18:15)
+    at Interface.emit (events.js:198:13)
+    at Interface._onLine (readline.js:308:10)
+    at Interface._normalWrite (readline.js:451:12)
+    at ReadStream.ondata (readline.js:165:10)
+    at ReadStream.emit (events.js:198:13)
+    at addChunk (_stream_readable.js:288:12)
+
+=============================== Coverage summary ===============================
+Statements   : 42.15% ( 1025/2432 )
+Branches     : 28.05% ( 508/1811 )
+Functions    : 29.19% ( 94/322 )
+Lines        : 42.15% ( 1025/2432 )
+================================================================================

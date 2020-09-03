@@ -1,0 +1,44 @@
+Capturing coverage data from /home/uriparser/CMakeFiles/uriparser.dir/src/
+Found gcov version: 7.5.0
+Scanning /home/uriparser/CMakeFiles/uriparser.dir/src/ for .gcda files ...
+Found 15 data files in /home/uriparser/CMakeFiles/uriparser.dir/src/
+Processing src/UriShorten.c.gcda
+Processing src/UriFile.c.gcda
+Processing src/UriIp4.c.gcda
+Processing src/UriNormalize.c.gcda
+Processing src/UriQuery.c.gcda
+Processing src/UriEscape.c.gcda
+Processing src/UriRecompose.c.gcda
+Processing src/UriCommon.c.gcda
+Processing src/UriParse.c.gcda
+Processing src/UriParseBase.c.gcda
+Processing src/UriResolve.c.gcda
+Processing src/UriNormalizeBase.c.gcda
+Processing src/UriCompare.c.gcda
+Processing src/UriMemory.c.gcda
+Processing src/UriIp4Base.c.gcda
+Finished .info-file creation
+Reading data file main_coverage.info
+Found 15 entries.
+Found common filename prefix "/home/uriparser"
+Writing .css and .png files.
+Generating output.
+Processing file src/UriMemory.c
+Processing file src/UriParseBase.c
+Processing file src/UriIp4.c
+Processing file src/UriEscape.c
+Processing file src/UriCommon.c
+Processing file src/UriFile.c
+Processing file src/UriShorten.c
+Processing file src/UriResolve.c
+Processing file src/UriCompare.c
+Processing file src/UriNormalizeBase.c
+Processing file src/UriIp4Base.c
+Processing file src/UriNormalize.c
+Processing file src/UriParse.c
+Processing file src/UriRecompose.c
+Processing file src/UriQuery.c
+Writing directory view page.
+Overall coverage rate:
+  lines......: 23.1% (659 of 2856 lines)
+  functions..: 20.6% (56 of 272 functions)

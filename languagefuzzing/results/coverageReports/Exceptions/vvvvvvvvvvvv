@@ -1,0 +1,1217 @@
+[
+{ url:"/168.252.251.17
+",
+ exception:"The uri `/168.252.251.17
+` contains invalid characters"},
+{ url:"//?U+10F889
+",
+ exception:"The uri `//?U+10F889
+` contains invalid characters"},
+{ url:"U+C4E
+",
+ exception:"The uri `U+C4E
+` contains invalid characters"},
+{ url:"[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df
+",
+ exception:"The uri `[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df
+` contains invalid characters"},
+{ url:"://9.216.5.20
+",
+ exception:"The uri `://9.216.5.20
+` contains invalid characters"},
+{ url:"/%2e/?&
+",
+ exception:"The uri `/%2e/?&
+` contains invalid characters"},
+{ url:"GU:../N|/",
+",
+ exception:"The uri `GU:../N|/",
+` contains invalid characters"},
+{ url:"prePath:"GU:
+",
+ exception:"The uri `prePath:"GU:
+` contains invalid characters"},
+{ url:"//[777e::ff0a:0.195.251.72]",
+",
+ exception:"The uri `//[777e::ff0a:0.195.251.72]",
+` contains invalid characters"},
+{ url:"prePath:"//[777e::ff0a:0.195.251.72]
+",
+ exception:"The uri `prePath:"//[777e::ff0a:0.195.251.72]
+` contains invalid characters"},
+{ url:"/%e7/?U+FB76
+",
+ exception:"The uri `/%e7/?U+FB76
+` contains invalid characters"},
+{ url:"//176.251.146.7
+",
+ exception:"The uri `//176.251.146.7
+` contains invalid characters"},
+{ url:"13.234.252.25
+",
+ exception:"The uri `13.234.252.25
+` contains invalid characters"},
+{ url:"ws://%2b%7b_*;-%48@118.137.208.96:6726432/?=U+03B4#%b7%d3U+FDCD%db-%92",
+",
+ exception:"The uri `ws://%2b%7b_*;-%48@118.137.208.96:6726432/?=U+03B4#%b7%d3U+FDCD%db-%92",
+` contains invalid characters"},
+{ url:"prePath:"ws://118.137.208.96:6726432
+",
+ exception:"The uri `prePath:"ws://118.137.208.96:6726432
+` contains invalid characters"},
+{ url:":?U+00A2
+",
+ exception:"The uri `:?U+00A2
+` contains invalid characters"},
+{ url:"//[::4b89:c0d1]?U+974B",
+",
+ exception:"The uri `//[::4b89:c0d1]?U+974B",
+` contains invalid characters"},
+{ url:"prePath:"//[::4b89:c0d1]
+",
+ exception:"The uri `prePath:"//[::4b89:c0d1]
+` contains invalid characters"},
+{ url:"/[de64::
+",
+ exception:"The uri `/[de64::
+` contains invalid characters"},
+{ url:"//[b43e:a05a::5.239.134.251]",
+",
+ exception:"The uri `//[b43e:a05a::5.239.134.251]",
+` contains invalid characters"},
+{ url:"prePath:"//[b43e:a05a::5.239.134.251]
+",
+ exception:"The uri `prePath:"//[b43e:a05a::5.239.134.251]
+` contains invalid characters"},
+{ url:"/.//%2e%2e//?U+1086D
+",
+ exception:"The uri `/.//%2e%2e//?U+1086D
+` contains invalid characters"},
+{ url:"//./L|
+",
+ exception:"The uri `//./L|
+` contains invalid characters"},
+{ url:"dd:767c::
+",
+ exception:"The uri `dd:767c::
+` contains invalid characters"},
+{ url:"//19.237.255.24
+",
+ exception:"The uri `//19.237.255.24
+` contains invalid characters"},
+{ url:"0A
+",
+ exception:"The uri `0A
+` contains invalid characters"},
+{ url:"filE://./L|/",
+",
+ exception:"The uri `filE://./L|/",
+` contains invalid characters"},
+{ url:"prePath:"filE://
+",
+ exception:"The uri `prePath:"filE://
+` contains invalid characters"},
+{ url:"eb::81.16.254.250
+",
+ exception:"The uri `eb::81.16.254.250
+` contains invalid characters"},
+{ url:"//[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227
+",
+ exception:"The uri `//[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227
+` contains invalid characters"},
+{ url:"7zD~%3d!$+!:
+",
+ exception:"The uri `7zD~%3d!$+!:
+` contains invalid characters"},
+{ url:"3f%c8?U+10CDB
+",
+ exception:"The uri `3f%c8?U+10CDB
+` contains invalid characters"},
+{ url:"Z|/?U+FFA5
+",
+ exception:"The uri `Z|/?U+FFA5
+` contains invalid characters"},
+{ url:"/.%73%8f[/%2e/?U+FDB5
+",
+ exception:"The uri `/.%73%8f[/%2e/?U+FDB5
+` contains invalid characters"},
+{ url:"://&@[::a2d8:011d:09ea:36.222.0.2
+",
+ exception:"The uri `://&@[::a2d8:011d:09ea:36.222.0.2
+` contains invalid characters"},
+{ url:"://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232
+",
+ exception:"The uri `://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232
+` contains invalid characters"},
+{ url:"//%60R]%c2].?]%b8F:",
+",
+ exception:"The uri `//%60R]%c2].?]%b8F:",
+` contains invalid characters"},
+{ url:"prePath:"//%60R]%c2].?]%b8F:
+",
+ exception:"The uri `prePath:"//%60R]%c2].?]%b8F:
+` contains invalid characters"},
+{ url:"/../?U+C4E7
+",
+ exception:"The uri `/../?U+C4E7
+` contains invalid characters"},
+{ url:"/234.238.250.25
+",
+ exception:"The uri `/234.238.250.25
+` contains invalid characters"},
+{ url:"/
+",
+ exception:"The uri `/
+` contains invalid characters"},
+{ url:"https://9.216.5.207",
+",
+ exception:"The uri `https://9.216.5.207",
+` contains invalid characters"},
+{ url:"prePath:"https://9.216.5.207
+",
+ exception:"The uri `prePath:"https://9.216.5.207
+` contains invalid characters"},
+{ url:"ws://242.209.252.255",
+",
+ exception:"The uri `ws://242.209.252.255",
+` contains invalid characters"},
+{ url:"prePath:"ws://242.209.252.255
+",
+ exception:"The uri `prePath:"ws://242.209.252.255
+` contains invalid characters"},
+{ url:"//::-[:6",
+",
+ exception:"The uri `//::-[:6",
+` contains invalid characters"},
+{ url:"prePath:"//::-[:6
+",
+ exception:"The uri `prePath:"//::-[:6
+` contains invalid characters"},
+{ url:"2d::42be:aba2:70d3:cd72:cdf4:6d94]?U+FDF
+",
+ exception:"The uri `2d::42be:aba2:70d3:cd72:cdf4:6d94]?U+FDF
+` contains invalid characters"},
+{ url:"https://247.30.209.126",
+",
+ exception:"The uri `https://247.30.209.126",
+` contains invalid characters"},
+{ url:"prePath:"https://247.30.209.126
+",
+ exception:"The uri `prePath:"https://247.30.209.126
+` contains invalid characters"},
+{ url:"/%2e/
+",
+ exception:"The uri `/%2e/
+` contains invalid characters"},
+{ url:"%2e%2e/./:?U+0C72
+",
+ exception:"The uri `%2e%2e/./:?U+0C72
+` contains invalid characters"},
+{ url:"2A
+",
+ exception:"The uri `2A
+` contains invalid characters"},
+{ url:"https://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232]",
+",
+ exception:"The uri `https://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232]",
+` contains invalid characters"},
+{ url:"prePath:"https://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232]
+",
+ exception:"The uri `prePath:"https://[e15e::01f6:d6d2:89b1:fd06:157.248.114.232]
+` contains invalid characters"},
+{ url:"0e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162
+",
+ exception:"The uri `0e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162
+` contains invalid characters"},
+{ url:"://[0fba:bf1f::254.250.253.214
+",
+ exception:"The uri `://[0fba:bf1f::254.250.253.214
+` contains invalid characters"},
+{ url:"0FFF
+",
+ exception:"The uri `0FFF
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"242.209.252.25
+",
+ exception:"The uri `242.209.252.25
+` contains invalid characters"},
+{ url:"//[b2a1:ffee::df7e]",
+",
+ exception:"The uri `//[b2a1:ffee::df7e]",
+` contains invalid characters"},
+{ url:"prePath:"//[b2a1:ffee::df7e]
+",
+ exception:"The uri `prePath:"//[b2a1:ffee::df7e]
+` contains invalid characters"},
+{ url:"P:/?",
+",
+ exception:"The uri `P:/?",
+` contains invalid characters"},
+{ url:"prePath:"P:
+",
+ exception:"The uri `prePath:"P:
+` contains invalid characters"},
+{ url:"http://,@252.55.23.3",
+",
+ exception:"The uri `http://,@252.55.23.3",
+` contains invalid characters"},
+{ url:"prePath:"http://252.55.23.3
+",
+ exception:"The uri `prePath:"http://252.55.23.3
+` contains invalid characters"},
+{ url:"//
+",
+ exception:"The uri `//
+` contains invalid characters"},
+{ url:"https://[::44b7:941f:113.145.219.148]",
+",
+ exception:"The uri `https://[::44b7:941f:113.145.219.148]",
+` contains invalid characters"},
+{ url:"prePath:"https://[::44b7:941f:113.145.219.148]
+",
+ exception:"The uri `prePath:"https://[::44b7:941f:113.145.219.148]
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"https://[0fba:bf1f::254.250.253.214]",
+",
+ exception:"The uri `https://[0fba:bf1f::254.250.253.214]",
+` contains invalid characters"},
+{ url:"prePath:"https://[0fba:bf1f::254.250.253.214]
+",
+ exception:"The uri `prePath:"https://[0fba:bf1f::254.250.253.214]
+` contains invalid characters"},
+{ url:"%2e/./:?U+10FF0E
+",
+ exception:"The uri `%2e/./:?U+10FF0E
+` contains invalid characters"},
+{ url:"//%fc%fe.~:6566?U+00AE",
+",
+ exception:"The uri `//%fc%fe.~:6566?U+00AE",
+` contains invalid characters"},
+{ url:"prePath:"//%fc%fe.~:6566
+",
+ exception:"The uri `prePath:"//%fc%fe.~:6566
+` contains invalid characters"},
+{ url:"D1E
+",
+ exception:"The uri `D1E
+` contains invalid characters"},
+{ url:"c269:7de7:5c8d]N:/?U+10FFF
+",
+ exception:"The uri `c269:7de7:5c8d]N:/?U+10FFF
+` contains invalid characters"},
+{ url:"//-%27zD~%3d!$+!:/",
+",
+ exception:"The uri `//-%27zD~%3d!$+!:/",
+` contains invalid characters"},
+{ url:"prePath:"//-%27zD~%3d!$+!:
+",
+ exception:"The uri `prePath:"//-%27zD~%3d!$+!:
+` contains invalid characters"},
+{ url:"http://=@251.3.4.12",
+",
+ exception:"The uri `http://=@251.3.4.12",
+` contains invalid characters"},
+{ url:"prePath:"http://251.3.4.12
+",
+ exception:"The uri `prePath:"http://251.3.4.12
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"//[e2ef::1df8]",
+",
+ exception:"The uri `//[e2ef::1df8]",
+` contains invalid characters"},
+{ url:"prePath:"//[e2ef::1df8]
+",
+ exception:"The uri `prePath:"//[e2ef::1df8]
+` contains invalid characters"},
+{ url:"G:/
+",
+ exception:"The uri `G:/
+` contains invalid characters"},
+{ url:"://228.75.235.7
+",
+ exception:"The uri `://228.75.235.7
+` contains invalid characters"},
+{ url:"66
+",
+ exception:"The uri `66
+` contains invalid characters"},
+{ url:"L:/?U+FDAC
+",
+ exception:"The uri `L:/?U+FDAC
+` contains invalid characters"},
+{ url:"ws://[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df]",
+",
+ exception:"The uri `ws://[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df]",
+` contains invalid characters"},
+{ url:"prePath:"ws://[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df]
+",
+ exception:"The uri `prePath:"ws://[b0f0:e16b::0fd6:afe7:7b4f:6f31:e7df]
+` contains invalid characters"},
+{ url:"/[396f::e8f6:188.110.180.66
+",
+ exception:"The uri `/[396f::e8f6:188.110.180.66
+` contains invalid characters"},
+{ url:"+FDA
+",
+ exception:"The uri `+FDA
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:":?U+10FFF1
+",
+ exception:"The uri `:?U+10FFF1
+` contains invalid characters"},
+{ url:"FF4/%9d%b7%a4/./:?U+10FFA
+",
+ exception:"The uri `FF4/%9d%b7%a4/./:?U+10FFA
+` contains invalid characters"},
+{ url:"ftp://234.238.250.252",
+",
+ exception:"The uri `ftp://234.238.250.252",
+` contains invalid characters"},
+{ url:"prePath:"ftp://234.238.250.252
+",
+ exception:"The uri `prePath:"ftp://234.238.250.252
+` contains invalid characters"},
+{ url:"c768:2fee:03a9:69f1:1e99:6eb0:ef61
+",
+ exception:"The uri `c768:2fee:03a9:69f1:1e99:6eb0:ef61
+` contains invalid characters"},
+{ url:"e/%2e/:?U+FCA
+",
+ exception:"The uri `e/%2e/:?U+FCA
+` contains invalid characters"},
+{ url:"cd:b3b4::a8fa:332e:255.49.253.17
+",
+ exception:"The uri `cd:b3b4::a8fa:332e:255.49.253.17
+` contains invalid characters"},
+{ url:"a1:ffee::df7e
+",
+ exception:"The uri `a1:ffee::df7e
+` contains invalid characters"},
+{ url:"q/%2e./:?;
+",
+ exception:"The uri `q/%2e./:?;
+` contains invalid characters"},
+{ url:"//&*%3f%c8?U+10CDBD",
+",
+ exception:"The uri `//&*%3f%c8?U+10CDBD",
+` contains invalid characters"},
+{ url:"prePath:"//&*%3f%c8
+",
+ exception:"The uri `prePath:"//&*%3f%c8
+` contains invalid characters"},
+{ url:"ftp://(@-$%92(E%fb",
+",
+ exception:"The uri `ftp://(@-$%92(E%fb",
+` contains invalid characters"},
+{ url:"prePath:"ftp://-$%92(E%fb
+",
+ exception:"The uri `prePath:"ftp://-$%92(E%fb
+` contains invalid characters"},
+{ url:"wss://[cf32:bbe7::]",
+",
+ exception:"The uri `wss://[cf32:bbe7::]",
+` contains invalid characters"},
+{ url:"prePath:"wss://[cf32:bbe7::]
+",
+ exception:"The uri `prePath:"wss://[cf32:bbe7::]
+` contains invalid characters"},
+{ url:"d2:6a58::55f0:cdd7:df32:bfec:1ecd
+",
+ exception:"The uri `d2:6a58::55f0:cdd7:df32:bfec:1ecd
+` contains invalid characters"},
+{ url:"//[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83
+",
+ exception:"The uri `//[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83
+` contains invalid characters"},
+{ url:"/$%bc_%c5:)')@[::5bd5:96f0:ca86:8.147.2.200]#
+",
+ exception:"The uri `/$%bc_%c5:)')@[::5bd5:96f0:ca86:8.147.2.200]#
+` contains invalid characters"},
+{ url:"A-:../:",
+",
+ exception:"The uri `A-:../:",
+` contains invalid characters"},
+{ url:"prePath:"A-:
+",
+ exception:"The uri `prePath:"A-:
+` contains invalid characters"},
+{ url:"://247.30.209.12
+",
+ exception:"The uri `://247.30.209.12
+` contains invalid characters"},
+{ url:"ef::1df8
+",
+ exception:"The uri `ef::1df8
+` contains invalid characters"},
+{ url:"https://228.75.235.76",
+",
+ exception:"The uri `https://228.75.235.76",
+` contains invalid characters"},
+{ url:"prePath:"https://228.75.235.76
+",
+ exception:"The uri `prePath:"https://228.75.235.76
+` contains invalid characters"},
+{ url:"//143.6.249.2
+",
+ exception:"The uri `//143.6.249.2
+` contains invalid characters"},
+{ url:"7e::ff0a:0.195.251.72
+",
+ exception:"The uri `7e::ff0a:0.195.251.72
+` contains invalid characters"},
+{ url:"da-/:?
+",
+ exception:"The uri `da-/:?
+` contains invalid characters"},
+{ url:"http://143.6.249.20",
+",
+ exception:"The uri `http://143.6.249.20",
+` contains invalid characters"},
+{ url:"prePath:"http://143.6.249.20
+",
+ exception:"The uri `prePath:"http://143.6.249.20
+` contains invalid characters"},
+{ url:"//[a7d2:6a58::55f0:cdd7:df32:bfec:1ecd]",
+",
+ exception:"The uri `//[a7d2:6a58::55f0:cdd7:df32:bfec:1ecd]",
+` contains invalid characters"},
+{ url:"prePath:"//[a7d2:6a58::55f0:cdd7:df32:bfec:1ecd]
+",
+ exception:"The uri `prePath:"//[a7d2:6a58::55f0:cdd7:df32:bfec:1ecd]
+` contains invalid characters"},
+{ url:"0FED
+",
+ exception:"The uri `0FED
+` contains invalid characters"},
+{ url:":?)
+",
+ exception:"The uri `:?)
+` contains invalid characters"},
+{ url:"wss://[22d0:5971::0fff:6c8f:6.126.250.207]",
+",
+ exception:"The uri `wss://[22d0:5971::0fff:6c8f:6.126.250.207]",
+` contains invalid characters"},
+{ url:"prePath:"wss://[22d0:5971::0fff:6c8f:6.126.250.207]
+",
+ exception:"The uri `prePath:"wss://[22d0:5971::0fff:6c8f:6.126.250.207]
+` contains invalid characters"},
+{ url:"///.././/%2e%2e//?U+1086DF
+",
+ exception:"The uri `///.././/%2e%2e//?U+1086DF
+` contains invalid characters"},
+{ url:"https://&@[::a2d8:011d:09ea:36.222.0.2]",
+",
+ exception:"The uri `https://&@[::a2d8:011d:09ea:36.222.0.2]",
+` contains invalid characters"},
+{ url:"prePath:"https://[::a2d8:011d:09ea:36.222.0.2]
+",
+ exception:"The uri `prePath:"https://[::a2d8:011d:09ea:36.222.0.2]
+` contains invalid characters"},
+{ url:"//?U+D1E8
+",
+ exception:"The uri `//?U+D1E8
+` contains invalid characters"},
+{ url:"//.U+B64F",
+",
+ exception:"The uri `//.U+B64F",
+` contains invalid characters"},
+{ url:"prePath:"//.U+B64F
+",
+ exception:"The uri `prePath:"//.U+B64F
+` contains invalid characters"},
+{ url:"2d:149e::e387:255.246.71.240
+",
+ exception:"The uri `2d:149e::e387:255.246.71.240
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"/?/
+",
+ exception:"The uri `/?/
+` contains invalid characters"},
+{ url:"/251.47.3.25
+",
+ exception:"The uri `/251.47.3.25
+` contains invalid characters"},
+{ url:"//[::f7b4:b586:fb1d:bf5a]",
+",
+ exception:"The uri `//[::f7b4:b586:fb1d:bf5a]",
+` contains invalid characters"},
+{ url:"prePath:"//[::f7b4:b586:fb1d:bf5a]
+",
+ exception:"The uri `prePath:"//[::f7b4:b586:fb1d:bf5a]
+` contains invalid characters"},
+{ url:"f7b4:b586:fb1d:bf5a
+",
+ exception:"The uri `f7b4:b586:fb1d:bf5a
+` contains invalid characters"},
+{ url:"%2e/%2e./:
+",
+ exception:"The uri `%2e/%2e./:
+` contains invalid characters"},
+{ url:"//[342d::42be:aba2:70d3:cd72:cdf4:6d94]?U+FDF1",
+",
+ exception:"The uri `//[342d::42be:aba2:70d3:cd72:cdf4:6d94]?U+FDF1",
+` contains invalid characters"},
+{ url:"prePath:"//[342d::42be:aba2:70d3:cd72:cdf4:6d94]
+",
+ exception:"The uri `prePath:"//[342d::42be:aba2:70d3:cd72:cdf4:6d94]
+` contains invalid characters"},
+{ url:"//[::c269:7de7:5c8d]N:/?U+10FFFC",
+",
+ exception:"The uri `//[::c269:7de7:5c8d]N:/?U+10FFFC",
+` contains invalid characters"},
+{ url:"prePath:"//[::c269:7de7:5c8d]
+",
+ exception:"The uri `prePath:"//[::c269:7de7:5c8d]
+` contains invalid characters"},
+{ url:":?R
+",
+ exception:"The uri `:?R
+` contains invalid characters"},
+{ url:"wss://91.254.5.2",
+",
+ exception:"The uri `wss://91.254.5.2",
+` contains invalid characters"},
+{ url:"prePath:"wss://91.254.5.2
+",
+ exception:"The uri `prePath:"wss://91.254.5.2
+` contains invalid characters"},
+{ url:"//75.6.228.5
+",
+ exception:"The uri `//75.6.228.5
+` contains invalid characters"},
+{ url:":?U+10FEDA
+",
+ exception:"The uri `:?U+10FEDA
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"./%2e/%2e/%2e%2e/D|/
+",
+ exception:"The uri `./%2e/%2e/%2e%2e/D|/
+` contains invalid characters"},
+{ url:"http://'",
+",
+ exception:"The uri `http://'",
+` contains invalid characters"},
+{ url:"prePath:"http://'
+",
+ exception:"The uri `prePath:"http://'
+` contains invalid characters"},
+{ url:"https://[0bf0:dbdf::7be7]",
+",
+ exception:"The uri `https://[0bf0:dbdf::7be7]",
+` contains invalid characters"},
+{ url:"prePath:"https://[0bf0:dbdf::7be7]
+",
+ exception:"The uri `prePath:"https://[0bf0:dbdf::7be7]
+` contains invalid characters"},
+{ url:"ftp://$%bc_%c5:)')@[::5bd5:96f0:ca86:8.147.2.200]#]",
+",
+ exception:"The uri `ftp://$%bc_%c5:)')@[::5bd5:96f0:ca86:8.147.2.200]#]",
+` contains invalid characters"},
+{ url:"prePath:"ftp://[::5bd5:96f0:ca86:8.147.2.200]
+",
+ exception:"The uri `prePath:"ftp://[::5bd5:96f0:ca86:8.147.2.200]
+` contains invalid characters"},
+{ url:"ftp://113.6.17.90",
+",
+ exception:"The uri `ftp://113.6.17.90",
+` contains invalid characters"},
+{ url:"prePath:"ftp://113.6.17.90
+",
+ exception:"The uri `prePath:"ftp://113.6.17.90
+` contains invalid characters"},
+{ url:"http://75.6.228.51",
+",
+ exception:"The uri `http://75.6.228.51",
+` contains invalid characters"},
+{ url:"prePath:"http://75.6.228.51
+",
+ exception:"The uri `prePath:"http://75.6.228.51
+` contains invalid characters"},
+{ url:"/:?U+10FF0
+",
+ exception:"The uri `/:?U+10FF0
+` contains invalid characters"},
+{ url:"/190.221.145.
+",
+ exception:"The uri `/190.221.145.
+` contains invalid characters"},
+{ url:"?U+FB7
+",
+ exception:"The uri `?U+FB7
+` contains invalid characters"},
+{ url:"/.%2e/
+",
+ exception:"The uri `/.%2e/
+` contains invalid characters"},
+{ url:"//,@252.55.23.
+",
+ exception:"The uri `//,@252.55.23.
+` contains invalid characters"},
+{ url:"ws://213.206.146.20",
+",
+ exception:"The uri `ws://213.206.146.20",
+` contains invalid characters"},
+{ url:"prePath:"ws://213.206.146.20
+",
+ exception:"The uri `prePath:"ws://213.206.146.20
+` contains invalid characters"},
+{ url:"[:
+",
+ exception:"The uri `[:
+` contains invalid characters"},
+{ url:"./@:%cd-%2b%ff%ca%ee//%1c.:%d9?:%e9%31%ec//:?+
+",
+ exception:"The uri `./@:%cd-%2b%ff%ca%ee//%1c.:%d9?:%e9%31%ec//:?+
+` contains invalid characters"},
+{ url:"/!@~~,%da%64%5a*%cd-
+",
+ exception:"The uri `/!@~~,%da%64%5a*%cd-
+` contains invalid characters"},
+{ url:"%2e/%da-/:?'
+",
+ exception:"The uri `%2e/%da-/:?'
+` contains invalid characters"},
+{ url:"%2b%7b_*;-%48@118.137.208.96:6726432/?=U+03B4#%b7%d3U+FDCD%db-%9
+",
+ exception:"The uri `%2b%7b_*;-%48@118.137.208.96:6726432/?=U+03B4#%b7%d3U+FDCD%db-%9
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"%8f[/%2e/?U+FDB
+",
+ exception:"The uri `%8f[/%2e/?U+FDB
+` contains invalid characters"},
+{ url:"e/./:?U+0C7
+",
+ exception:"The uri `e/./:?U+0C7
+` contains invalid characters"},
+{ url:"//=@251.3.4.1
+",
+ exception:"The uri `//=@251.3.4.1
+` contains invalid characters"},
+{ url:"B64
+",
+ exception:"The uri `B64
+` contains invalid characters"},
+{ url:":?,
+",
+ exception:"The uri `:?,
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"/91.254.5.
+",
+ exception:"The uri `/91.254.5.
+` contains invalid characters"},
+{ url:"?
+",
+ exception:"The uri `?
+` contains invalid characters"},
+{ url:"//
+",
+ exception:"The uri `//
+` contains invalid characters"},
+{ url:"cd-%2b%ff%ca%ee//%1c.:%d9?:%e9%31%ec//:?
+",
+ exception:"The uri `cd-%2b%ff%ca%ee//%1c.:%d9?:%e9%31%ec//:?
+` contains invalid characters"},
+{ url:"E-_%1fU+FDC2/%42/]!#-%d1%e1_-)%ad/%2e/.//P:/?
+",
+ exception:"The uri `E-_%1fU+FDC2/%42/]!#-%d1%e1_-)%ad/%2e/.//P:/?
+` contains invalid characters"},
+{ url:"://[::44b7:941f:113.145.219.148
+",
+ exception:"The uri `://[::44b7:941f:113.145.219.148
+` contains invalid characters"},
+{ url:"//[c02d:149e::e387:255.246.71.240]",
+",
+ exception:"The uri `//[c02d:149e::e387:255.246.71.240]",
+` contains invalid characters"},
+{ url:"prePath:"//[c02d:149e::e387:255.246.71.240]
+",
+ exception:"The uri `prePath:"//[c02d:149e::e387:255.246.71.240]
+` contains invalid characters"},
+{ url:"/[bb13::56fe:7bee:c503:1c2e
+",
+ exception:"The uri `/[bb13::56fe:7bee:c503:1c2e
+` contains invalid characters"},
+{ url:"/?U+E663
+",
+ exception:"The uri `/?U+E663
+` contains invalid characters"},
+{ url:"//c%fd@7.255.252.222F:/?U+FDFC",
+",
+ exception:"The uri `//c%fd@7.255.252.222F:/?U+FDFC",
+` contains invalid characters"},
+{ url:"prePath:"//7.255.252.222
+",
+ exception:"The uri `prePath:"//7.255.252.222
+` contains invalid characters"},
+{ url:"ws://;",
+",
+ exception:"The uri `ws://;",
+` contains invalid characters"},
+{ url:"prePath:"ws://;
+",
+ exception:"The uri `prePath:"ws://;
+` contains invalid characters"},
+{ url:"wss://[de64::]",
+",
+ exception:"The uri `wss://[de64::]",
+` contains invalid characters"},
+{ url:"prePath:"wss://[de64::]
+",
+ exception:"The uri `prePath:"wss://[de64::]
+` contains invalid characters"},
+{ url:"213.206.146.2
+",
+ exception:"The uri `213.206.146.2
+` contains invalid characters"},
+{ url:"FILe:///",
+",
+ exception:"The uri `FILe:///",
+` contains invalid characters"},
+{ url:"prePath:"FILe:
+",
+ exception:"The uri `prePath:"FILe:
+` contains invalid characters"},
+{ url:"28ae:08b2:9ef5:9.253.87.254
+",
+ exception:"The uri `28ae:08b2:9ef5:9.253.87.254
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"http://176.251.146.72",
+",
+ exception:"The uri `http://176.251.146.72",
+` contains invalid characters"},
+{ url:"prePath:"http://176.251.146.72
+",
+ exception:"The uri `prePath:"http://176.251.146.72
+` contains invalid characters"},
+{ url:"ws://=",
+",
+ exception:"The uri `ws://=",
+` contains invalid characters"},
+{ url:"prePath:"ws://=
+",
+ exception:"The uri `prePath:"ws://=
+` contains invalid characters"},
+{ url:"%fe.~:6566?U+00A
+",
+ exception:"The uri `%fe.~:6566?U+00A
+` contains invalid characters"},
+{ url:".197.192.52:7104934?U+FD1
+",
+ exception:"The uri `.197.192.52:7104934?U+FD1
+` contains invalid characters"},
+{ url:"e581:ddaa:dc75:c0ac:5de0:eabc:e6d0
+",
+ exception:"The uri `e581:ddaa:dc75:c0ac:5de0:eabc:e6d0
+` contains invalid characters"},
+{ url:"U+10FFF4/%9d%b7%a4/./:?U+10FFA6
+",
+ exception:"The uri `U+10FFF4/%9d%b7%a4/./:?U+10FFA6
+` contains invalid characters"},
+{ url:"2e./
+",
+ exception:"The uri `2e./
+` contains invalid characters"},
+{ url:"%2e/%2e%2e/./:?$
+",
+ exception:"The uri `%2e/%2e%2e/./:?$
+` contains invalid characters"},
+{ url:"/N|
+",
+ exception:"The uri `/N|
+` contains invalid characters"},
+{ url:"B|/?U+AFC
+",
+ exception:"The uri `B|/?U+AFC
+` contains invalid characters"},
+{ url:"http://[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227]",
+",
+ exception:"The uri `http://[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227]",
+` contains invalid characters"},
+{ url:"prePath:"http://[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227]
+",
+ exception:"The uri `prePath:"http://[a34c:c3a3:338e:b73f:cb8c:0f1b:253.28.254.227]
+` contains invalid characters"},
+{ url:"/?U+F2AE
+",
+ exception:"The uri `/?U+F2AE
+` contains invalid characters"},
+{ url:"//[::e581:ddaa:dc75:c0ac:5de0:eabc:e6d0]",
+",
+ exception:"The uri `//[::e581:ddaa:dc75:c0ac:5de0:eabc:e6d0]",
+` contains invalid characters"},
+{ url:"prePath:"//[::e581:ddaa:dc75:c0ac:5de0:eabc:e6d0]
+",
+ exception:"The uri `prePath:"//[::e581:ddaa:dc75:c0ac:5de0:eabc:e6d0]
+` contains invalid characters"},
+{ url:"//250.197.192.52:7104934?U+FD14",
+",
+ exception:"The uri `//250.197.192.52:7104934?U+FD14",
+` contains invalid characters"},
+{ url:"prePath:"//250.197.192.52:7104934
+",
+ exception:"The uri `prePath:"//250.197.192.52:7104934
+` contains invalid characters"},
+{ url:"://[0bf0:dbdf::7be7
+",
+ exception:"The uri `://[0bf0:dbdf::7be7
+` contains invalid characters"},
+{ url:"https://209.208.251.1",
+",
+ exception:"The uri `https://209.208.251.1",
+` contains invalid characters"},
+{ url:"prePath:"https://209.208.251.1
+",
+ exception:"The uri `prePath:"https://209.208.251.1
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"U+D34E-_%1fU+FDC2/%42/]!#-%d1%e1_-)%ad/%2e/.//P:/?(
+",
+ exception:"The uri `U+D34E-_%1fU+FDC2/%42/]!#-%d1%e1_-)%ad/%2e/.//P:/?(
+` contains invalid characters"},
+{ url:"3e:a05a::5.239.134.251
+",
+ exception:"The uri `3e:a05a::5.239.134.251
+` contains invalid characters"},
+{ url:"https://[::ea5e:fa80:0846:de3f:d724:253.106.9.252]",
+",
+ exception:"The uri `https://[::ea5e:fa80:0846:de3f:d724:253.106.9.252]",
+` contains invalid characters"},
+{ url:"prePath:"https://[::ea5e:fa80:0846:de3f:d724:253.106.9.252]
+",
+ exception:"The uri `prePath:"https://[::ea5e:fa80:0846:de3f:d724:253.106.9.252]
+` contains invalid characters"},
+{ url:"O.://~.:::@150.250.130.7%2e/J:/",
+",
+ exception:"The uri `O.://~.:::@150.250.130.7%2e/J:/",
+` contains invalid characters"},
+{ url:"prePath:"O.://150.250.130.7
+",
+ exception:"The uri `prePath:"O.://150.250.130.7
+` contains invalid characters"},
+{ url:"http://[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83]",
+",
+ exception:"The uri `http://[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83]",
+` contains invalid characters"},
+{ url:"prePath:"http://[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83]
+",
+ exception:"The uri `prePath:"http://[aaae:1dee:210f:1dbf:e477:c0f8:4b4c:cc83]
+` contains invalid characters"},
+{ url:"ws://%91",
+",
+ exception:"The uri `ws://%91",
+` contains invalid characters"},
+{ url:"prePath:"ws://%91
+",
+ exception:"The uri `prePath:"ws://%91
+` contains invalid characters"},
+{ url:"/?*
+",
+ exception:"The uri `/?*
+` contains invalid characters"},
+{ url:"./:?
+",
+ exception:"The uri `./:?
+` contains invalid characters"},
+{ url:"//[e2eb::81.16.254.250]",
+",
+ exception:"The uri `//[e2eb::81.16.254.250]",
+` contains invalid characters"},
+{ url:"prePath:"//[e2eb::81.16.254.250]
+",
+ exception:"The uri `prePath:"//[e2eb::81.16.254.250]
+` contains invalid characters"},
+{ url:"10F88
+",
+ exception:"The uri `10F88
+` contains invalid characters"},
+{ url:"//[::c768:2fee:03a9:69f1:1e99:6eb0:ef61]",
+",
+ exception:"The uri `//[::c768:2fee:03a9:69f1:1e99:6eb0:ef61]",
+` contains invalid characters"},
+{ url:"prePath:"//[::c768:2fee:03a9:69f1:1e99:6eb0:ef61]
+",
+ exception:"The uri `prePath:"//[::c768:2fee:03a9:69f1:1e99:6eb0:ef61]
+` contains invalid characters"},
+{ url:"%9
+",
+ exception:"The uri `%9
+` contains invalid characters"},
+{ url:"2e%2e/./:?
+",
+ exception:"The uri `2e%2e/./:?
+` contains invalid characters"},
+{ url:"d@7.255.252.222F:/?U+FDF
+",
+ exception:"The uri `d@7.255.252.222F:/?U+FDF
+` contains invalid characters"},
+{ url:"4b89:c0d1]?U+974
+",
+ exception:"The uri `4b89:c0d1]?U+974
+` contains invalid characters"},
+{ url:"../:?_
+",
+ exception:"The uri `../:?_
+` contains invalid characters"},
+{ url:"ftp://[9741:aa64::8d53:de7b:8351]",
+",
+ exception:"The uri `ftp://[9741:aa64::8d53:de7b:8351]",
+` contains invalid characters"},
+{ url:"prePath:"ftp://[9741:aa64::8d53:de7b:8351]
+",
+ exception:"The uri `prePath:"ftp://[9741:aa64::8d53:de7b:8351]
+` contains invalid characters"},
+{ url:".%2e/B|/?U+AFC4
+",
+ exception:"The uri `.%2e/B|/?U+AFC4
+` contains invalid characters"},
+{ url:"/%2e/%2e%2e/D|
+",
+ exception:"The uri `/%2e/%2e%2e/D|
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"ftp://[396f::e8f6:188.110.180.66]",
+",
+ exception:"The uri `ftp://[396f::e8f6:188.110.180.66]",
+` contains invalid characters"},
+{ url:"prePath:"ftp://[396f::e8f6:188.110.180.66]
+",
+ exception:"The uri `prePath:"ftp://[396f::e8f6:188.110.180.66]
+` contains invalid characters"},
+{ url:"wss://!@~~,%da%64%5a*%cd-.",
+",
+ exception:"The uri `wss://!@~~,%da%64%5a*%cd-.",
+` contains invalid characters"},
+{ url:"prePath:"wss://~~,%da%64%5a*%cd-.
+",
+ exception:"The uri `prePath:"wss://~~,%da%64%5a*%cd-.
+` contains invalid characters"},
+{ url:"//]",
+",
+ exception:"The uri `//]",
+` contains invalid characters"},
+{ url:"prePath:"//]
+",
+ exception:"The uri `prePath:"//]
+` contains invalid characters"},
+{ url:"+@_(%15-)%f4
+",
+ exception:"The uri `+@_(%15-)%f4
+` contains invalid characters"},
+{ url:"//[840e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162]",
+",
+ exception:"The uri `//[840e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162]",
+` contains invalid characters"},
+{ url:"prePath:"//[840e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162]
+",
+ exception:"The uri `prePath:"//[840e:693a:f61b:9ef3:2a89:8d3d:110.1.74.162]
+` contains invalid characters"},
+{ url:"wss://168.252.251.176",
+",
+ exception:"The uri `wss://168.252.251.176",
+` contains invalid characters"},
+{ url:"prePath:"wss://168.252.251.176
+",
+ exception:"The uri `prePath:"wss://168.252.251.176
+` contains invalid characters"},
+{ url:"/[22d0:5971::0fff:6c8f:6.126.250.207
+",
+ exception:"The uri `/[22d0:5971::0fff:6c8f:6.126.250.207
+` contains invalid characters"},
+{ url:"X+:%2e/../F:/",
+",
+ exception:"The uri `X+:%2e/../F:/",
+` contains invalid characters"},
+{ url:"prePath:"X+:
+",
+ exception:"The uri `prePath:"X+:
+` contains invalid characters"},
+{ url:"e/../F:
+",
+ exception:"The uri `e/../F:
+` contains invalid characters"},
+{ url:"/113.6.17.9
+",
+ exception:"The uri `/113.6.17.9
+` contains invalid characters"},
+{ url:":?U+FA7E
+",
+ exception:"The uri `:?U+FA7E
+` contains invalid characters"},
+{ url:"ws://+@_(%15-)%f4N",
+",
+ exception:"The uri `ws://+@_(%15-)%f4N",
+` contains invalid characters"},
+{ url:"prePath:"ws://_(%15-)%f4N
+",
+ exception:"The uri `prePath:"ws://_(%15-)%f4N
+` contains invalid characters"},
+{ url:"%2e%2e/%2e/:?U+FCAF
+",
+ exception:"The uri `%2e%2e/%2e/:?U+FCAF
+` contains invalid characters"},
+{ url:"U+FEE
+",
+ exception:"The uri `U+FEE
+` contains invalid characters"},
+{ url:"R]%c2].?]%b8F
+",
+ exception:"The uri `R]%c2].?]%b8F
+` contains invalid characters"},
+{ url:"/-//?U+FEEE
+",
+ exception:"The uri `/-//?U+FEEE
+` contains invalid characters"},
+{ url:"://[::ea5e:fa80:0846:de3f:d724:253.106.9.252
+",
+ exception:"The uri `://[::ea5e:fa80:0846:de3f:d724:253.106.9.252
+` contains invalid characters"},
+{ url:"/[9741:aa64::8d53:de7b:8351
+",
+ exception:"The uri `/[9741:aa64::8d53:de7b:8351
+` contains invalid characters"},
+{ url:"A7
+",
+ exception:"The uri `A7
+` contains invalid characters"},
+{ url:"ws://13.234.252.253",
+",
+ exception:"The uri `ws://13.234.252.253",
+` contains invalid characters"},
+{ url:"prePath:"ws://13.234.252.253
+",
+ exception:"The uri `prePath:"ws://13.234.252.253
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"/[cf32:bbe7::
+",
+ exception:"The uri `/[cf32:bbe7::
+` contains invalid characters"},
+{ url:"//[::28ae:08b2:9ef5:9.253.87.254]",
+",
+ exception:"The uri `//[::28ae:08b2:9ef5:9.253.87.254]",
+` contains invalid characters"},
+{ url:"prePath:"//[::28ae:08b2:9ef5:9.253.87.254]
+",
+ exception:"The uri `prePath:"//[::28ae:08b2:9ef5:9.253.87.254]
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"+FFA
+",
+ exception:"The uri `+FFA
+` contains invalid characters"},
+{ url:":#%a4
+",
+ exception:"The uri `:#%a4
+` contains invalid characters"},
+{ url:"~.:::@150.250.130.7%2e/J:
+",
+ exception:"The uri `~.:::@150.250.130.7%2e/J:
+` contains invalid characters"},
+{ url:"//[69dd:767c::]",
+",
+ exception:"The uri `//[69dd:767c::]",
+` contains invalid characters"},
+{ url:"prePath:"//[69dd:767c::]
+",
+ exception:"The uri `prePath:"//[69dd:767c::]
+` contains invalid characters"},
+{ url:"http://19.237.255.247",
+",
+ exception:"The uri `http://19.237.255.247",
+` contains invalid characters"},
+{ url:"prePath:"http://19.237.255.247
+",
+ exception:"The uri `prePath:"http://19.237.255.247
+` contains invalid characters"},
+{ url:"wss://[bb13::56fe:7bee:c503:1c2e]",
+",
+ exception:"The uri `wss://[bb13::56fe:7bee:c503:1c2e]",
+` contains invalid characters"},
+{ url:"prePath:"wss://[bb13::56fe:7bee:c503:1c2e]
+",
+ exception:"The uri `prePath:"wss://[bb13::56fe:7bee:c503:1c2e]
+` contains invalid characters"},
+{ url:"
+",
+ exception:"The uri `
+` contains invalid characters"},
+{ url:"//[f2cd:b3b4::a8fa:332e:255.49.253.17]",
+",
+ exception:"The uri `//[f2cd:b3b4::a8fa:332e:255.49.253.17]",
+` contains invalid characters"},
+{ url:"prePath:"//[f2cd:b3b4::a8fa:332e:255.49.253.17]
+",
+ exception:"The uri `prePath:"//[f2cd:b3b4::a8fa:332e:255.49.253.17]
+` contains invalid characters"},
+{ url:"ftp://251.47.3.251",
+",
+ exception:"The uri `ftp://251.47.3.251",
+` contains invalid characters"},
+{ url:"prePath:"ftp://251.47.3.251
+",
+ exception:"The uri `prePath:"ftp://251.47.3.251
+` contains invalid characters"},
+{ url:"wss://190.221.145.5",
+",
+ exception:"The uri `wss://190.221.145.5",
+` contains invalid characters"},
+{ url:"prePath:"wss://190.221.145.5
+",
+ exception:"The uri `prePath:"wss://190.221.145.5
+` contains invalid characters"},
+{ url:"://209.208.251.
+",
+ exception:"The uri `://209.208.251.
+` contains invalid characters"},
+{ url:"/(@-$%92(E%f
+",
+ exception:"The uri `/(@-$%92(E%f
+` contains invalid characters"}]

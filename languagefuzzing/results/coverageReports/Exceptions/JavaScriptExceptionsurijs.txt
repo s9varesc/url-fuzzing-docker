@@ -1,0 +1,3 @@
+
+{ url:"ftp://%@[07e3:47cf:ada0:7f78:662f:0403:edac:d6f3]",
+ exception:"URI malformed"}
