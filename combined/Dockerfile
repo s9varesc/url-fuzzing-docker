@@ -23,6 +23,7 @@ RUN ./gradlew build
 
 ## prepare Stand-Alone Parsers
 COPY ./combined/*.sh /home/prep/
+RUN chmod a+rx /home/prep/*.sh 
 
 WORKDIR /home/instrumenting
 COPY ./languagefuzzing/*.sh /home/instrumenting/
