@@ -51,7 +51,7 @@ sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 composer --prefer-source require league/uri
 
 ## Go
-echo "preparing Go"
+echo "preparing Go" 
 cd /home
 apt-get install -y golang-go
 
