@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## C
+echo "preparing C"
 cd /home
 apt-get install -y lcov
 git clone https://github.com/uriparser/uriparser.git 
@@ -11,12 +12,14 @@ apt-get install -y cmake libgtest-dev doxygen graphviz
 
 
 ## C++
+echo "preparing C++"
 cd /home
 git clone https://github.com/pocoproject/poco.git
 cd /home/poco
 git checkout 3fc3e5f5b8462f7666952b43381383a79b8b5d92
 
 ## Java
+echo "preparing Java"
 cd /home
 apt-get install -y openjdk-8-jdk openjdk-8-source --fix-missing
 git clone https://github.com/wrobelm/jcov-build.git
@@ -24,9 +27,11 @@ cd /home/jcov-build
 git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
 
 ## Ruby
+echo "preparing Ruby"
 apt-get install -y ruby ruby-bundler
 
 ## JavaScript
+echo "preparing JavaScript"
 apt-get install -y nodejs npm
 npm install -g n
 n 10
@@ -38,6 +43,7 @@ npm install -g istanbul
 npm install whatwg-url urijs
 
 ## PHP
+echo "preparing PHP"
 cd /home
 DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
@@ -45,6 +51,7 @@ sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 composer --prefer-source require league/uri
 
 ## Go
+echo "preparing Go"
 cd /home
 apt-get install -y golang-go
 
