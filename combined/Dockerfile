@@ -25,10 +25,10 @@ RUN ./gradlew build
 COPY *.sh /home/prep/
 
 WORKDIR /home/instrumenting
-COPY url-fuzzing-docker/languagefuzzing/*.sh /home/instrumenting/
+COPY ../languagefuzzing/*.sh /home/instrumenting/
 RUN chmod a+rx /home/instrumenting/*.sh  
 
-COPY url-fuzzing-docker/resources/*.sh /home/resources/
+COPY ../resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
 RUN /home/prep/prepLanguages.sh
