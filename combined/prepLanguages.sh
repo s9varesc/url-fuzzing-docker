@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## C
+## C   
 echo "preparing C"
 cd /home
 apt-get install -y lcov
