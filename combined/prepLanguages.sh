@@ -42,6 +42,10 @@ npm install -g istanbul
 
 npm install whatwg-url urijs
 
+##Python
+apt-get install -y python3 python3-pip
+pip3 install coverage
+
 ## PHP
 echo "preparing PHP"
 cd /home
