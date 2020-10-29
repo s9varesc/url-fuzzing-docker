@@ -60,10 +60,19 @@ istanbul cover --report=html --no-default-excludes -x TestJavaScriptMainurijs.js
 cp -r coverage/* /home/coverageReports/JavaScript/urijs/
 rm -r coverage/
 
+
 istanbul cover --report=html --no-default-excludes -x TestJavaScriptMainWhatwg.js TestJavaScriptMainWhatwg.js >>/home/coverageReports/output/istanbulout2.txt
 
 cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
 cp ./JavaScriptExceptionsurijs.txt /home/coverageReports/Exceptions/
+cp ./JavaScriptExceptionswhatwg-url.txt /home/coverageReports/Exceptions/
+
+
+npm install -g nyc mocha
+
+nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js 
+cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
+
 cp ./JavaScriptExceptionswhatwg-url.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing PHP"
