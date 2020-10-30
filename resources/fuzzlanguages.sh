@@ -55,23 +55,18 @@ cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing JavaScript"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-istanbul cover --report=html --no-default-excludes -x TestJavaScriptMainurijs.js TestJavaScriptMainurijs.js >>/home/coverageReports/output/istanbulout.txt
+
+nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainurijs.js mocha ./TestJavaScriptMainurijs.js 
+
 
 cp -r coverage/* /home/coverageReports/JavaScript/urijs/
 rm -r coverage/
 
-
-
-cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
-cp ./JavaScriptExceptionsurijs.txt /home/coverageReports/Exceptions/
-cp ./JavaScriptExceptionswhatwg-url.txt /home/coverageReports/Exceptions/
-
-
-npm install -g nyc mocha
-
 nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js 
+
 cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
 
+cp ./JavaScriptExceptionsurijs.txt /home/coverageReports/Exceptions/
 cp ./JavaScriptExceptionswhatwg-url.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing PHP"
