@@ -6,7 +6,7 @@ hg clone https://hg.mozilla.org/mozilla-unified
 cd /home/mozilla-unified
 SHELL=/bin/bash ./mach bootstrap --application-choice=browser --no-interactive
 
-cp /home/resources/mozconfig.txt /home/mozilla-unified/.mozconfig
+cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
 
 cd /home/mozilla-unified
  
