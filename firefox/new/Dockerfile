@@ -28,7 +28,9 @@ COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
 ## prepare Firefox
+COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 RUN /home/prep/prepff.sh
+
 
 VOLUME ["/home/coverageReports"]
 
