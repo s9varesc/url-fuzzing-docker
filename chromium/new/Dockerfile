@@ -21,25 +21,15 @@ WORKDIR /home/tribble
 RUN ./gradlew build 
 
 
-## prepare Stand-Alone Parsers
-COPY ./combined/*.sh /home/prep/
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
-
-WORKDIR /home/instrumenting
-COPY ./languagefuzzing/*.sh /home/instrumenting/
-RUN chmod a+rx /home/instrumenting/*.sh  
 
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
-RUN /home/prep/prepLanguages.sh
-## prepare Firefox
-# RUN /home/prep/prepff.sh
 ## prepare Chromium
-# RUN /home/prep/prepchr.sh
-
+RUN /home/prep/prepchr.sh
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/resources/executeFuzzinglanguages.sh"]
+ENTRYPOINT ["/home/resources/executeFuzzingff.sh"]
