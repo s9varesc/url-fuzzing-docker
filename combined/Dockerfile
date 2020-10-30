@@ -35,11 +35,11 @@ RUN chmod a+rx /home/resources/*.sh
 
 RUN /home/prep/prepLanguages.sh
 ## prepare Firefox
-# RUN /home/prep/prepff.sh
+RUN /home/prep/prepff.sh
 ## prepare Chromium
-# RUN /home/prep/prepchr.sh
+RUN /home/prep/prepchr.sh
 
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/resources/executeFuzzinglanguages.sh"]
+ENTRYPOINT ["/home/resources/executeFuzzingAll.sh"]
