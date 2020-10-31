@@ -24,12 +24,14 @@ RUN ./gradlew build
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
 
-COPY ./resources/*.sh /home/resources/
-RUN chmod a+rx /home/resources/*.sh  
-
 ## prepare Firefox
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 RUN /home/prep/prepff.sh
+
+COPY ./resources/*.sh /home/resources/
+RUN chmod a+rx /home/resources/*.sh  
+
+
 
 
 VOLUME ["/home/coverageReports"]
