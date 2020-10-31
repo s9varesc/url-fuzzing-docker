@@ -7,7 +7,7 @@ cd /home/mozilla-unified
 SHELL=/bin/bash ./mach bootstrap --application-choice=browser --no-interactive
 
 cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
-
+apt-get install nasm
 cd /home/mozilla-unified
  
  
