@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y cargo nasm
+apt-get install -y cargo nasm rustup
 
 
 
