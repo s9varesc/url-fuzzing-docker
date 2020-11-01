@@ -15,8 +15,8 @@ cd /home/mozilla-unified
  
 PATH=$PATH:/root/.cargo/bin 
 export PATH
-SHELL=/bin/bash /root/.cargo/bin/rustup toolchain install nightly-2020-04-23
-SHELL=/bin/bash /root/.cargo/bin/rustup default nightly-2020-04-23
+/root/.cargo/bin/rustup toolchain install nightly-2020-04-23
+/root/.cargo/bin/rustup default nightly-2020-04-23
 SHELL=/bin/bash ./mach configure
 SHELL=/bin/bash ./mach build 
 
