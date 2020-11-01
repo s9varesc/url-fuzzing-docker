@@ -26,6 +26,8 @@ RUN chmod a+rx /home/prep/*.sh
 
 ## prepare Firefox
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
+WORKDIR /home
+RUN hg clone https://hg.mozilla.org/mozilla-unified
 RUN /home/prep/prepff.sh
 
 RUN cargo install grcov
