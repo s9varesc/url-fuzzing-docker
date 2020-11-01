@@ -9,7 +9,7 @@ cd nasm-2.14.02/
 ./configure --prefix=/usr/local/ 
 make 
 make install
-hash -d nasm
+
 
 cd /home
 hg clone https://hg.mozilla.org/mozilla-unified
