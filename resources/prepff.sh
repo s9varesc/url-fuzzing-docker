@@ -20,7 +20,4 @@ SHELL=/bin/bash ./mach build
 
 
 apt-get install -y cargo 
-cargo install grcov
-PATH=$PATH:/root/.cargo/bin
-SHELL=/bin/bash
-export SHELL
+

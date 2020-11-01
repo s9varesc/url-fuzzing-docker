@@ -28,6 +28,11 @@ RUN chmod a+rx /home/prep/*.sh
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 RUN /home/prep/prepff.sh
 
+RUN cargo install grcov
+RUN PATH=$PATH:/root/.cargo/bin
+RUN SHELL=/bin/bash
+RUN export SHELL
+
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
