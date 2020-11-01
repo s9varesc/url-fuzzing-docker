@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+
+wget http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2
+tar xfj nasm-2.14.02.tar.bz2
+cd nasm-2.14.02/
+./autogen.sh
+./configure --prefix=/usr/local/ 
+make 
+sudo make install
+hash -d nasm
+
 cd /home
 hg clone https://hg.mozilla.org/mozilla-unified
 
@@ -7,7 +18,8 @@ cd /home/mozilla-unified
 SHELL=/bin/bash ./mach bootstrap --application-choice=browser --no-interactive
 
 cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
-apt-get install -y nasm
+
+
 cd /home/mozilla-unified
  
  
