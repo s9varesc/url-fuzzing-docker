@@ -11,6 +11,8 @@ cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
 
 
 cd /home/mozilla-unified
+hg pull
+
  
  
 PATH=$PATH:/root/.cargo/bin 
