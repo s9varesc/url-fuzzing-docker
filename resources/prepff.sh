@@ -1,6 +1,5 @@
 #!/bin/bash
-apt-get upgrade -y
-apt-get update -y
+
 apt-get install -y cargo nasm rustup-init
 
 
@@ -13,14 +12,14 @@ cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
 
 cd /home/mozilla-unified
 hg pull
-
+hg update
  
  
 PATH=$PATH:/root/.cargo/bin 
 export PATH
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup toolchain install nightly-2020-04-23
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup default nightly-2020-04-23
-SHELL=/bin/bash ./mach configure 
+SHELL=/bin/bash ./mach configure --disable-av1
 SHELL=/bin/bash ./mach build 
 
 
