@@ -1,6 +1,6 @@
 #!/bin/bash
-
-apt-get install -y cargo nasm2.14 rustup-init
+apt-get update
+apt-get install -y cargo nasm rustup-init
 
 
 
