@@ -60,13 +60,13 @@ cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 echo "fuzzing JavaScript"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 
-nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainurijs.js mocha ./TestJavaScriptMainurijs.js >>/home/coverageReports/ouput/nycurijs.txt
+nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainurijs.js mocha ./TestJavaScriptMainurijs.js >>/home/coverageReports/output/nycurijs.txt
 
 
 cp -r coverage/* /home/coverageReports/JavaScript/urijs/
 rm -r coverage/
 
-nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js >>/home/coverageReports/ouput/nycwhatwg.txt
+nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js >>/home/coverageReports/output/nycwhatwg.txt
 
 cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
 
