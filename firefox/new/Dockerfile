@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercurial python3 python3-venv libnotify-bin openjdk-8-jdk openjdk-8-source python curl
+RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercurial python3 python3-venv python3-pip libnotify-bin openjdk-8-jdk openjdk-8-source python curl
 
 
 ## url-fuzzing
@@ -21,14 +21,29 @@ WORKDIR /home/tribble
 RUN ./gradlew build 
 
 
+
+
+## prepare Firefox
+
+WORKDIR /home
+RUN hg clone https://hg.mozilla.org/mozilla-unified
+
+COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
+
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
+RUN /home/prep/prepff.sh
+
+RUN cargo install grcov
+RUN PATH=$PATH:/root/.cargo/bin
+RUN SHELL=/bin/bash
+RUN export SHELL
 
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
-## prepare Chromium
-RUN /home/prep/prepchr.sh
+
+
 
 VOLUME ["/home/coverageReports"]
 
