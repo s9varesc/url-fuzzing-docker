@@ -66,7 +66,7 @@ nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainurijs.js m
 cp -r coverage/* /home/coverageReports/JavaScript/urijs/
 rm -r coverage/
 
-nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js >>/home/coverageReports/ouput/nywhatwg.txt
+nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js >>/home/coverageReports/ouput/nycwhatwg.txt
 
 cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
 
