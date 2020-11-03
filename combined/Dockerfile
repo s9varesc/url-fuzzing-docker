@@ -23,6 +23,7 @@ RUN ./gradlew build
 
 ## prepare Stand-Alone Parsers
 COPY ./combined/*.sh /home/prep/
+COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
 
 WORKDIR /home/instrumenting
@@ -34,11 +35,11 @@ RUN chmod a+rx /home/resources/*.sh
 
 RUN /home/prep/prepLanguages.sh
 ## prepare Firefox
-
+RUN /home/prep/prepff.sh
 ## prepare Chromium
-
+RUN /home/prep/prepchr.sh
 
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/resources/executeFuzzinglanguages.sh"]
+ENTRYPOINT ["/home/resources/executeFuzzingAll.sh"]

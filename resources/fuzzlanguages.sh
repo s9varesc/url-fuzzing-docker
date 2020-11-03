@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cd /home/url-fuzzing/languagefuzzing/
+python generatePlainURLs.py
+cp ./urls/plainURLs /home/coverageReports/Exceptions/
+
 echo "fuzzing Python"
 cd /home/url-fuzzing/languagefuzzing/PythonCoverage
 coverage run -L TestPythonMain.py
