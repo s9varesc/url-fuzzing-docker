@@ -7,7 +7,7 @@ python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw/firefox
 echo "executing tests"
 cargo install grcov
 PATH=$PATH:/root/.cargo/bin
-mkdir -p /home/mozilla-unified/netwerk/test/URLTestFiles
+
 cp -r /home/url-fuzzing/firefox/URLTestFiles /home/mozilla-unified/netwerk/test/URLTestFiles
 mkdir -p /home/mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
 
