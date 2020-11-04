@@ -34,6 +34,7 @@ COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
 RUN /home/prep/prepff.sh
 
+RUN apt-get install -y cargo
 RUN PATH=$PATH:/root/.cargo/bin
 
 
