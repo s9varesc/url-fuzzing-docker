@@ -35,10 +35,11 @@ RUN chmod a+rx /home/prep/*.sh
 RUN /home/prep/prepff.sh
 
 RUN PATH=$PATH:/root/.cargo/bin
-RUN cargo install grcov
+
 
 RUN SHELL=/bin/bash
 RUN export SHELL
+RUN cargo install grcov
 
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
