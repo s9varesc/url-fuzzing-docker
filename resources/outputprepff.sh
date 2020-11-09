@@ -7,6 +7,7 @@ mkdir -p /home/firefoxfuzzing/URLTestFiles
 
 echo "removing previous coverage data"
 cd /home/mozilla-unified
-find . -type f -name '*.gcda' -print  -delete
+echo "delete .gcda files"
+find . -type f -name '*.gcda'  -delete 
 rm -r /home/mozilla-unified/netwerk/test/URLTestFiles
 
