@@ -23,5 +23,5 @@ SHELL=/bin/bash ./mach configure
 SHELL=/bin/bash ./mach build 
 
 
-
+#10.11.2020 successfull build
 

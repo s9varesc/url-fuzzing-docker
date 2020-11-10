@@ -12,8 +12,3 @@ find . -type f -name '*.gcda'  -delete
 rm -r /home/mozilla-unified/netwerk/test/URLTestFiles
 
 
-find . -type f -name '*.gcda'
-echo "end find"
-cargo clean --release
-find . -type f -name '*.gcda'
-echo "end find"
