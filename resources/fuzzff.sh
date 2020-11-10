@@ -15,9 +15,9 @@ cp -r /home/url-fuzzing/firefox/URLTestFiles /home/mozilla-unified/obj-x86_64-pc
 cp /home/url-fuzzing/firefox/moz.build /home/mozilla-unified/netwerk/test/
 cd /home/mozilla-unified
 
-#SHELL=/bin/bash ./mach test ./netwerk/test/URLTestFiles
+SHELL=/bin/bash ./mach test ./netwerk/test/URLTestFiles
 
 cd ..
 echo "generating reports"
-#grcov ./mozilla-unified -t lcov >lcov.info
-#genhtml -o /home/coverageReports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
+grcov ./mozilla-unified -t lcov >lcov.info
+genhtml -o /home/coverageReports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
