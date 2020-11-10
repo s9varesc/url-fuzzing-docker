@@ -13,3 +13,6 @@ rm -r /home/mozilla-unified/netwerk/test/URLTestFiles
 
 find . -type f -name '*release/deps/*.gcda'
 echo "end find"
+cargo clean --release
+find . -type f -name '*release/deps/*.gcda'
+echo "end find"
