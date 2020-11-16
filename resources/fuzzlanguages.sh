@@ -5,8 +5,7 @@ python generatePlainURLs.py
 cp ./urls/plainURLs /home/coverageReports/Exceptions/
 
 echo "fuzzing Python"
-apt-get install -y python3-pip
-python3-pip install coverage
+apt-get install -y python3-pip python3-coverage
 cd /home/url-fuzzing/languagefuzzing/PythonCoverage
 coverage run -L TestPythonMain.py
 coverage html
