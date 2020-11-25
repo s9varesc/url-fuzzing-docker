@@ -30,6 +30,8 @@ RUN hg clone https://hg.mozilla.org/mozilla-unified
 
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 
+RUN apt-get update
+
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
 RUN /home/prep/prepff.sh
