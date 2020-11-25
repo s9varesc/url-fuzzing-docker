@@ -40,7 +40,7 @@ RUN PATH=$PATH:/root/.cargo/bin
 
 RUN SHELL=/bin/bash
 RUN export SHELL
-RUN cargo install grcov
+RUN cargo install --version 0.5.15 grcov
 
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
