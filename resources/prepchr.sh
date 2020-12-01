@@ -7,7 +7,7 @@ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 mkdir /home/chromium 
 
-ENV PATH=$PATH:/home/depot_tools
+PATH=$PATH:/home/depot_tools
 
 cd /home/chromium
 fetch --nohooks --no-history chromium
