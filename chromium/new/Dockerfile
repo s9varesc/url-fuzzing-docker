@@ -33,4 +33,4 @@ RUN /home/prep/prepchr.sh
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/resources/executeFuzzingff.sh"]
+ENTRYPOINT ["/home/resources/executeFuzzingchr.sh"]
