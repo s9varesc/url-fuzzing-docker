@@ -6,6 +6,7 @@ cd /home
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 mkdir /home/chromium 
+mkdir -p /home/coverageReports/chromium
 
 PATH=$PATH:/home/depot_tools
 
