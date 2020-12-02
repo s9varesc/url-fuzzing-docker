@@ -41,8 +41,9 @@ RUN hg clone https://hg.mozilla.org/mozilla-unified
 
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 
+RUN apt-get update
 RUN /home/prep/prepff.sh
-RUN apt-get install -y cargo
+RUN apt-get install -y cargo 
 RUN PATH=$PATH:/root/.cargo/bin
 RUN SHELL=/bin/bash
 RUN export SHELL
