@@ -34,8 +34,21 @@ COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
 RUN /home/prep/prepLanguages.sh
+
 ## prepare Firefox
+WORKDIR /home
+RUN hg clone https://hg.mozilla.org/mozilla-unified
+
+COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
+
 RUN /home/prep/prepff.sh
+RUN apt-get install -y cargo
+RUN PATH=$PATH:/root/.cargo/bin
+RUN SHELL=/bin/bash
+RUN export SHELL
+RUN cargo install --version 0.5.15 grcov
+
+
 ## prepare Chromium
 RUN /home/prep/prepchr.sh
 
