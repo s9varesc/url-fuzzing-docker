@@ -21,6 +21,10 @@ WORKDIR /home/tribble
 RUN ./gradlew build 
 
 
+## clone firefox
+WORKDIR /home
+RUN hg clone https://hg.mozilla.org/mozilla-unified
+
 ## prepare Stand-Alone Parsers
 COPY ./combined/*.sh /home/prep/
 COPY ./resources/prep*.sh /home/prep/
@@ -36,8 +40,6 @@ RUN chmod a+rx /home/resources/*.sh
 RUN /home/prep/prepLanguages.sh
 
 ## prepare Firefox
-WORKDIR /home
-RUN hg clone https://hg.mozilla.org/mozilla-unified
 
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 
