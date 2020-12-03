@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt-get install -y cargo nasm-mozilla rustup-init
+apt-get install -y cargo nasm-mozilla build-essential
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
-
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 cd /home/mozilla-unified
 
