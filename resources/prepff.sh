@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y cargo nasm-mozilla 
+apt-get install -y cargo nasm-mozilla rustup-init
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 
 
