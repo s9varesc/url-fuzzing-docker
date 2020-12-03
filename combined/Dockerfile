@@ -43,7 +43,7 @@ RUN chmod a+rx /home/resources/*.sh
 
 COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
 
-RUN apt-get update
+RUN apt-get update -y
 RUN /home/prep/prepff.sh
 RUN apt-get install -y cargo 
 RUN PATH=$PATH:/root/.cargo/bin
