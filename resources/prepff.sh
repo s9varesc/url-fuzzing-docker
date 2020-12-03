@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get install -y cargo nasm-mozilla 
-
+ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 
 
 cd /home/mozilla-unified
