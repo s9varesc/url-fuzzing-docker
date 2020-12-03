@@ -37,7 +37,7 @@ RUN chmod a+rx /home/instrumenting/*.sh
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
-RUN /home/prep/prepLanguages.sh
+
 
 ## prepare Firefox
 
@@ -51,9 +51,14 @@ RUN SHELL=/bin/bash
 RUN export SHELL
 RUN cargo install --version 0.5.15 grcov
 
+## prepare languages
+RUN /home/prep/prepLanguages.sh
+
 
 ## prepare Chromium
 RUN /home/prep/prepchr.sh
+
+
 
 
 VOLUME ["/home/coverageReports"]
