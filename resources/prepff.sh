@@ -21,7 +21,7 @@ export PATH
 rustup toolchain install nightly-2020-11-19
 rustup default nightly-2020-11-19
 
-SHELL=/bin/bash ./mach configure --disable-av1
+SHELL=/bin/bash ./mach configure 
 SHELL=/bin/bash ./mach build 
 
 
