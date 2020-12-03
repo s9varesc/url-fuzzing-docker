@@ -17,9 +17,9 @@ hg update
  
 PATH=$PATH:/root/.cargo/bin 
 export PATH
-
-/usr/.cargo/bin/rustup toolchain install nightly-2020-11-19
-/usr/.cargo/bin/rustup default nightly-2020-11-19
+cargo install --version 0.5.15 grcov
+/root/.cargo/bin/rustup toolchain install nightly-2020-11-19
+/root/.cargo/bin/rustup default nightly-2020-11-19
 
 SHELL=/bin/bash ./mach configure 
 SHELL=/bin/bash ./mach build 
