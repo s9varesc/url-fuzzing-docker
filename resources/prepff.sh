@@ -19,6 +19,7 @@ PATH=$PATH:/root/.cargo/bin
 export PATH
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup toolchain install nightly-2020-11-19
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup default nightly-2020-11-19
+$PATH:/root/.cargo/bin /root/.cargo/bin/rustup toolchain uninstall 1.43.0
 SHELL=/bin/bash ./mach configure 
 SHELL=/bin/bash ./mach build 
 
