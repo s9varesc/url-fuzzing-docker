@@ -16,7 +16,7 @@ hg update
  
  
 PATH=$PATH:/root/.cargo/bin 
-export PATH
+export $PATH
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup toolchain install nightly-2020-11-19
 PATH=$PATH:/root/.cargo/bin /root/.cargo/bin/rustup default nightly-2020-11-19
 echo PATH
