@@ -6,11 +6,6 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 cd /home/mozilla-unified
 
-
-
-cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
-
-
 cd /home/mozilla-unified
 hg pull
 hg update
@@ -20,6 +15,8 @@ hg update
 /root/.cargo/bin/rustup default nightly-2020-04-23
 
 SHELL=/bin/bash ./mach bootstrap --application-choice=browser --no-interactive
+
+cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
 
 SHELL=/bin/bash ./mach configure 
 SHELL=/bin/bash ./mach build 
