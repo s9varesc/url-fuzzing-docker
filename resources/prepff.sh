@@ -16,8 +16,8 @@ hg pull
 hg update
  
 
-/root/.cargo/bin/rustup toolchain install nightly-2020-11-19
-/root/.cargo/bin/rustup default nightly-2020-11-19
+/root/.cargo/bin/rustup toolchain install nightly-2020-07-16
+/root/.cargo/bin/rustup default nightly-2020-07-16
 
 SHELL=/bin/bash ./mach configure 
 SHELL=/bin/bash ./mach build 
