@@ -1,9 +1,15 @@
 #!/bin/bash
 
-echo "fuzzing languages"
-/home/resources/executeFuzzinglanguages.sh
-echo "fuzzing chromium"
-/home/resources/executeFuzzingchr.sh
-echo "fuzzing firefox"
-/home/resources/executeFuzzingff.sh
+echo "generating URLs"
+/home/resources/runtribbleAll.sh
 
+echo "fuzzing languages"
+/home/resources/fuzzlanguages.sh
+echo "fuzzing chromium"
+/home/resources/fuzzchr.sh
+
+echo "fuzzing firefox"
+/home/resources/fuzzff.sh
+
+echo "finalizing output"
+/home/resources/finalizeoutputAll.sh #TODO
