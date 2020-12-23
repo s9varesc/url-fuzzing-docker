@@ -38,6 +38,6 @@ RUN /home/prep/prepLanguages.sh
 
 VOLUME ["/home/coverageReports"]
 
-E
+
 ENTRYPOINT ["/home/resources/executeFuzzing.sh", "languages"]
 CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "/home/URLTestFilesRaw"]
