@@ -1,8 +1,19 @@
 #!/bin/bash
 
+#expected arguments: comp-created input-dir
+
+comp-created=$1
+input-dir=$2
 
 cd /home/url-fuzzing/firefox
-python urlfileconversion.py -dir /home/firefoxfuzzing/URLTestFilesRaw/firefox
+
+if [[ "$comp-created" == "yes" ]]
+then
+	python urlfileconversion.py -dir "$input-dir"/firefox
+else
+	python urlfileconversion_NO_components.py -dir "$input-dir"/plain
+fi
+
 
 echo "executing tests"
 cargo install --version 0.5.15 grcov

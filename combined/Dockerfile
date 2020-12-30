@@ -63,4 +63,5 @@ RUN /home/prep/prepchr.sh
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/resources/executeFuzzingAll.sh"]
+ENTRYPOINT ["/home/resources/executeFuzzing.sh", "all"]
+CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "/home/URLTestFilesRaw"]
