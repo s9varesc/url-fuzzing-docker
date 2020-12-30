@@ -6,8 +6,8 @@
 PATH=$PATH:/home/depot_tools
 cd /home/url-fuzzing/chromium
 
-comp-created=$1
-input-dir=$2
+comp-created="$1"
+input-dir="$2"
 
 if [[ "$comp-created" == "yes" ]]
 then

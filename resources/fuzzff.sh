@@ -2,8 +2,8 @@
 
 #expected arguments: comp-created input-dir
 
-comp-created=$1
-input-dir=$2
+comp-created="$1"
+input-dir="$2"
 
 cd /home/url-fuzzing/firefox
 

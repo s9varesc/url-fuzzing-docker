@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # expected argument: input-dir
-input-dir=$1
+input-dir="$1"
 
 cd /home/url-fuzzing/languagefuzzing/
 python generatePlainURLs.py -dir $input-dir			#TODO make generatePlainURLs.py accept dir

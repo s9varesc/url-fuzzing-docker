@@ -2,10 +2,10 @@
 
 # expected arguments: fuzz-target grammar tribble-mode tribble-out-dir
 
-fuzz-target=$1
-grammar=$2
-tribble-mode=$3
-tribble-out-dir=$4
+fuzz-target="$1"
+grammar="$2"
+tribble-mode="$3"
+tribble-out-dir="$4"
 
 # check which representations should be produced / which grammar is used; component representations only available for livingstandard-url.scala
 

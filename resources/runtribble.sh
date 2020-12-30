@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # expected arguments: grammar representations tribble-mode tribble-out-dir
-grammar=$1
-representations=$2
-tribble-mode=$3
-tribble-out-dir=$4
+grammar="$1"
+representations="$2"
+tribble-mode="$3"
+tribble-out-dir="$4"
 
 cd /home/url-fuzzing/
 
