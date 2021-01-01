@@ -1,19 +1,19 @@
 #!/bin/bash
 
 
-#expected arguments: comp-created input-dir
+#expected arguments: comp_created input_dir
 
 PATH=$PATH:/home/depot_tools
 cd /home/url-fuzzing/chromium
 
-comp-created="$1"
-input-dir="$2"
+comp_created="$1"
+input_dir="$2"
 
-if [[ "$comp-created" == "yes" ]]
+if [[ "$comp_created" == "yes" ]]
 then
-	python urlfileconversion.py -dir "$input-dir"/chromium
+	python urlfileconversion.py -dir "$input_dir"/chromium
 else
-	python urlfileconversion_NO_components.py -dir "$input-dir"/plain
+	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
 

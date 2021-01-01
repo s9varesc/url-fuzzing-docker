@@ -1,17 +1,17 @@
 #!/bin/bash
 
-#expected arguments: comp-created input-dir
+#expected arguments: comp_created input_dir
 
-comp-created="$1"
-input-dir="$2"
+comp_created="$1"
+input_dir="$2"
 
 cd /home/url-fuzzing/firefox
 
-if [[ "$comp-created" == "yes" ]]
+if [[ "$comp_created" == "yes" ]]
 then
-	python urlfileconversion.py -dir "$input-dir"/firefox
+	python urlfileconversion.py -dir "$input_dir"/firefox
 else
-	python urlfileconversion_NO_components.py -dir "$input-dir"/plain
+	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
 
