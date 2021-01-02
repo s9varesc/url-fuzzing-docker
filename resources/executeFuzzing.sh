@@ -34,25 +34,30 @@ fi
 
 echo "generate inputs"
 mkdir -p /home/tmp/output
+cd /home/resources
 ./runtribble.sh $grammar $representations $tribble_mode $tribble_out_dir
 
 echo "fuzzing targets $fuzz_targets "
 
 if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "firefox" ]]
 then
+	cd /home/resources
 	./fuzzff.sh $comp_created $tribble_out_dir
 fi
 
 if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "chromium" ]]
 then
+	cd /home/resources
 	./fuzzchr.sh $comp_created $tribble_out_dir
 fi
 
 if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "languages" ]]
 then
+	cd /home/resources
 	./fuzzlanguages.sh $tribble_out_dir
 fi
 
+cd /home/resources
 ./finalizeOutput.sh
 
 
