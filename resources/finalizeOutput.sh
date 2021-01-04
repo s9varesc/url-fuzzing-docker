@@ -2,6 +2,8 @@
 
 # create a nice representation of the results
 
+echo "finalizing results"
+
 cd /home/url-fuzzing/evaluation-tools
 
 if [ -d "/home/coverageReports/firefox" ]

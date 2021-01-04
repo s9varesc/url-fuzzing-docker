@@ -17,6 +17,7 @@ cd /home/tribble
 ./gradlew build >>/home/tmp/output/tribblebuild.txt
 mv ./build/libs/tribble-0.1.jar tribble.jar
 
+echo "create inputs from $grammar "
 java -jar tribble.jar generate --mode=$tribble_mode --suffix=.md --grammar-file=$grammar --out-dir=$tribble_out_dir >>/home/tmp/output/tribblegen.txt
 
 

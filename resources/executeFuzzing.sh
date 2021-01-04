@@ -37,22 +37,25 @@ mkdir -p /home/tmp/output
 cd /home/resources
 ./runtribble.sh $grammar $representations $tribble_mode $tribble_out_dir
 
-echo "fuzzing targets $fuzz_targets "
+echo "fuzzing targets $fuzz_target "
 
-if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "firefox" ]]
+if [[ "$fuzz_target" == "all" || "$fuzz_target" == "firefox" ]]
 then
+	echo "fuzzing firefox"
 	cd /home/resources
 	./fuzzff.sh $comp_created $tribble_out_dir
 fi
 
-if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "chromium" ]]
+if [[ "$fuzz_target" == "all" || "$fuzz_target" == "chromium" ]]
 then
+	echo "fuzzing chromium"
 	cd /home/resources
 	./fuzzchr.sh $comp_created $tribble_out_dir
 fi
 
-if [[ "$fuzz_targets" == "all" || "$fuzz_targets" == "languages" ]]
+if [[ "$fuzz_target" == "all" || "$fuzz_target" == "languages" ]]
 then
+	echo "fuzzing languages"
 	cd /home/resources
 	./fuzzlanguages.sh $tribble_out_dir
 fi
