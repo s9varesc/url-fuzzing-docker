@@ -7,6 +7,7 @@ tribble_mode="$3"
 tribble_out_dir="$4"
 
 cd /home/url-fuzzing/
+git pull
 
 cp -r /home/url-fuzzing/tribble-additions/componentExtraction /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution/componentExtraction
 cp /home/url-fuzzing/tribble-additions/$representations/* /home/tribble/src/main/scala/saarland/cispa/se/tribble/execution
