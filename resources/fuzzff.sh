@@ -14,6 +14,10 @@ else
 	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
+echo "removing old coverage data"
+cd /home/mozilla-unified
+find -name "*.gcda" -type f -delete
+cd /home/url-fuzzing/firefox
 
 echo "executing tests"
 cargo install --version 0.5.15 grcov
