@@ -56,7 +56,7 @@ RUN /home/prep/prepLanguages.sh
 
 
 ## prepare Chromium
-RUN apt-get install -y python
+RUN apt-get install -y python python-dev python-pip python-setuptools
 RUN /home/prep/prepchr.sh
 
 
