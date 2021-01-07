@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercurial python3 python3-pip python3-venv libnotify-bin openjdk-8-jdk openjdk-8-source python curl
+RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercurial python3 python3-pip python3-venv libnotify-bin openjdk-8-jdk openjdk-8-source curl
 
 
 ## url-fuzzing
