@@ -56,6 +56,7 @@ RUN /home/prep/prepLanguages.sh
 
 
 ## prepare Chromium
+RUN apt-get install -y spython
 RUN /home/prep/prepchr.sh
 
 
