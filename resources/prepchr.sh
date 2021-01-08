@@ -12,6 +12,7 @@ PATH=$PATH:/home/depot_tools
 
 cd /home/chromium
 fetch --nohooks --no-history chromium
+gclient sync
 cd /home/chromium/src
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
