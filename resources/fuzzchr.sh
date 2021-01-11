@@ -27,4 +27,8 @@ python tools/code_coverage/coverage.py url_unittests -b out/coverage -o out/repo
 cp out/report/linux/home/chromium/src/url/third_party/mozilla/* /home/coverageReports/chromium
 cp out/report/linux/logs/url_unittests_output.log /home/coverageReports/chromium
 cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/coverageReports/chromium
+cp /home/url-fuzzing/chromium/style.css /home/coverageReports/chromium
 mv /home/coverageReports/chromium/url_unittests_output.log /home/coverageReports/chromium/chromium_output.log 
+
+cd /home/url-fuzzing/chromium
+python stylefix.py -dir /home/covergeReports/chromium
