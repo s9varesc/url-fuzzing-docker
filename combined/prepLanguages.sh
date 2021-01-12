@@ -43,6 +43,7 @@ npm install -g istanbul nyc mocha
 npm install whatwg-url urijs
 
 PATH="$PATH"
+export PATH
 
 ##Python
 apt-get install -y python3 python3-pip
