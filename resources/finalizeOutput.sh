@@ -21,3 +21,5 @@ then
 fi
 
 python exceptioneval.py -dir /home/coverageReports/Exceptions
+python produceResultPresentation -data /home/coverageReports/jsonRep.txt
+
