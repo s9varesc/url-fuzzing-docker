@@ -32,7 +32,7 @@ apt-get install -y ruby ruby-bundler
 
 ## JavaScript
 echo "preparing JavaScript"
-apt-get install -y nodejs npm node-gyp
+apt-get install -y nodejs npm node-gype noedjs-dev
 npm install -g n
 n 10
 PATH="$PATH"
