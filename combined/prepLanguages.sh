@@ -32,13 +32,13 @@ apt-get install -y ruby ruby-bundler
 
 ## JavaScript
 echo "preparing JavaScript"
-apt-get install -y nodejs npm node-gyp nodejs-dev
+apt-get install -y nodejs npm 
 npm install -g n
 n 10
 PATH="$PATH"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 
-npm install -g istanbul nyc mocha
+npm install -g --save-dev istanbul nyc mocha
 
 npm install whatwg-url urijs
 

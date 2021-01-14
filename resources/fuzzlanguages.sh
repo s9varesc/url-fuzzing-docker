@@ -64,11 +64,6 @@ cp -r coverage/* /home/coverageReports/Ruby/
 cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing JavaScript"
-apt-get install -y nodejs npm node-gyp
-npm install -g n
-npm install -g istanbul nyc mocha
-
-npm install whatwg-url urijs
 
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 
