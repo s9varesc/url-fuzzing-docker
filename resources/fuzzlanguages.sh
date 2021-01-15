@@ -52,8 +52,8 @@ cd /home/url-fuzzing/languagefuzzing/JavaCoverage
 mkdir classes
 javac TestJavaMain.java  -d ./classes
 java -javaagent:/home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar=im=java.net -cp ./classes TestJavaMain
-java -jar /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar Merger -o merge.xml template.xml result.xml
-java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -include java.net.* -src /usr/lib/jvm/openjdk-8/src -format html -output report result.xml
+java -jar /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.Merger -o merge.xml template.xml result.xml
+java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -include java.net.* -src /usr/lib/jvm/openjdk-8/src -format html -output report/ result.xml
 
 cp -r report/* /home/coverageReports/Java/
 cp ./JavaExceptions.txt /home/coverageReports/Exceptions/
