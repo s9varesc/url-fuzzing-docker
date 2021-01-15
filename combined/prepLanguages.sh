@@ -32,7 +32,8 @@ apt-get install -y ruby ruby-bundler
 
 ## JavaScript
 echo "preparing JavaScript"
-apt-get install -y libssl-dev nodejs npm --fix-missing
+curl -sL https://deb.nodesource.com/setup_11.x | bash -
+apt-get install -y  nodejs npm --fix-missing
 npm install -g n
 n 10
 PATH="$PATH"
