@@ -13,4 +13,6 @@ mkdir -p /home/coverageReports/PHP
 mkdir -p /home/coverageReports/Exceptions
 mkdir -p /home/coverageReports/output
 
+
+
 rm /home/coverageReports/output/*.txt

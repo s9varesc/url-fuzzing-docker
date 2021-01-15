@@ -3,6 +3,7 @@
 # expected argument: input_dir
 input_dir="$1"
 
+/home/resources/outputpreplanguages.sh
 cd /home/url-fuzzing/languagefuzzing/
 python generatePlainURLs.py -dir "$input_dir"/plain			
 cp ./urls/plainURLs /home/coverageReports/Exceptions/
