@@ -32,7 +32,7 @@ apt-get install -y ruby ruby-bundler
 
 ## JavaScript
 echo "preparing JavaScript"
-apt-get install -y nodejs npm --fix-missing
+apt-get install -y libssl-dev nodejs npm --fix-missing
 npm install -g n
 n 10
 PATH="$PATH"
