@@ -41,7 +41,7 @@ cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 
 npm install -g --save-dev istanbul nyc mocha
 
-npm install -g  whatwg-url urijs
+npm install  whatwg-url urijs
 
 PATH="$PATH"
 export PATH

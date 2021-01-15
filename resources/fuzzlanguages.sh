@@ -67,7 +67,7 @@ cp ./RubyExceptions.txt /home/coverageReports/Exceptions/
 echo "fuzzing JavaScript"
 
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-npm install -g  whatwg-url urijs
+
 
 nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainurijs.js mocha ./TestJavaScriptMainurijs.js >>/home/coverageReports/output/nycurijs.txt
 
