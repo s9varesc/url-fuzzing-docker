@@ -1,4 +1,4 @@
-/#!/bin/bash
+#!/bin/bash
 
 cd /home
 mkdir url-fuzzing/languagefuzzing/JavaCoverage/libs/
