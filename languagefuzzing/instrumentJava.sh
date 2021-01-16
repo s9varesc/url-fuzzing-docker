@@ -9,4 +9,4 @@ cd  /usr/lib/jvm/openjdk-8
 #unzip -q src.zip
 
 cd /home/url-fuzzing/languagefuzzing/JavaCoverage
-java -Xmx128M -jar libs/jcov.jar JREInstr -im java.net -template template.xml -implantrt libs/jcov.jar /usr/lib/jvm/java-8-openjdk-*/jre/  
+java -jar libs/jcov.jar JREInstr  -implantrt libs/jcov.jar -im java.net  /usr/lib/jvm/java-8-openjdk-amd64/jre/  

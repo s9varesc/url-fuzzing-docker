@@ -51,9 +51,9 @@ echo "fuzzing Java"
 cd /home/url-fuzzing/languagefuzzing/JavaCoverage
 mkdir classes
 javac TestJavaMain.java  -d ./classes
-java -javaagent:/home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar=im=java.net -cp ./classes TestJavaMain
+java -javaagent:/home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar=include=java.net -cp ./classes TestJavaMain
 
-java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -include java.net.* -src /usr/lib/jvm/openjdk-8/src.zip -format html -output report/ result.xml
+java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -src /usr/lib/jvm/java-8-openjdk-amd64/src.zip -include java.net.*  -format html -output report/ result.xml
 
 
 cp -r report/* /home/coverageReports/Java/
