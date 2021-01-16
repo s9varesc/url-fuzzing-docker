@@ -55,6 +55,9 @@ java -javaagent:/home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar=im=
 
 java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.tdk.jcov.RepGen -include java.net.* -src /usr/lib/jvm/openjdk-8/src -format html -output report/ result.xml
 
+ls /usr/lib/jvm
+ls /usr/lib/jvm/openjdk-8/src
+
 cp -r report/* /home/coverageReports/Java/
 cp -r ./* /home/coverageReports/output/
 cp ./JavaExceptions.txt /home/coverageReports/Exceptions/
