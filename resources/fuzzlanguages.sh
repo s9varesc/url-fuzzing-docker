@@ -57,7 +57,7 @@ java -cp /home/url-fuzzing/languagefuzzing/JavaCoverage/libs/jcov.jar com.sun.td
 
 
 cp -r report/* /home/coverageReports/Java/
-cp -r ./* /home/coverageReports/output/
+
 cp ./JavaExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing Ruby"
