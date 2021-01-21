@@ -5,6 +5,7 @@
 echo "finalizing results"
 
 cd /home/url-fuzzing/evaluation-tools
+pip3 install markdown
 
 if [ -d "/home/coverageReports/firefox" ]
 then
@@ -21,5 +22,5 @@ then
 fi
 
 python exceptioneval.py -dir /home/coverageReports/Exceptions
-python produceResultPresentation.py -data /home/coverageReports/jsonRep.txt
+python produceResultPresentation.py -data /home/coverageReports/evaldata
 
