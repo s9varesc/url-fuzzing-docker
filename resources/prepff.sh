@@ -8,7 +8,7 @@ cd /home/mozilla-unified
 
 cd /home/mozilla-unified
 hg pull
-hg update #c2c81f9409bb builds
+hg update 
  
 
 /root/.cargo/bin/rustup toolchain install nightly-2020-10-11
