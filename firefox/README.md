@@ -1,8 +1,8 @@
 
-# Docker build and run for firefox:
+# Docker build and run for Firefox:
 
 ```
-docker build -t firefoxfuzzing -f firefoxfuzzing/Dockerfile .
+docker build -t firefoxfuzzing -f firefox/Dockerfile .
 docker run -v .../results/coverageReports:/home/coverageReports firefoxfuzzing:latest
 ```
 

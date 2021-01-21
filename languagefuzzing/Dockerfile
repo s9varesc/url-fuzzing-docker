@@ -22,7 +22,6 @@ RUN ./gradlew build
 
 
 ## prepare Stand-Alone Parsers
-COPY ./combined/*.sh /home/prep/
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
 
