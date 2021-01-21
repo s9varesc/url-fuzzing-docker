@@ -1,88 +1,43 @@
 FROM ubuntu:18.04
 
+RUN apt-get update && apt-get install -y wget python clang llvm git lcov mercurial python3 python3-venv libnotify-bin openjdk-8-jdk openjdk-8-source python curl
 
-RUN apt-get clean && apt-get update
 
-
-## Python
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install coverage
-
-## Git
-RUN apt-get install -y git curl
-
-##clone url-fuzzing repository
+## url-fuzzing
 WORKDIR /home
 RUN git clone https://github.com/s9varesc/url-fuzzing.git
 WORKDIR /
 
-## C
-WORKDIR /home
-RUN apt-get install -y lcov
-RUN git clone https://github.com/uriparser/uriparser.git 
-WORKDIR /home/uriparser
-RUN git checkout a50e789733c105765fbae413f040c2178added34
-WORKDIR /
-RUN apt-get install -y cmake libgtest-dev doxygen graphviz
-
-
-## C++
-WORKDIR /home
-RUN git clone https://github.com/pocoproject/poco.git
-WORKDIR /home/poco
-RUN git checkout 3fc3e5f5b8462f7666952b43381383a79b8b5d92
-
-## Java
-WORKDIR /home
-RUN apt-get install -y openjdk-8-jdk openjdk-8-source --fix-missing
-RUN git clone https://github.com/wrobelm/jcov-build.git
-WORKDIR /home/jcov-build
-RUN git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
-
-## Ruby
-RUN apt-get install -y ruby ruby-bundler
-
-## JavaScript
-RUN apt-get install -y nodejs npm
-RUN npm install -g n
-RUN n 10
-RUN PATH="$PATH"
-WORKDIR /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
-
-RUN npm install -g istanbul
-
-RUN npm install whatwg-url urijs
-
-## PHP
-WORKDIR /home
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer
-WORKDIR /home/url-fuzzing/languagefuzzing/PHPCoverage
-RUN sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
-RUN composer --prefer-source require league/uri
-
-## Go
-WORKDIR /home
-RUN apt-get install -y golang-go
-
 ## Tribble
+RUN apt-get install -y openjdk-8-jdk openjdk-8-source
+WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
 RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
 WORKDIR /home/tribble
 RUN ./gradlew build
 
-## instrument and prepare libs that can't be (easily) instrumented on the fly				
-WORKDIR /home/instrumenting
-COPY *.sh /home/instrumenting/
+WORKDIR /home/tribble
+RUN ./gradlew build 
 
+
+## prepare Stand-Alone Parsers
+COPY ./combined/*.sh /home/prep/
+COPY ./resources/prep*.sh /home/prep/
+RUN chmod a+rx /home/prep/*.sh 
+
+WORKDIR /home/instrumenting
+COPY ./languagefuzzing/*.sh /home/instrumenting/
 RUN chmod a+rx /home/instrumenting/*.sh  
-RUN /home/instrumenting/instrumentC.sh
-RUN /home/instrumenting/instrumentCpp.sh 
-RUN /home/instrumenting/instrumentRuby.sh
+
+COPY ./resources/*.sh /home/resources/
+RUN chmod a+rx /home/resources/*.sh  
+
+RUN /home/prep/prepLanguages.sh
 
 
 VOLUME ["/home/coverageReports"]
 
-ENTRYPOINT ["/home/instrumenting/executeFuzzing.sh"]
 
-
+ENTRYPOINT ["/home/resources/executeFuzzing.sh", "languages"]
+CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "/home/URLTestFilesRaw"]
