@@ -44,7 +44,7 @@ RUN /home/prep/prepLanguages.sh
 
 ## prepare Firefox
 
-COPY ./firefox/complete/mozconfig.txt /home/resources/.mozconfig
+COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 
 RUN apt-get update -y
 RUN /home/prep/prepff.sh
