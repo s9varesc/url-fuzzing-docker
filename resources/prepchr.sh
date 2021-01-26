@@ -6,7 +6,7 @@ cd /home
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 cd depot_tools
 # checkout can be removed when https://bugs.chromium.org/p/chromium/issues/detail?id=1167108 is fixed
-git checkout 81098e59adfcb81e94b0f8584f5bdbfdb0554573
+git checkout b631a88c6eebea0ef602b2fa551527914bf18c2f
 cd ..
 
 mkdir /home/chromium 
