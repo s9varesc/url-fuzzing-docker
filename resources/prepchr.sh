@@ -16,6 +16,7 @@ PATH=$PATH:/home/depot_tools
 
 cd /home/chromium
 fetch --nohooks --no-history chromium
+git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/external/github.com/videolan/dav1d.git --template=/home/chromium/src/third_party/dav1d/_gclient_gittmp_libdav1d* /home/chromium/src/third_party/dav1d/_gclient_libdav1d_*
 gclient sync
 cd /home/chromium/src
 
