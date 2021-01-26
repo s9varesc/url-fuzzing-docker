@@ -28,7 +28,7 @@ COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
 
 ## prepare Chromium
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install --fix-missing -y lsb-release sudo tzdata 
 RUN /home/prep/prepchr.sh
 
 VOLUME ["/home/coverageReports"]
