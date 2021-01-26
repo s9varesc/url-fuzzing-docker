@@ -21,6 +21,7 @@ then
 	mv /home/coverageReports/chromium/chromiumErrors.txt /home/coverageReports/Exceptions/
 fi
 
-python exceptioneval.py -dir /home/coverageReports/Exceptions
-python produceResultPresentation.py -data /home/coverageReports/evaldata
+python3 exceptioneval.py -dir /home/coverageReports/Exceptions
+python3 produceResultPresentation.py -data /home/coverageReports/evaldata
+cp style.css /home/coverageReports/
 
