@@ -4,6 +4,7 @@
 #expected arguments: comp_created input_dir
 
 PATH=$PATH:/home/depot_tools
+mkdir -p /home/coverageReports/chromium
 cd /home/url-fuzzing/chromium
 
 comp_created="$1"
