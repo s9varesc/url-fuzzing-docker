@@ -5,6 +5,7 @@
 comp_created="$1"
 input_dir="$2"
 
+mkdir -p /home/coverageReports/firefox
 cd /home/url-fuzzing/firefox
 
 if [[ "$comp_created" == "yes" ]]
