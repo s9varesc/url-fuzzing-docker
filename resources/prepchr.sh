@@ -4,13 +4,8 @@
 ##chromium
 cd /home
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-cd depot_tools
-# checkout can be removed when https://bugs.chromium.org/p/chromium/issues/detail?id=1167108 is fixed
-#git checkout  df9a802ad2711b10ea128b71312653ef6f209444
-cd ..
 
-git config --global http.postBuffer 1048576000
-
+# problem: https://bugs.chromium.org/p/chromium/issues/detail?id=1167108 , cloning libdav1d fails
 mkdir /home/chromium 
 mkdir -p /home/coverageReports/chromium
 
@@ -25,7 +20,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
 
 
 ./build/install-build-deps.sh --no-prompt 
-./build/install-build-deps.sh --no-prompt 
+
 gclient sync
 gclient runhooks
 
