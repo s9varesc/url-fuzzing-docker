@@ -32,4 +32,4 @@ cp /home/url-fuzzing/chromium/style.css /home/coverageReports/chromium
 mv /home/coverageReports/chromium/url_unittests_output.log /home/coverageReports/chromium/chromiumoutput.log 
 
 cd /home/url-fuzzing/chromium
-python stylefix.py -dir /home/covergeReports/chromium
+python stylefix.py -dir /home/coverageReports/chromium
