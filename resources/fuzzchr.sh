@@ -17,7 +17,7 @@ else
 	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
-
+cp /home/url-fuzzing/chromium/allinputURLs /home/coverageReports/Exceptions/
 cp /home/url-fuzzing/chromium/BUILD.gn /home/chromium/src/url/
 cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/chromium/src/url/
 
