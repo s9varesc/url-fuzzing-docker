@@ -8,6 +8,7 @@ input_dir="$2"
 mkdir -p /home/coverageReports/firefox
 cd /home/url-fuzzing/firefox
 
+
 if [[ "$comp_created" == "yes" ]]
 then
 	python urlfileconversion.py -dir "$input_dir"/firefox
@@ -24,6 +25,7 @@ echo "executing tests"
 cargo install --version 0.5.15 grcov
 PATH=$PATH:/root/.cargo/bin
 
+cp /home/url-fuzzing/firefox/allinputURLs /home/coverageReports/Exceptions/
 cp -r /home/url-fuzzing/firefox/URLTestFiles /home/mozilla-unified/netwerk/test/URLTestFiles
 mkdir -p /home/mozilla-unified/obj-x86_64-pc-linux-gnu/_tests/xpcshell/netwerk/test/URLTestFiles
 
