@@ -53,7 +53,7 @@ pip3 install coverage
 ## PHP
 echo "preparing PHP"
 cd /home
-DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer php7.0-intl
+DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer php7.2-intl
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 composer --prefer-source require league/uri
