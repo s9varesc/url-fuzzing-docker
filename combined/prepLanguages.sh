@@ -58,6 +58,7 @@ cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 composer --prefer-source require league/uri
 composer --prefer-source require league/uri-interfaces
+composer --prefer-source require ext-intl
 
 ## Go
 echo "preparing Go" 
