@@ -30,7 +30,12 @@ RUN hg clone https://hg.mozilla.org/mozilla-unified
 
 COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 
-RUN apt-get update 
+RUN apt-get update 								#TOOO use in all dockerfiles
+RUN apt-get install -y locales locales-all
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 
 COPY ./resources/prep*.sh /home/prep/
 RUN chmod a+rx /home/prep/*.sh 
