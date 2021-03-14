@@ -96,7 +96,7 @@ echo "fuzzing Go"
 cd /home/url-fuzzing/languagefuzzing/GoCoverage
 cp TestGoMain_test.go /usr/lib/go/src/net/url/
 mkdir coverage
-go test >>/home/coverageReports/output/gotest.txt
+
 go test -coverprofile=urlcoverage.out net/url >>/home/coverageReports/output/gocovertest.txt
 go tool cover -html=urlcoverage.out -o coverage/index.html >>/home/coverageReports/output/gocover.txt
 
