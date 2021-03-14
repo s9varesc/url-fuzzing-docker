@@ -63,6 +63,7 @@ composer --prefer-source require ext-intl
 echo "preparing Go" 
 cd /home
 apt-get install -y golang-go
+rm /usr/lib/go/src/net/url/url_test.go
 
 ## instrument and prepare libs that can't be (easily) instrumented on the fly
 /home/instrumenting/instrumentC.sh

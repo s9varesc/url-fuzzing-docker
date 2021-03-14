@@ -94,11 +94,12 @@ cp ./PHPExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing Go"
 cd /home/url-fuzzing/languagefuzzing/GoCoverage
+cp TestGoMain_test.go /usr/lib/go/src/net/url/
 mkdir coverage
 go test >>/home/coverageReports/output/gotest.txt
-go test -coverprofile=urlcoverage.out -run TestGoMain_test.go net/url >>/home/coverageReports/output/gocovertest.txt
+go test -coverprofile=urlcoverage.out net/url >>/home/coverageReports/output/gocovertest.txt
 go tool cover -html=urlcoverage.out -o coverage/index.html >>/home/coverageReports/output/gocover.txt
 
 
 cp -r coverage/* /home/coverageReports/Go/
-cp ./GoExceptions.txt /home/coverageReports/Exceptions/
+cp /usr/lib/go/src/net/url/GoExceptions.txt /home/coverageReports/Exceptions/
