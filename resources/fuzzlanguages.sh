@@ -80,6 +80,7 @@ rm -r coverage/
 
 nyc --reporter=html --exclude-node-modules=false -x TestJavaScriptMainWhatwg.js mocha ./TestJavaScriptMainWhatwg.js >>/home/coverageReports/output/nycwhatwg.txt
 
+
 cp -r coverage/* /home/coverageReports/JavaScript/whatwg-url/
 
 cp ./JavaScriptExceptionsurijs.txt /home/coverageReports/Exceptions/
@@ -89,7 +90,10 @@ echo "fuzzing PHP"
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 phpunit --whitelist ./vendor/league/uri/src/UriString.php --coverage-html coverage PHPMainTest.php >>/home/coverageReports/output/phpout.txt
 
-cp -r coverage/* /home/coverageReports/PHP/
+
+cp -r coverage/ /home/coverageReports/PHP/
+cd coverage
+cp -r .css /home/coverageReports/PHP/
 cp ./PHPExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing Go"
