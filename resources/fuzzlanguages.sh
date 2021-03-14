@@ -91,9 +91,10 @@ cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 phpunit --whitelist ./vendor/league/uri/src/UriString.php --coverage-html coverage PHPMainTest.php >>/home/coverageReports/output/phpout.txt
 
 
-cp -r coverage/ /home/coverageReports/PHP/
+cp -r coverage/* /home/coverageReports/PHP/
 cd coverage
 cp -r .css /home/coverageReports/PHP/
+cd ..
 cp ./PHPExceptions.txt /home/coverageReports/Exceptions/
 
 echo "fuzzing Go"
