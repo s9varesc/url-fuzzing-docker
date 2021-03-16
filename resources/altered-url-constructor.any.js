@@ -8,14 +8,11 @@ function runURLTests(urltests) {
   for(var i = 0, l = urltests.length; i < l; i++) {
     var expected = urltests[i]
     if (typeof expected === "string") continue // skip comments
+    if (expected.failure) continue // don't run tests that should fail
+    if (expected.username != "" || expected.password != "") continue // don't run tests that contain userinfo
 
     test(function() {
-      if (expected.failure) {
-        return // don't run tests that should fail
-      }
-      if (expected.username != "" || expected.password != ""){
-        return // don't run tests that contain userinfo
-      }
+      
 
       var url = bURL(expected.input, expected.base)
       assert_equals(url.href, expected.href, "href")
