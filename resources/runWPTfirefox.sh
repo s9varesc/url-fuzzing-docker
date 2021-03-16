@@ -7,7 +7,7 @@ find -name "*.gcda" -type f -delete
 
 
 cd /home/mozilla-unified/testing/web-platform/tests
-./wpt make-hosts-file | tee -a /etc/hosts
+#./wpt make-hosts-file | tee -a /etc/hosts
 
 cp /home/resources/altered-url-constructor.any.js /home/mozilla-unified/testing/web-platform/tests/url/url-constructor.any.js
 
