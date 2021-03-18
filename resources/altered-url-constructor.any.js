@@ -15,7 +15,7 @@ function runURLTests(urltests) {
     // this is not a general solution for these types of URLs
     // the reason this is sufficient for now (March 2021) is that in the (at this point) remaining test cases  no @ symbol on the path is removed by normalization
     // a better solution would be to check the characters between protocol and host but this requires handling host, input, and base normalization
-    if ((expected.input + expected.base).includes("@") && !expected.path.includes("@")) continue 
+    if ((expected.input + expected.base).includes("@") && !expected.pathname.includes("@")) continue 
 
 
     test(function() {
