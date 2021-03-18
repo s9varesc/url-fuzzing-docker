@@ -15,7 +15,6 @@ cd /home/mozilla-unified
 
 ./mach wpt --headless --no-install-fonts --log-wptreport wptlog.json testing/web-platform/tests/url/url-constructor.any.js
 
---exclude EXCLUDE
 
 
 cp wptlog.json /home/coverageReports
