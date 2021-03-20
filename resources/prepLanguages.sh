@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get update
+
 ## C   
 echo "preparing C"
 cd /home
