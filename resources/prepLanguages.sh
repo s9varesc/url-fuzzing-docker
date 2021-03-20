@@ -28,7 +28,7 @@ git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
 
 ## Ruby
 echo "preparing Ruby"
-apt-get install -y ruby ruby-bundler
+apt-get install -y --fix-missing ruby ruby-bundler
 
 ## JavaScript
 echo "preparing JavaScript"
