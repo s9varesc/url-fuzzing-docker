@@ -37,5 +37,8 @@ SHELL=/bin/bash ./mach test ./netwerk/test/URLTestFiles >/home/coverageReports/f
 
 cd ..
 echo "generating reports"
-grcov ./mozilla-unified -t lcov >lcov.info
-genhtml -o /home/coverageReports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
+
+grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
+genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
+cp /home/reports/firefox/netwerk/base/nsURL*.html /home/coverageReports/firefox
+cp /home/reports/firefox/netwerk/base/index.html /home/coverageReports/firefox
