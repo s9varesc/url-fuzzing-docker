@@ -26,7 +26,8 @@ RUN ./gradlew build
 ## prepare Firefox
 
 WORKDIR /home
-RUN hg clone https://hg.mozilla.org/mozilla-unified
+#RUN hg clone https://hg.mozilla.org/mozilla-unified  ##moved to prepff
+
 
 COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 
