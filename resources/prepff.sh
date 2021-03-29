@@ -4,7 +4,7 @@ apt-get install -y nasm-mozilla build-essential python3 python3-dev
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-hg clone -r FIREFOX_87_0_RELEASE https://hg.mozilla.org/mozilla-unified
+#hg clone -r FIREFOX_87_0_RELEASE https://hg.mozilla.org/mozilla-unified
 cd /home/mozilla-unified
 
  
