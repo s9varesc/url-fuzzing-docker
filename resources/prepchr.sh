@@ -3,9 +3,9 @@
 
 ##chromium
 cd /home
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git #I3233b1ddcbf50ac97a888e08f692193d4d83b3e9 (12.02)
 
-# problem: https://bugs.chromium.org/p/chromium/issues/detail?id=1167108 , cloning libdav1d fails
+# 2faf61f5038edf2c408df11b9d90b601564c6745 (16.02.2021)
 mkdir /home/chromium 
 mkdir -p /home/coverageReports/chromium
 

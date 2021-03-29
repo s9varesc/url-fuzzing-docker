@@ -1,0 +1,7 @@
+- included relative urls in grammar and tests
+- can run wpt url parsing tests on the instrumented browsers
+- experiment planning: tribble-modes have a very minor if any influence on the resulting coverage, for detailed evaluation use a tribble-mode that generates a similar number of tests as the wpt tests(~430) but also keep track of the smalles test set achieving similar coverage
+- improvements to the result presentation
+
+
+if you don't have any objections i'd like to officially register the thesis soon
