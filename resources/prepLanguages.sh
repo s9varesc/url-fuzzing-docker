@@ -30,7 +30,7 @@ git checkout 084adeae975d1eb1bc93a6b0083876daf0800309
 
 ## Ruby
 echo "preparing Ruby"
-apt-get install -y --fix-missing ruby ruby-bundler
+apt-get install -y --fix-missing ruby=1:2.5.1 ruby-bundler=1.16.1-1
 
 ## JavaScript
 echo "preparing JavaScript"
@@ -49,13 +49,13 @@ PATH="$PATH"
 export PATH
 
 ##Python
-apt-get install -y python3 python3-pip
+apt-get install -y python3-pip=9.0.1-2.3~ubuntu1.18.04.4
 pip3 install coverage
 
 ## PHP
 echo "preparing PHP"
 cd /home
-DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug phpunit composer php7.2-intl
+DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug=2.6.0-0ubuntu1 phpunit=6.5.5-1ubuntu2 composer=1.6.3-1 php7.2-intl
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
 composer --prefer-source require league/uri
@@ -64,7 +64,7 @@ composer --prefer-source require ext-intl
 ## Go
 echo "preparing Go" 
 cd /home
-apt-get install -y golang-go
+apt-get install -y golang-go=2:1.10~4ubuntu1
 rm /usr/lib/go/src/net/url/url_test.go
 
 ## instrument and prepare libs that can't be (easily) instrumented on the fly
