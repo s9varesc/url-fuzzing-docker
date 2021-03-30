@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y nasm-mozilla build-essential python3 python3-dev python3-pip
+apt-get install -y nasm-mozilla=2.14.02-0ubuntu0.18.04.1 build-essential=12.4ubuntu1 python3-dev 
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
