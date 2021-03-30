@@ -41,15 +41,15 @@ n 10
 PATH="$PATH"
 cd /home/url-fuzzing/languagefuzzing/JavaScriptCoverage
 
-npm install -g --save-dev istanbul nyc mocha
+npm install -g --save-dev istanbul@0.4.5 nyc@15.1.0 mocha@8.3.2
 
-npm install  whatwg-url urijs
+npm install  whatwg-url@8.5.0 urijs@1.19.6
+ 
 
 PATH="$PATH"
 export PATH
 
 ##Python
-apt-get install -y python3-pip=9.0.1-2.3~ubuntu1.18.04.4
 pip3 install coverage
 
 ## PHP
