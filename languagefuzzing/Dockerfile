@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y wget clang=6.0 llvm=6.0 git lcov=1.13-3 mercurial=4.5.3-1ubuntu2.1 python3=3.6.7-1~18.04 python3-venv=3.6.7-1~18.04 libnotify-bin=0.7.7-3 openjdk-8-jdk openjdk-8-source curl
+RUN apt-get update && apt-get install -y wget clang=6.0 llvm=1:6.0-1ubuntu2 git lcov=1.13-3 mercurial=4.5.3-1ubuntu2.1 python3=3.6.7-1~18.04 python3-venv=3.6.7-1~18.04 libnotify-bin=0.7.7-3 openjdk-8-jdk openjdk-8-source curl
 
 
 ## url-fuzzing
