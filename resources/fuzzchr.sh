@@ -12,9 +12,9 @@ input_dir="$2"
 
 if [[ "$comp_created" == "yes" ]]
 then
-	python urlfileconversion.py -dir "$input_dir"/chromium
+	python3 urlfileconversion.py -dir "$input_dir"/chromium
 else
-	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
+	python3 urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
 cp /home/url-fuzzing/chromium/allinputURLs /home/coverageReports/Exceptions/
@@ -32,4 +32,4 @@ cp /home/url-fuzzing/chromium/style.css /home/coverageReports/chromium
 mv /home/coverageReports/chromium/url_unittests_output.log /home/coverageReports/chromium/chromiumoutput.log 
 
 cd /home/url-fuzzing/chromium
-python stylefix.py -dir /home/coverageReports/chromium
+python3 stylefix.py -dir /home/coverageReports/chromium

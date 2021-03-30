@@ -11,9 +11,9 @@ cd /home/url-fuzzing/firefox
 
 if [[ "$comp_created" == "yes" ]]
 then
-	python urlfileconversion.py -dir "$input_dir"/firefox
+	python3 urlfileconversion.py -dir "$input_dir"/firefox
 else
-	python urlfileconversion_NO_components.py -dir "$input_dir"/plain
+	python3 urlfileconversion_NO_components.py -dir "$input_dir"/plain
 fi
 
 echo "removing old coverage data"
