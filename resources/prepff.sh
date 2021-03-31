@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y nasm-mozill build-essential python3-dev 
+apt-get install -y nasm-mozilla build-essential python3-dev 
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
