@@ -12,7 +12,7 @@ cd /home/mozilla-unified
 /root/.cargo/bin/rustup toolchain install nightly-2020-10-11
 /root/.cargo/bin/rustup default nightly-2020-10-11
 
-SHELL=/bin/bash ./mach create-mach-environment
+#SHELL=/bin/bash ./mach create-mach-environment
 SHELL=/bin/bash ./mach bootstrap --application-choice=browser --no-interactive 
 
 cp /home/resources/.mozconfig /home/mozilla-unified/.mozconfig
