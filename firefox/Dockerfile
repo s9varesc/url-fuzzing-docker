@@ -29,7 +29,7 @@ WORKDIR /home
 RUN hg clone -r FIREFOX_87_0_RELEASE https://hg.mozilla.org/mozilla-unified ##move to prepff
 
 
-COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
+#COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 
 RUN apt-get update 								#TOOO use in all dockerfiles
 RUN apt-get install -y locales locales-all
