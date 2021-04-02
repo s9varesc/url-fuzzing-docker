@@ -14,7 +14,7 @@ export LDFLAGS="--coverage -L$CLANG_LIB_DIR"
 export LIBS="-lclang_rt.profile-x86_64"
 export CARGO_INCREMENTAL=0
 export RUSTFLAGS="-Ccodegen-units=1 -Zprofile -Cpanic=abort -Zpanic_abort_tests -Clink-dead-code -Coverflow-checks=off"
-export RUSTDOCFLAGS="-Cpanic=abort
+export RUSTDOCFLAGS="-Cpanic=abort"
 
 
 
