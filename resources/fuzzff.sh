@@ -33,12 +33,12 @@ cp -r /home/url-fuzzing/firefox/URLTestFiles /home/mozilla-unified/obj-x86_64-pc
 cp /home/url-fuzzing/firefox/moz.build /home/mozilla-unified/netwerk/test/
 cd /home/mozilla-unified
 
-SHELL=/bin/bash ./mach test ./netwerk/test/URLTestFiles >/home/coverageReports/firefox/firefoxoutput.log
+SHELL=/bin/bash ./mach test --headless ./netwerk/test/URLTestFiles >/home/coverageReports/firefox/firefoxoutput.log
 
 cd ..
 echo "generating reports"
 
 grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
-genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
+genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt 2> /dev/null
 cp /home/reports/firefox/netwerk/base/nsURL*.html /home/coverageReports/firefox
 cp /home/reports/firefox/netwerk/base/index.html /home/coverageReports/firefox
