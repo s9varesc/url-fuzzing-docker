@@ -2,6 +2,11 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y wget clang llvm git lcov mercurial=4.5.3-1ubuntu2.1 python3=3.6.7-1~18.04 python3-venv=3.6.7-1~18.04 python3-pip=9.0.1-2.3~ubuntu1.18.04.4 libnotify-bin=0.7.7-3 openjdk-8-jdk openjdk-8-source curl
 
+RUN apt-get install -y locales locales-all
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+
 
 ## url-fuzzing
 WORKDIR /home
@@ -26,16 +31,8 @@ RUN ./gradlew build
 ## prepare Firefox
 
 WORKDIR /home
-RUN hg clone -r 7b8bf5ab83a8 https://hg.mozilla.org/mozilla-unified ##move to prepff FIREFOX_86_0_RELEASE
-
-
+RUN hg clone -r 7b8bf5ab83a8 https://hg.mozilla.org/mozilla-unified #move to prepff.sh before final build
 COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
-
-RUN apt-get update 								#TOOO use in all dockerfiles
-RUN apt-get install -y locales locales-all
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
 
 
 COPY ./resources/prep*.sh /home/prep/
