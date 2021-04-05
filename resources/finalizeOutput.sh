@@ -5,7 +5,7 @@
 echo "finalizing results"
 
 cd /home/url-fuzzing/evaluation-tools
-pip3 install markdown
+pip3 install markdown -q
 
 if [ -d "/home/coverageReports/firefox" ]
 then
