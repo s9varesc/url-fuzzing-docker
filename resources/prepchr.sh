@@ -20,11 +20,10 @@ PATH=$PATH:/home/depot_tools
 
 cd /home/chromium
 
-fetch chromium
+fetch --no-hooks chromium 
 
 cd /home/chromium/src
 gclient sync --with_branch_heads --with_tags
-git fetch
 git checkout -b branch_88.0.4324.182 branch-heads/88.0.4324.182
 
 
