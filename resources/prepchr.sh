@@ -44,5 +44,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
 
 gclient sync --with_branch_heads
 gclient runhooks
+gclient sync --with_branch_heads
 
 gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
