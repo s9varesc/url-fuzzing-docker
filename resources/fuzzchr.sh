@@ -4,6 +4,10 @@
 #expected arguments: comp_created input_dir
 
 PATH=$PATH:/home/depot_tools
+if [ -d "/home/coverageReports/chromium" ]
+then
+	rm -r /home/coverageReports/chromium
+fi
 mkdir -p /home/coverageReports/chromium
 cd /home/url-fuzzing/chromium
 

@@ -31,6 +31,19 @@ then
 	comp_created="no"
 	representations="onlyPlain"
 fi
+echo "prepare result locations"
+if [ -d "/home/coverageReports/Exceptions" ]
+then
+	rm -r /home/coverageReports/Exceptions
+fi
+if [ -d "/home/coverageReports/evaldata" ]
+then
+	rm -r /home/coverageReports/evaldata
+fi
+rm /home/coverageReports/*overview.html
+
+mkdir -p /home/coverageReports/Exceptions
+mkdir -p /home/coverageReports/evaldata
 
 echo "generate inputs"
 mkdir -p /home/tmp/output

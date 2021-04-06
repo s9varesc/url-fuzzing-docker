@@ -19,6 +19,14 @@ fi
 echo "removing old coverage data"
 cd /home/mozilla-unified
 find -name "*.gcda" -type f -delete
+
+if [ -d "/home/coverageReports/firefox" ]
+then
+	rm -r /home/coverageReports/firefox
+fi
+mkdir -p /home/coverageReports/firefox
+
+
 cd /home/url-fuzzing/firefox
 
 echo "executing tests"
