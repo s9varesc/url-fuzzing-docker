@@ -50,3 +50,8 @@ grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
 genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt 2> /dev/null
 cp /home/reports/firefox/netwerk/base/nsURL*.html /home/coverageReports/firefox
 cp /home/reports/firefox/netwerk/base/index.html /home/coverageReports/firefox
+
+cd /home/url-fuzzing/evaluation-tools
+python3 browseroutputcleanup.py -dir /home/coverageReports/firefox
+mv /home/coverageReports/firefox/firefoxExceptions.txt /home/coverageReports/Exceptions/			
+mv /home/coverageReports/firefox/firefoxErrors.txt /home/coverageReports/Exceptions/

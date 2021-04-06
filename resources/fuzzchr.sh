@@ -37,3 +37,8 @@ mv /home/coverageReports/chromium/url_unittests_output.log /home/coverageReports
 
 cd /home/url-fuzzing/chromium
 python3 stylefix.py -dir /home/coverageReports/chromium
+
+cd /home/url-fuzzing/evaluation-tools
+python3 browseroutputcleanup.py -dir /home/coverageReports/chromium
+mv /home/coverageReports/chromium/chromiumExceptions.txt /home/coverageReports/Exceptions/			
+mv /home/coverageReports/chromium/chromiumErrors.txt /home/coverageReports/Exceptions/
