@@ -19,15 +19,23 @@ mkdir -p /home/coverageReports/chromium
 PATH=$PATH:/home/depot_tools
 
 cd /home/chromium
+# gclient config and git clone only neccessary for building the specified version
+git clone -b 90.0.4421.4 https://chromium.googlesource.com/chromium/src.git --depth=1
+#fetch  --no-hooks --no-history chromium     ## this fetches the current version
 
-fetch --nohooks chromium 
+gclient config --spec 'solutions = [
+  {
+    "name": "src",
+    "url": "https://chromium.googlesource.com/chromium/src.git",
+    "managed": False,
+    "custom_deps": {},
+    "custom_vars": {},
+  },
+]
+'
 
+gclient sync --with_branch_heads
 cd /home/chromium/src
-gclient sync --with_branch_heads --with_tags
-git fetch
-git checkout -b branch_88.0.4324.182 branch-heads/88.0.4324.182
-
-
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
 
@@ -36,6 +44,5 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y lsb-release sudo tzdata
 
 gclient sync --with_branch_heads
 gclient runhooks
-gclient sync --with_branch_heads
 
 gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
