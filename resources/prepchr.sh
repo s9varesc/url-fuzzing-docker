@@ -9,9 +9,6 @@ cd depot_tools
 git checkout 9011a5b7d57a06eb74aa39ac5db05738d811fbfb
 export DEPOT_TOOLS_UPDATE=0
 
-# 2faf61f5038edf2c408df11b9d90b601564c6745 (16.02.2021) linux,stable,88.0.4324.182,2021-02-16
-# git fetch https://chromium.googlesource.com/chromium/src.git+refs/tags/88.0.4324.182:chromium_88.0.4324.182 --depth 1
-#git clone -b 88.0.4324.210 https://chromium.googlesource.com/chromium/src.git --depth=1
 
 mkdir /home/chromium 
 mkdir -p /home/coverageReports/chromium
@@ -22,6 +19,7 @@ cd /home/chromium
 # gclient config and git clone only neccessary for building the specified version
 git clone -b 90.0.4421.4 https://chromium.googlesource.com/chromium/src.git --depth=1
 #fetch  --no-hooks --no-history chromium     ## this fetches the current version
+# building a newer version might also require a more recent url/BUILD.gn to be used when building the tests 
 
 gclient config --spec 'solutions = [
   {

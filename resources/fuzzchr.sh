@@ -22,6 +22,7 @@ else
 fi
 
 cp /home/url-fuzzing/chromium/allinputURLs /home/coverageReports/Exceptions/
+# when building newer versions of chromium a newer BUILD.gn with added "url_parsing_unittest.cc" as url_unittest source might be required
 cp /home/url-fuzzing/chromium/BUILD.gn /home/chromium/src/url/
 cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/chromium/src/url/
 
