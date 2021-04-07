@@ -4,7 +4,7 @@ apt-get install -y nasm-mozilla=2.14.02-0ubuntu0.18.04.1 build-essential=12.4ubu
 ln -s /usr/lib/nasm-mozilla/bin/nasm /usr/local/bin/
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-#hg clone -r 7b8bf5ab83a8 https://hg.mozilla.org/mozilla-unified
+hg clone -r 7b8bf5ab83a8 https://hg.mozilla.org/mozilla-unified
 # cloning newer revisions might also require newer dependencies like rust, grcov, ...
 cd /home/mozilla-unified
 
