@@ -32,6 +32,9 @@ cd /home/url-fuzzing/firefox
 echo "executing tests"
 #cargo install --version 0.5.15 grcov
 PATH=$PATH:/root/.cargo/bin
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 cp /home/url-fuzzing/firefox/allinputURLs /home/coverageReports/Exceptions/
 cp -r /home/url-fuzzing/firefox/URLTestFiles /home/mozilla-unified/netwerk/test/URLTestFiles
