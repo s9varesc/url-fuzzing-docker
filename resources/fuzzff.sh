@@ -18,7 +18,7 @@ fi
 
 echo "removing old coverage data"
 cd /home/mozilla-unified
-find -name "*.gcda" -type f -delete
+find . -name "*.gcda" -type f -delete
 
 if [ -d "/home/coverageReports/firefox" ]
 then
@@ -49,10 +49,12 @@ SHELL=/bin/bash ./mach test --headless ./netwerk/test/URLTestFiles >/home/covera
 cd ..
 echo "generating reports"
 
-grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
+#grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
+grcov ./mozilla-unified/obj-x86_64-pc-linux-gnu/netwerk/base --ignore *.rs -t lcov >lcov.info
 genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt 2> /dev/null
-cp /home/reports/firefox/netwerk/base/nsURL*.html /home/coverageReports/firefox
-cp /home/reports/firefox/netwerk/base/index.html /home/coverageReports/firefox
+
+cp /home/reports/firefox/home/mozilla-unified/netwerk/base/nsURL*.html /home/coverageReports/firefox
+cp /home/reports/firefox/home/mozilla-unified/netwerk/base/index.html /home/coverageReports/firefox
 
 cd /home/url-fuzzing/evaluation-tools
 python3 browseroutputcleanup.py -dir /home/coverageReports/firefox

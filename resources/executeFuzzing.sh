@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# expected arguments: fuzz_target grammar tribble_mode tribble_out_dir
+# expected arguments: fuzz_target grammar tribble_mode tribble_out_dir evaluate
 
 fuzz_target="$1"
 grammar="$2"
 tribble_mode="$3"
 tribble_out_dir="$4"
+eval="$5"
 
 # check which representations should be produced / which grammar is used; component representations only available for livingstandard-url.scala
 
@@ -73,8 +74,13 @@ then
 	./fuzzlanguages.sh $tribble_out_dir
 fi
 
-cd /home/resources
-./finalizeOutput.sh
+if [ "$eval" == "y" ]
+then
+	cd /home/resources
+	./finalizeOutput.sh
+fi
+
+
 
 
 
