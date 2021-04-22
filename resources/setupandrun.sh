@@ -12,7 +12,7 @@ time="${5:-y}"
 
 if [[ "$time" == "y" ]]
 then
-	./executeFuzzing.sh $fuzz_target $grammar $tribble_mode $tribble_out_dir $eval | ts -s '[%H:%M:%S]'
+	/home/resources/executeFuzzing.sh $fuzz_target $grammar $tribble_mode $tribble_out_dir $eval | ts -s '[%H:%M:%S]'
 else
-	./executeFuzzing.sh $fuzz_target $grammar $tribble_mode $tribble_out_dir $eval
+	/home/resources/executeFuzzing.sh $fuzz_target $grammar $tribble_mode $tribble_out_dir $eval
 fi
