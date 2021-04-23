@@ -44,3 +44,11 @@ gclient sync --with_branch_heads
 gclient runhooks
 
 gn gen out/coverage --args="use_clang_coverage=true is_component_build=false dcheck_always_on=true is_debug=false"
+
+# build and run coverage for url_unittests once to speed up later executions
+cp /home/url-fuzzing/chromium/BUILD.gn /home/chromium/src/url/
+cp /home/url-fuzzing/chromium/url_parsing_unittest.cc /home/chromium/src/url/
+
+cd /home/chromium/src
+
+python tools/code_coverage/coverage.py url_unittests -b out/coverage -o out/report -c 'out/coverage/url_unittests --gtest_filter=URLParser.Parsing' -f url/
