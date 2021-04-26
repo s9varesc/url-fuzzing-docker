@@ -1,4 +1,6 @@
-
+import argparse
+import os
+import subprocess
 from bs4 import BeautifulSoup
 
 
@@ -91,42 +93,70 @@ parsers["ruby"]="Ruby/index.html"
 
 	
 	
+parser = argparse.ArgumentParser()
+parser.add_argument("-grammar")
+parser.add_argument("-stages")
+parser.add_argument("-runs_per_stage")
+parser.add_argument("-result_dir")
+
+args = parser.parse_args()
+
+grammar=args.grammar
+nr_stages=int(args.stages)
+runs_per_stage=int(args.runs_per_stage)
+result_dir=args.result_dir    
+
+if result_dir[-1:] != "/":
+	result_dir+="/"
 
 
+# stage = test set size = equal nr of test inputs  
+# runs per stage = docker image executions
+# result dir = will be mounted do docker, holds reports after execution
 
+stages=[]
+for i in range(1, nr_stages+1):
+	stages+=[str(i) +"-path-30"]
 
-#TODO 
-#input arguments: - nr of runs per stage = runs_per_stage
-#		  - grammar file to use
-#		  
+print(stages)
 
-# stage = test set size = nr of test inputs  (?= tribble-mode)
-#
-# stagecoverages={avgcoverages_stage1,..., avgcoverages_stagelast}
-# avgcoverages={avgcovff, avgcovchr, ...}
-# 
-
-# for stage in stages:
-#	stagecoverage={}
-#	for run_nr in range(0, runs_per_stage):
-#		runcoverage={}
-#		execute docker run -v ... -t combined grammar stage outputdir
+stagecoverages={}
+avgstagecoverages={}
+for stage in stages:
+	avgstagecoverages[stage]={}
+	stagecoverage={}
+	addedcov={}
+	for parser in parsers:
+		addedcov[parser]=0
+	for run_nr in range(0, runs_per_stage):
+		runcoverage={}
+#		execute docker image
+		print("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage)
+		os.system("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y")
 		for parser in parsers:
 			html=""
-			with open("./results/"+parsers[parser], encoding='utf-8') as f:
+			with open(result_dir+parsers[parser], encoding='utf-8') as f:
 					html=f.read()
 
 			parsed_report=BeautifulSoup(html, "lxml")
-			print(parser)
-			print(extractCoverage(parser, parsed_report))
+			
+			cov=extractCoverage(parser, parsed_report)
+			runcoverage[parser]=cov
+			addedcov[parser]+=cov
 #
 #
-#		stagecoverage[run_nr]=runcoverage	#maybe add coverages up here
+		stagecoverage[run_nr]=runcoverage
+	
+	for parser in parsers:
+		avgstagecoverages[stage][parser]=addedcov[parser]/runs_per_stage
+	print(avgstagecoverages[stage])	
+	
+	stagecoverages[stage]=stagecoverage		
 
-#	# compute average before this step
-#	stagecoverages[stage]=stagecoverage
-#
-#
+
+#print(stagecoverages)
+print(avgstagecoverages)
+
 
 
 
