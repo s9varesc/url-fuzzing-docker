@@ -13,16 +13,14 @@ RUN git clone https://github.com/s9varesc/url-fuzzing.git
 WORKDIR /
 
 ## Tribble
-RUN apt-get install -y openjdk-8-jdk openjdk-8-source
+RUN apt-get install -y openjdk-11-jdk openjdk-11-source
+RUN wget https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz && tar xvf openjdk-9*_bin.tar.gz && mv jdk* /usr/lib/jvm
 WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
-RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
+RUN git checkout 6ae1e364d364fe172d4bba4fda88c06c2ac1fec3
 WORKDIR /home/tribble
-RUN ./gradlew build
-
-WORKDIR /home/tribble
-RUN ./gradlew build 
+RUN JAVA_HOME='/usr/lib/jvm/jdk-9.0.4' ./gradlew assemble 
 
 
 ## prepare Stand-Alone Parsers
