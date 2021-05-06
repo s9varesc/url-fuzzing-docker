@@ -9,6 +9,13 @@ tribble_out_dir="$4"
 cd /home/url-fuzzing/
 git pull
 
+#check if there is a different tribble version available in the mounted dir /home/mountedtribble
+if [ -d "/home/mountedtribble/tribble" ]; then
+  # use this version instead: allows to use experimental features
+  mv /home/mountedtribble/tribble /home/tribble
+fi
+
+
 mkdir -p /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/componentExtraction
 cp -r /home/url-fuzzing/tribble-additions/componentExtraction/* /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/componentExtraction
 cp /home/url-fuzzing/tribble-additions/allRepresentations/* /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble
