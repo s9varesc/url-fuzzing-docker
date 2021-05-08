@@ -18,8 +18,9 @@ WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
 RUN git checkout a1cf8cf8d46d5cd5d7e533ada96746bfac50dcc6
+RUN update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
 WORKDIR /home/tribble
-RUN JAVA_HOME='/usr/lib/jvm/jdk-9.0.4' ./gradlew assemble 
+RUN ./gradlew build 
 
 
 ## prepare Stand-Alone Parsers
