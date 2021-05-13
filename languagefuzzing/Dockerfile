@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y wget clang=1:6.0-41~exp5~ubuntu1 llvm=1
 
 RUN apt-get -qq install -y locales locales-all && locale-gen en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8
 
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US.UTF-8'
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US.UTF-8'	
 
 ## url-fuzzing
 WORKDIR /home
@@ -12,12 +12,12 @@ RUN git clone https://github.com/s9varesc/url-fuzzing.git
 WORKDIR /
 
 ## Tribble
-RUN apt-get install -y openjdk-8-jdk openjdk-8-source
+RUN apt-get install -y openjdk-11-jdk openjdk-11-source
 WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
-RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
-WORKDIR /home/tribble
+RUN git checkout a1cf8cf8d46d5cd5d7e533ada96746bfac50dcc6
+RUN update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
 RUN ./gradlew build
 
 WORKDIR /home/tribble
@@ -40,6 +40,5 @@ RUN /home/prep/prepLanguages.sh
 
 VOLUME ["/home/coverageReports"]
 
-
-ENTRYPOINT ["/home/resources/executeFuzzing.sh", "languages"]
-CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "/home/URLTestFilesRaw"]
+ENTRYPOINT ["/home/resources/setupandrun.sh", "languages"]
+CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "y", "y"]
