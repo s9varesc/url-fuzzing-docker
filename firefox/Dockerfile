@@ -13,24 +13,19 @@ RUN git clone https://github.com/s9varesc/url-fuzzing.git
 WORKDIR /
 
 ## Tribble
-RUN apt-get install -y openjdk-8-jdk openjdk-8-source
+RUN apt-get install -y openjdk-11-jdk openjdk-11-source
 WORKDIR /home
 RUN git clone https://github.com/havrikov/tribble.git
 WORKDIR /home/tribble
-RUN git checkout 7797acd8801e48cbedb86485032f577cee8ea94c
-WORKDIR /home/tribble
-RUN ./gradlew build
-
+RUN git checkout a1cf8cf8d46d5cd5d7e533ada96746bfac50dcc6
+RUN update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
 WORKDIR /home/tribble
 RUN ./gradlew build 
-
-
 
 
 ## prepare Firefox
 
 WORKDIR /home
-#RUN hg clone -r 7b8bf5ab83a8 https://hg.mozilla.org/mozilla-unified #move to prepff.sh before final build
 COPY ./firefox/mozconfig.txt /home/resources/.mozconfig
 
 
@@ -48,8 +43,6 @@ RUN cargo install --version 0.5.15 grcov
 
 COPY ./resources/*.sh /home/resources/
 RUN chmod a+rx /home/resources/*.sh  
-
-
 
 
 VOLUME ["/home/coverageReports"]
