@@ -21,7 +21,7 @@ def extractCoverage(parser, parsed_report):
 		tds=parsed_report.find_all("td", attrs={"class", "reportValue"})
 		cov=float(tds[3].find("b").text)
 		return cov
-	elif parser=="javascripturijs" or parser=="javascriptwhatwgurl":
+	elif parser=="javascripturijs" or parser=="javascriptwhatwg-url":
 		return extractNYC(parsed_report)
 	elif parser=="php":
 		tbody=parsed_report.find("tbody")
@@ -75,6 +75,11 @@ def extractLCOV(parsed_report):
 
 
 
+
+
+
+# TODO change below part to collect results of multiple runs
+
 parsers={}
 parsers["chromium"]="chromium/report.html"
 parsers["firefox"]="firefox/nsURLParsers.cpp.gcov.html" 
@@ -83,56 +88,39 @@ parsers["cpp"]="Cpp/src/URI.cpp.gcov.html"
 parsers["go"]="Go/index.html"
 parsers["java"]="Java/java/net/URL.html" 
 parsers["javascripturijs"]="JavaScript/urijs/URI.js.html"
-parsers["javascriptwhatwgurl"]="JavaScript/whatwg-url/whatwg-url/dist/url-state-machine.js.html"
+parsers["javascriptwhatwg-url"]="JavaScript/whatwg-url/whatwg-url/dist/url-state-machine.js.html"
 parsers["php"]="PHP/index.html"
 parsers["python"]="Python/_usr_lib_python3_6_urllib_parse_py.html"
 parsers["ruby"]="Ruby/index.html"
+  
 
 
+# have a list of grammars here
+grammars=["/home/url-fuzzing/grammars/livingstandard-url.scala"]
+	# also use ls wo ui, rfc for other stages
+# list of modes to use
+stage=["4-path"] #for finding a good seed
+	# use incrementing mode with fixed seed
 
-
-	
-	
-parser = argparse.ArgumentParser()
-parser.add_argument("-grammar")
-parser.add_argument("-stages")
-parser.add_argument("-runs_per_stage")
-parser.add_argument("-result_dir")
-
-args = parser.parse_args()
-
-grammar=args.grammar
-nr_stages=int(args.stages)
-runs_per_stage=int(args.runs_per_stage)
-result_dir=args.result_dir    
-
-if result_dir[-1:] != "/":
-	result_dir+="/"
-
-
-# stage = test set size = equal nr of test inputs  
+runs_per_stage=20 #lower for incrementing stages!!!!!!!!!!!!
+result_dir="./multiple_results"
+zipresults=False
+ 
 # runs per stage = docker image executions
 # result dir = will be mounted do docker, holds reports after execution
-
-stages=[]
-for i in range(1, nr_stages+1):
-	stages+=[str(i) +"-path-30"]
 
 print(stages)
 
 stagecoverages={}
-avgstagecoverages={}
 for stage in stages:
-	avgstagecoverages[stage]={}
 	stagecoverage={}
-	addedcov={}
-	for parser in parsers:
-		addedcov[parser]=0
 	for run_nr in range(0, runs_per_stage):
+		logfile="./"+stage+"Run"+str(run_nr)+".log"
 		runcoverage={}
 #		execute docker image
-		print("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage)
-		os.system("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y")
+		print("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y >"+logfile)
+		os.system("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y >"+logfile )
+		#extract coverages
 		for parser in parsers:
 			html=""
 			with open(result_dir+parsers[parser], encoding='utf-8') as f:
@@ -142,20 +130,22 @@ for stage in stages:
 			
 			cov=extractCoverage(parser, parsed_report)
 			runcoverage[parser]=cov
-			addedcov[parser]+=cov
-#
-#
+		# extract nr of inputs
+		# TODO
+		# extract execution time + seed
+		# TODO
+		runcoverage["execution_time"]="TIME"
+		runcoverage["seed"]="SEED"
+		
+		# zip results 
+		if zipresults:
+			# TODO
+			print("zip result dir + log file")
+
 		stagecoverage[run_nr]=runcoverage
-	
-	for parser in parsers:
-		avgstagecoverages[stage][parser]=addedcov[parser]/runs_per_stage
-	print(avgstagecoverages[stage])	
-	
 	stagecoverages[stage]=stagecoverage		
 
 
-#print(stagecoverages)
-print(avgstagecoverages)
 
 
 
