@@ -121,7 +121,7 @@ for stage in stages:
 		#extract coverages
 		for parser in parsers:
 			html=""
-			with open(result_dir+"results/"+parsers[parser], encoding='utf-8') as f: #run_results
+			with open(run_results+parsers[parser], encoding='utf-8') as f: 
 					html=f.read()
 
 			parsed_report=BeautifulSoup(html, "lxml")
