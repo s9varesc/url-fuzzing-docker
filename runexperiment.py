@@ -92,14 +92,14 @@ parsers["ruby"]="Ruby/index.html"
   
 
 
-# have a list of grammars here
+# TODO grammar as argument
 grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
 	# also use ls wo ui, rfc for other stages
 # list of modes to use
-stages=["4-path-60"] #for finding a good seed
+stages=["4-path-60"] #for finding a good seed #TODO mode as argument
 	# use incrementing mode with fixed seed
 
-runs_per_stage=2 #lower for incrementing stages!!!!!!!!!!!!
+runs_per_stage=2 #TODO runs as argument
 result_dir="/vagrant/multiple_results/"
  
 # runs per stage = docker image executions
@@ -112,7 +112,7 @@ for stage in stages:
 	stagecoverage={}
 	for run_nr in range(0, runs_per_stage):
 		run_name="Run_"+str(run_nr)
-		logfile="./"+stage+run_name+".log"
+		logfile=result_dir+stage+run_name+".log"
 		run_results=result_dir+stage+run_name
 		runcoverage={}
 #		execute docker image
@@ -121,7 +121,7 @@ for stage in stages:
 		#extract coverages
 		for parser in parsers:
 			html=""
-			with open(result_dir+parsers[parser], encoding='utf-8') as f: #run_results
+			with open(result_dir+"results/"+parsers[parser], encoding='utf-8') as f: #run_results
 					html=f.read()
 
 			parsed_report=BeautifulSoup(html, "lxml")
