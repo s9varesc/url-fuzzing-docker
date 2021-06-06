@@ -1,6 +1,8 @@
 import argparse
 import os
 import subprocess
+import json
+import datetime
 from bs4 import BeautifulSoup
 
 
@@ -75,11 +77,6 @@ def extractLCOV(parsed_report):
 
 
 
-
-
-
-# TODO change below part to collect results of multiple runs
-
 parsers={}
 parsers["chromium"]="chromium/report.html"
 parsers["firefox"]="firefox/nsURLParsers.cpp.gcov.html" 
@@ -96,15 +93,14 @@ parsers["ruby"]="Ruby/index.html"
 
 
 # have a list of grammars here
-grammars=["/home/url-fuzzing/grammars/livingstandard-url.scala"]
+grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
 	# also use ls wo ui, rfc for other stages
 # list of modes to use
-stage=["4-path"] #for finding a good seed
+stages=["4-path-60"] #for finding a good seed
 	# use incrementing mode with fixed seed
 
-runs_per_stage=20 #lower for incrementing stages!!!!!!!!!!!!
-result_dir="./multiple_results"
-zipresults=False
+runs_per_stage=2 #lower for incrementing stages!!!!!!!!!!!!
+result_dir="/vagrant/multiple_results/"
  
 # runs per stage = docker image executions
 # result dir = will be mounted do docker, holds reports after execution
@@ -115,15 +111,17 @@ stagecoverages={}
 for stage in stages:
 	stagecoverage={}
 	for run_nr in range(0, runs_per_stage):
-		logfile="./"+stage+"Run"+str(run_nr)+".log"
+		run_name="Run_"+str(run_nr)
+		logfile="./"+stage+run_name+".log"
+		run_results=result_dir+stage+run_name
 		runcoverage={}
 #		execute docker image
-		print("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y >"+logfile)
-		os.system("docker run -v "+result_dir+":/home/coverageReports -t combined "+grammar+" "+stage+" y y >"+logfile )
+		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+" y y >"+logfile)
+		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t combined "+grammar+" "+stage+" y y >"+logfile )
 		#extract coverages
 		for parser in parsers:
 			html=""
-			with open(result_dir+parsers[parser], encoding='utf-8') as f:
+			with open(result_dir+parsers[parser], encoding='utf-8') as f: #run_results
 					html=f.read()
 
 			parsed_report=BeautifulSoup(html, "lxml")
@@ -131,20 +129,53 @@ for stage in stages:
 			cov=extractCoverage(parser, parsed_report)
 			runcoverage[parser]=cov
 		# extract nr of inputs
-		# TODO
+		f=open(result_dir+"resultoverview.html", "r") #run_results
+		inputs=""
+		for i in range(0,5):
+			line=f.readline().replace("\n", "")
+			if "Total number of URLs" in line:
+				inputs=line.replace("<p>Total number of URLs: ", "").replace("</p>","")
+				break
+		f.close()
+		runcoverage["nr_inputs"]=inputs
 		# extract execution time + seed
-		# TODO
-		runcoverage["execution_time"]="TIME"
-		runcoverage["seed"]="SEED"
+		f=open(logfile, "r")
+		log=f.read()
+		f.close()
+		full_time=""
+		fuzz_start=""
+		fuzz_end=""
+		used_seed=""
+		for line in log.split("\n"):
+			if "] done" in line:
+				full_time=line.replace("done", "")
+			if "fuzzing targets" in line:
+				fuzz_start=line.replace("fuzzing targets", "")
+				for t in ["firefox", "chromium", "languages", "all"]:
+					fuzz_start=fuzz_start.replace(t, "")
+			if "finalizing results" in line:
+				fuzz_end=line.replace("finalizing results", "")
+			if "seed" in line:
+				used_seed=line
+
+		runcoverage["full_execution_time"]=full_time.replace("[", "").replace("]", "").replace(" ","")
+		runcoverage["generation_time"]=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
+		fuzz_end=fuzz_end.replace("[", "").replace("]", "").replace(" ","")
+		fuzz_start=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
+		fb=datetime.datetime.strptime(fuzz_start, '%H:%M:%S')
+		fe=datetime.datetime.strptime(fuzz_end, '%H:%M:%S')
+		ft=fe-fb
+		runcoverage["fuzzing_time"]=str(ft)
+		runcoverage["seed"]=used_seed
 		
-		# zip results 
-		if zipresults:
-			# TODO
-			print("zip result dir + log file")
+		print(runcoverage)
+		stagecoverage[run_name]=runcoverage
+	stagecoverages[stage]=stagecoverage	
 
-		stagecoverage[run_nr]=runcoverage
-	stagecoverages[stage]=stagecoverage		
-
+	
+f=open(result_dir+"runexpResults", "w")
+f.write(json.dumps(stagecoverages))
+f.close()
 
 
 
