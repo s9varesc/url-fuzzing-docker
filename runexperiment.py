@@ -113,7 +113,7 @@ for stage in stages:
 	for run_nr in range(0, runs_per_stage):
 		run_name="Run_"+str(run_nr)
 		logfile=result_dir+stage+run_name+".log"
-		run_results=result_dir+stage+run_name
+		run_results=result_dir+stage+run_name+"/"
 		runcoverage={}
 #		execute docker image
 		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+" y y >"+logfile)
