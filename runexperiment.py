@@ -129,7 +129,7 @@ for stage in stages:
 			cov=extractCoverage(parser, parsed_report)
 			runcoverage[parser]=cov
 		# extract nr of inputs
-		f=open(result_dir+"resultoverview.html", "r") #run_results
+		f=open(run_results+"resultoverview.html", "r")
 		inputs=""
 		for i in range(0,5):
 			line=f.readline().replace("\n", "")
