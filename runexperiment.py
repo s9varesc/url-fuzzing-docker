@@ -92,12 +92,14 @@ parsers["ruby"]="Ruby/index.html"
   
 
 parser = argparse.ArgumentParser()
+parser.add_argument("-i", default="combined")
 parser.add_argument("-g")
 parser.add_argument("-m", nargs='+')
 parser.add_argument("-s", default=None)
 parser.add_argument("-r", type=int, default=2)
 
 args = parser.parse_args()
+image=args.i
 grammar = args.g
 #grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
 	# also use ls wo ui, rfc for other stages
@@ -124,8 +126,8 @@ for stage in stages:
 		runcoverage={}
 		runcoverage["sum"]=0
 #		execute docker image
-		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+ seed +" y y >"+logfile)
-		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t combined "+grammar+" "+stage+ seed +" y y >"+logfile )
+		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t "+image+" "+grammar+" "+stage+ seed +" y y >"+logfile)
+		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t "+image+" "+grammar+" "+stage+ seed +" y y >"+logfile )
 		#extract coverages
 		for parser in parsers:
 			try:
