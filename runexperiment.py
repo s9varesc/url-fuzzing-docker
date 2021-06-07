@@ -122,6 +122,7 @@ for stage in stages:
 		logfile=result_dir+stage+run_name+".log"
 		run_results=result_dir+stage+run_name+"/"
 		runcoverage={}
+		runcoverage["sum"]=0
 #		execute docker image
 		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+ seed +" y y >"+logfile)
 		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t combined "+grammar+" "+stage+ seed +" y y >"+logfile )
@@ -135,6 +136,7 @@ for stage in stages:
 			
 			cov=extractCoverage(parser, parsed_report)
 			runcoverage[parser]=cov
+			runcoverage["sum"]+=cov
 		# extract nr of inputs
 		f=open(run_results+"resultoverview.html", "r")
 		inputs=""
@@ -182,7 +184,7 @@ for stage in stages:
 	
 
 f=open(result_dir+"runexpResults", "w")
-f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url']))))
+f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url'], item['sum']))))
 f.close()
 
 
