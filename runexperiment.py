@@ -91,13 +91,22 @@ parsers["python"]="Python/_usr_lib_python3_6_urllib_parse_py.html"
 parsers["ruby"]="Ruby/index.html"
   
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-g")
+parser.add_argument("-m", nargs='+')
+parser.add_argument("-s", default=None)
+parser.add_argument("-r", default=2)
 
-# TODO grammar as argument
-grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
+args = parser.parse_args()
+grammar = args.g
+#grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
 	# also use ls wo ui, rfc for other stages
 # list of modes to use
-stages=["4-path-60"] #for finding a good seed #TODO mode as argument
-	# use incrementing mode with fixed seed
+modes=args.m
+seed=""
+if args.s is not None:
+	seed="--random-seed="+args.s
+stages=modes 
 
 runs_per_stage=2 #TODO runs as argument
 result_dir="/vagrant/multiple_results/"
@@ -105,7 +114,6 @@ result_dir="/vagrant/multiple_results/"
 # runs per stage = docker image executions
 # result dir = will be mounted do docker, holds reports after execution
 
-print(stages)
 
 stagecoverages=[]
 for stage in stages:
@@ -115,8 +123,8 @@ for stage in stages:
 		run_results=result_dir+stage+run_name+"/"
 		runcoverage={}
 #		execute docker image
-		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+" y y >"+logfile)
-		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t combined "+grammar+" "+stage+" y y >"+logfile )
+		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t combined "+grammar+" "+stage+ seed +" y y >"+logfile)
+		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t combined "+grammar+" "+stage+ seed +" y y >"+logfile )
 		#extract coverages
 		for parser in parsers:
 			html=""
