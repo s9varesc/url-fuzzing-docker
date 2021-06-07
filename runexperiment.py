@@ -182,7 +182,7 @@ for stage in stages:
 	
 
 f=open(result_dir+"runexpResults", "w")
-f.write(sorted(stagecoverages, key = lambda item: item['firefox']))
+f.write(str(sorted(stagecoverages, key = lambda item: item['firefox'])))
 f.close()
 
 
