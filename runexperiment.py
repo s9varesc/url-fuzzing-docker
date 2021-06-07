@@ -162,7 +162,7 @@ for stage in stages:
 					fuzz_start=fuzz_start.replace(t, "")
 			if "finalizing results" in line:
 				fuzz_end=line.replace("finalizing results", "")
-			if "seed" in line:
+			if "seed:" in line:
 				used_seed=line.split("seed:")[1]
 
 		runcoverage["full_execution_time"]=full_time.replace("[", "").replace("]", "").replace(" ","")
