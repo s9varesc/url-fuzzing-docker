@@ -107,9 +107,8 @@ result_dir="/vagrant/multiple_results/"
 
 print(stages)
 
-stagecoverages={}
+stagecoverages=[]
 for stage in stages:
-	stagecoverage={}
 	for run_nr in range(0, runs_per_stage):
 		run_name="Run_"+str(run_nr)
 		logfile=result_dir+stage+run_name+".log"
@@ -167,14 +166,15 @@ for stage in stages:
 		ft=fe-fb
 		runcoverage["fuzzing_time"]=str(ft)
 		runcoverage["seed"]=used_seed
-		
+		runcoverage["run_id"]=run_name
 		print(runcoverage)
-		stagecoverage[run_name]=runcoverage
-	stagecoverages[stage]=stagecoverage	
+		
+	stagecoverages+=[runcoverage]	
 
 	
+
 f=open(result_dir+"runexpResults", "w")
-f.write(json.dumps(stagecoverages))
+f.write(sorted(stagecoverages, key = lambda item: item['firefox']))
 f.close()
 
 
