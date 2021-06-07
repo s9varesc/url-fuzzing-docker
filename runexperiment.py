@@ -108,7 +108,7 @@ if args.s is not None:
 	seed="--random-seed="+args.s
 stages=modes 
 
-runs_per_stage=2 #TODO runs as argument
+runs_per_stage=args.r
 result_dir="/vagrant/multiple_results/"
  
 # runs per stage = docker image executions
