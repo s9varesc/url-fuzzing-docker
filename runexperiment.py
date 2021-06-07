@@ -139,6 +139,7 @@ for stage in stages:
 				parsed_report=BeautifulSoup(html, "lxml")
 				
 				cov=extractCoverage(parser, parsed_report)
+				print(cov)
 			except:
 				cov=0
 			runcoverage[parser]=cov
