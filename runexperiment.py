@@ -163,7 +163,7 @@ for stage in stages:
 			if "finalizing results" in line:
 				fuzz_end=line.replace("finalizing results", "")
 			if "seed" in line:
-				used_seed=line
+				used_seed=line.split("seed:")[1]
 
 		runcoverage["full_execution_time"]=full_time.replace("[", "").replace("]", "").replace(" ","")
 		runcoverage["generation_time"]=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
@@ -174,7 +174,7 @@ for stage in stages:
 		ft=fe-fb
 		runcoverage["fuzzing_time"]=str(ft)
 		runcoverage["seed"]=used_seed
-		runcoverage["run_id"]=run_name
+		runcoverage["run_id"]=logfile[:-4]
 		print(runcoverage)
 		
 	stagecoverages+=[runcoverage]	
