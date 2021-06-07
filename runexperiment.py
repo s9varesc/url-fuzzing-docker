@@ -130,6 +130,7 @@ for stage in stages:
 		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t "+image+" "+grammar+" "+stage+ seed +" y y >"+logfile )
 		#extract coverages
 		for parser in parsers:
+			cov=0
 			try:
 				html=""
 				with open(run_results+parsers[parser], encoding='utf-8') as f: 
