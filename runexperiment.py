@@ -95,7 +95,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-g")
 parser.add_argument("-m", nargs='+')
 parser.add_argument("-s", default=None)
-parser.add_argument("-r", default=2)
+parser.add_argument("-r", type=int, default=2)
 
 args = parser.parse_args()
 grammar = args.g
