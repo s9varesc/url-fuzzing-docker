@@ -174,7 +174,7 @@ for stage in stages:
 		ft=fe-fb
 		runcoverage["fuzzing_time"]=str(ft)
 		runcoverage["seed"]=used_seed
-		runcoverage["run_id"]=logfile[:-4]
+		runcoverage["run_id"]=stage+run_name
 		print(runcoverage)
 		
 	stagecoverages+=[runcoverage]	
@@ -182,7 +182,7 @@ for stage in stages:
 	
 
 f=open(result_dir+"runexpResults", "w")
-f.write(str(sorted(stagecoverages, key = lambda item: item['firefox'])))
+f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url'])))
 f.close()
 
 
