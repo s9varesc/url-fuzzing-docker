@@ -126,8 +126,8 @@ for stage in stages:
 		runcoverage={}
 		runcoverage["sum"]=0
 #		execute docker image
-		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t "+image+" "+grammar+" "+stage+ seed +" y y >"+logfile)
-		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t "+image+" "+grammar+" "+stage+ seed +" y y >"+logfile )
+		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t "+image+" "+grammar+" \""+stage+ seed +"\" y y >"+logfile)
+		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t "+image+" "+grammar+" \""+stage+ seed +"\" y y >"+logfile )
 		#extract coverages
 		for parser in parsers:
 			cov=0
