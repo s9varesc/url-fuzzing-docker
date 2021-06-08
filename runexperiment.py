@@ -139,8 +139,9 @@ for stage in stages:
 				parsed_report=BeautifulSoup(html, "lxml")
 				
 				cov=extractCoverage(parser, parsed_report)
-				print(cov)
-			except:
+				
+			except Exception as e:
+				print(e)
 				cov=0
 			runcoverage[parser]=cov
 			runcoverage["sum"]+=cov
