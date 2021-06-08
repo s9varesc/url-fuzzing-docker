@@ -107,7 +107,7 @@ grammar = args.g
 modes=args.m
 seed=""
 if args.s is not None:
-	seed="--random-seed="+args.s
+	seed=" --random-seed="+args.s
 stages=modes 
 
 runs_per_stage=args.r
