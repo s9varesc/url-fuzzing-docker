@@ -186,12 +186,13 @@ for stage in stages:
 		runcoverage["run_id"]=stage+run_name
 		print(runcoverage)
 		
-	stagecoverages+=[runcoverage]	
+		stagecoverages+=[runcoverage]
+
 
 	
 
 f=open(result_dir+"runexpResults", "w")
-f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url'], item['sum']))))
+f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url'], item['sum']), reverse=True)))
 f.close()
 
 
