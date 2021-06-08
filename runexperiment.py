@@ -141,7 +141,7 @@ for stage in stages:
 				cov=extractCoverage(parser, parsed_report)
 				
 			except Exception as e:
-				print(e)
+				#print(e)
 				cov=0
 			runcoverage[parser]=cov
 			runcoverage["sum"]+=cov
@@ -185,7 +185,7 @@ for stage in stages:
 		runcoverage["fuzzing_time"]=str(ft)
 		runcoverage["seed"]=used_seed
 		runcoverage["run_id"]=stage+run_name
-		print(runcoverage)
+		print("finished "+runcoverage["run_id"])
 		
 		stagecoverages+=[runcoverage]
 
