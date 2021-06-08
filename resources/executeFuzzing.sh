@@ -49,7 +49,7 @@ mkdir -p /home/coverageReports/evaldata
 echo "generate inputs"
 mkdir -p /home/tmp/output
 cd /home/resources
-./runtribble.sh $grammar $representations $tribble_mode $tribble_out_dir
+./runtribble.sh $grammar $representations "$tribble_mode" $tribble_out_dir
 
 echo "fuzzing targets $fuzz_target "
 
