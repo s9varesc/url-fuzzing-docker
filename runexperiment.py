@@ -11,7 +11,7 @@ def selectTestFiles(test_file_dir, nr_tests):
 	selectedFiles=[]
 	for filename in os.listdir(test_file_dir+"plain"):
 		if len(selectedFiles) < nr_tests:
-			selectedFiles+=[filename.rsplit("_", 1)]
+			selectedFiles+=[filename.rsplit("_", 1)[0]]
 		else:
 			break
 	return selectedFiles
