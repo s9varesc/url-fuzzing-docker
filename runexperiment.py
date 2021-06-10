@@ -11,7 +11,7 @@ def selectTestFiles(test_file_dir, nr_tests):
 	selectedFiles=[]
 	for filename in os.listdir(test_file_dir+"plain"):
 		if len(selectedFiles) < nr_tests:
-			selectedFiles+=[filename]
+			selectedFiles+=[filename.rsplit("_", 1)]
 		else:
 			break
 	return selectedFiles
@@ -26,7 +26,6 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	#		| plain
 	#			| fileXY
 
-	# TODO check dir structure again
 
 	if origin_dir[-1]!= "/":
 		origin_dir+="/"
@@ -35,8 +34,8 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	subdirs=["chromium/", "firefox/", "plain/"]
 	for filename in selected_files:
 		for subdir in subdirs:
-			print("mv "+origin_dir+subdir+"*"+filename  +" "+destination_dir+subdir) #for testing
-			os.system("mv "+origin_dir+subdir+"*"+filename  +" "+destination_dir+subdir)
+			print("mv "+origin_dir+subdir+"*"+filename +"*_* "+destination_dir+subdir) #for testing
+			os.system("mv "+origin_dir+subdir+"*"+filename  +"*_* "+destination_dir+subdir)
 	return
 
 
@@ -228,7 +227,6 @@ while run_nr<=stopcriteria:
 	tests=selectTestFiles(test_dir, test_set_size)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-
 	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
 	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
 
