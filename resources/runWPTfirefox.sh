@@ -23,7 +23,4 @@ cp wptlog.json /home/coverageReports
 cd ..
 echo "generating reports"
 grcov ./mozilla-unified --ignore *.rs -t lcov >lcov.info
-genhtml -o /home/coverageReports/firefoxWPT --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt
-
-
-
+genhtml -o /home/reports/firefox --show-details --highlight --ignore-errors source --legend lcov.info >genhtmlout.txt 2> /dev/null
