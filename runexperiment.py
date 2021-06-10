@@ -5,8 +5,42 @@ import json
 import datetime
 from bs4 import BeautifulSoup
 
+def selectTestFiles(test_file_dir, nr_tests):
+	if test_file_dir[-1]!="/":
+		test_file_dir+="/"
+	selectedFiles=[]
+	for filename in os.listdir(test_file_dir+"plain"):
+		if len(selectedFiles) < nr_tests:
+			selectedFiles+=[filename]
+		else:
+			break
+	return selectedFiles
 
-def extractCoverage(parser, parsed_report):
+def moveSelectedTests(origin_dir, destination_dir, selected_files):
+	# expected directory structure:
+	# test_file_dir/
+	#		| chromium/
+	#			| components_fileXY
+	#		| firefox
+	#			| components_fileXY
+	#		| plain
+	#			| fileXY
+
+	# TODO check dir structure again
+
+	if origin_dir[-1]!= "/":
+		origin_dir+="/"
+	if destination_dir[-1]!="/":
+		destination_dir+="/"
+	subdirs=["chromium/", "firefox/", "plain/"]
+	for filename in selected_files:
+		for subdir in subdirs:
+			print("mv "+origin_dir+subdir+"*"+filename  +" "+destination_dir+subdir) #for testing
+			os.system("mv "+origin_dir+subdir+"*"+filename  +" "+destination_dir+subdir)
+	return
+
+
+def extractParsedCoverage(parser, parsed_report):
 	if parser=="firefox" or parser=="c" or parser=="cpp":
 		return extractLCOV(parsed_report)
 	elif parser=="chromium":
@@ -73,6 +107,54 @@ def extractLCOV(parsed_report):
 					if content is not None:
 						coverage+=float(content.text[:-1])
 				return coverage
+
+def extractCoverage(parser, result_dir):
+	cov=0
+	try:
+		html=""
+		with open(result_dir+parsers[parser], encoding='utf-8') as f: 
+				html=f.read()
+
+		parsed_report=BeautifulSoup(html, "lxml")
+		
+		cov=extractCoverage(parser, parsed_report)
+		
+	except Exception as e:
+		#print(e)
+		cov=0
+	return cov
+
+def extractRunData(logfile):
+	rundata={}
+	f=open(logfile, "r")
+	log=f.read()
+	f.close()
+	full_time=""
+	fuzz_start=""
+	fuzz_end=""
+	used_seed=""
+	for line in log.split("\n"):
+		if "] done" in line:
+			full_time=line.replace("done", "")
+		if "fuzzing targets" in line:
+			fuzz_start=line.replace("fuzzing targets", "")
+			for t in ["firefox", "chromium", "languages", "all"]:
+				fuzz_start=fuzz_start.replace(t, "")
+		if "finalizing results" in line:
+			fuzz_end=line.replace("finalizing results", "")
+		if "seed:" in line:
+			used_seed=line.split("seed:")[1]
+
+	rundata["full_execution_time"]=full_time.replace("[", "").replace("]", "").replace(" ","")
+	rundata["prep_time"]=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
+	fuzz_end=fuzz_end.replace("[", "").replace("]", "").replace(" ","")
+	fuzz_start=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
+	fb=datetime.datetime.strptime(fuzz_start, '%H:%M:%S')
+	fe=datetime.datetime.strptime(fuzz_end, '%H:%M:%S')
+	ft=fe-fb
+	rundata["fuzzing_time"]=str(ft)
+	rundata["seed"]=used_seed
+	return run_data
 			
 
 
@@ -92,109 +174,105 @@ parsers["ruby"]="Ruby/index.html"
   
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-i", default="combined")
-parser.add_argument("-g")
-parser.add_argument("-m", nargs='+')
-parser.add_argument("-s", default=None)
-parser.add_argument("-r", type=int, default=2)
+parser.add_argument("-t", default=10)	# nr of tests selected for each run
+parser.add_argument("-dir")		# test file dir
+parser.add_argument("-components", default=False) 	# do the test files contain components
+parser.add_argument("-max_runs", default=10000) #TODO use a reasonable default value
+parser.add_argument("-exp_result_dir", default="./")
+
+
+
 
 args = parser.parse_args()
-image=args.i
-grammar = args.g
-#grammar="/home/url-fuzzing/grammars/livingstandard-url.scala"
-	# also use ls wo ui, rfc for other stages
-# list of modes to use
-modes=args.m
-seed=""
-if args.s is not None:
-	seed=" --random-seed="+args.s
-stages=modes 
 
-runs_per_stage=args.r
-result_dir="/vagrant/multiple_results/"
- 
-# runs per stage = docker image executions
-# result dir = will be mounted do docker, holds reports after execution
+test_set_size=args.t
+test_dir=args.dir
+if test_dir[-1]!="/":
+	test_dir+="/"
+comp=args.components
+components=""
+if comp:
+	components="y"
+else:
+	components="n"
+stopcriteria=args.max_runs
 
+mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
+mounting_dir_reports="/home/reports/"		# the docker image writes its results here
+logfile=mounting_dir_reports+"dockerlog.log"
+max_reports_dir=args.exp_result_dir
+if max_reports_dir[:-1]!="/":
+	max_reports_dir+="/"
 
-stagecoverages=[]
-for stage in stages:
-	for run_nr in range(0, runs_per_stage):
-		run_name="Run_"+str(run_nr)
-		logfile=result_dir+stage+run_name+".log"
-		run_results=result_dir+stage+run_name+"/"
-		runcoverage={}
-		runcoverage["sum"]=0
-#		execute docker image
-		print("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble -t "+image+" "+grammar+" \""+stage+ seed +"\" y y >"+logfile)
-		os.system("docker run -v "+run_results+":/home/coverageReports -v /root:/home/mountedtribble  -t "+image+" "+grammar+" \""+stage+ seed +"\" y y >"+logfile )
-		#extract coverages
-		for parser in parsers:
-			cov=0
-			try:
-				html=""
-				with open(run_results+parsers[parser], encoding='utf-8') as f: 
-						html=f.read()
+run_details=[]	# execution time, inputs, coverages
+coverages={} 	# list of coverages per parser
+max_coverages={}	# keep track of the max coverage
+for p in parsers:
+	max_coverages[p]["coverage"]=-1
+	max_coverages[p]["run"]=-1
+	coverages[p]=[]
+	os.system("mkdir -p "+max_reports_dir+"p")
 
-				parsed_report=BeautifulSoup(html, "lxml")
-				
-				cov=extractCoverage(parser, parsed_report)
-				
-			except Exception as e:
-				#print(e)
-				cov=0
-			runcoverage[parser]=cov
-			runcoverage["sum"]+=cov
-		# extract nr of inputs
-		f=open(run_results+"resultoverview.html", "r")
-		inputs=""
-		for i in range(0,5):
-			line=f.readline().replace("\n", "")
-			if "Total number of URLs" in line:
-				inputs=line.replace("<p>Total number of URLs: ", "").replace("</p>","")
-				break
-		f.close()
-		runcoverage["nr_inputs"]=inputs
-		# extract execution time + seed
-		f=open(logfile, "r")
-		log=f.read()
-		f.close()
-		full_time=""
-		fuzz_start=""
-		fuzz_end=""
-		used_seed=""
-		for line in log.split("\n"):
-			if "] done" in line:
-				full_time=line.replace("done", "")
-			if "fuzzing targets" in line:
-				fuzz_start=line.replace("fuzzing targets", "")
-				for t in ["firefox", "chromium", "languages", "all"]:
-					fuzz_start=fuzz_start.replace(t, "")
-			if "finalizing results" in line:
-				fuzz_end=line.replace("finalizing results", "")
-			if "seed:" in line:
-				used_seed=line.split("seed:")[1]
-
-		runcoverage["full_execution_time"]=full_time.replace("[", "").replace("]", "").replace(" ","")
-		runcoverage["generation_time"]=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
-		fuzz_end=fuzz_end.replace("[", "").replace("]", "").replace(" ","")
-		fuzz_start=fuzz_start.replace("[", "").replace("]", "").replace(" ","")
-		fb=datetime.datetime.strptime(fuzz_start, '%H:%M:%S')
-		fe=datetime.datetime.strptime(fuzz_end, '%H:%M:%S')
-		ft=fe-fb
-		runcoverage["fuzzing_time"]=str(ft)
-		runcoverage["seed"]=used_seed
-		runcoverage["run_id"]=stage+run_name
-		print("finished "+runcoverage["run_id"])
-		
-		stagecoverages+=[runcoverage]
+print("coverages")	# only for testing
+print(coverages)
+print("max_coverages")
+print(max_coverages)
 
 
-	
 
-f=open(result_dir+"runexpResults", "w")
-f.write(str(sorted(stagecoverages, key = lambda item: (item['firefox'], item['javascriptwhatwg-url'], item['sum']), reverse=True)))
-f.close()
+
+
+run_nr=0
+while run_nr<=stopcriteria:
+	# select test files
+	tests=selectTestFiles(test_dir, test_set_size)
+	moveSelectedTests(test_dir, mounting_dir_tests, tests)
+	# run the docker image
+
+	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
+	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
+
+	run_data={}
+	run_data["id"]=run_nr
+	run_data["nr_inputs"]=test_set_size*(run_nr + 1) #TODO last run could be different
+	# extract the coverages
+	for p in parsers:
+		coverage=extractCoverage(p, mounting_dir_reports)
+		coverages[p]+=[coverage]
+		# check if this is a new maximum
+		if coverage> max_coverages[p]["coverage"]:
+			# update max_coverages
+			max_coverages[p]["coverage"]=coverage
+			max_coverages[p]["run"]=run_nr
+			# update max report
+			os.system("rm -r "+ max_reports_dir+p+"/*")
+			os.system("cp -r "+mounting_dir_reports+"/*"+" "+max_reports_dir+p+"/")
+			
+		run_data[p]=coverage
+	# collect some more run data
+	logdetails=extractRunData(logfile)
+	run_data.update(logdetails)
+
+	run_details+=[run_data]
+
+	# write result files
+	f=open(max_reports_dir+"runDetails", "w")
+	f.write(str(run_details))
+	f.close()
+	f=open(max_reports_dir+"allCoverages", "w")
+	f.write(str(coverages))
+	f.close()
+	f=open(max_reports_dir+"maxCoverages", "w")
+	f.write(str(max_coverages))
+	f.close()
+
+	run_nr+=1
+
+
+
+
+
+
 
 
 
