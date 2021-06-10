@@ -197,7 +197,9 @@ else:
 stopcriteria=args.max_runs
 
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
+os.system("mkdir -p "+mounting_dir_tests)
 mounting_dir_reports="/home/reports/"		# the docker image writes its results here
+os.system("mkdir -p "+mounting_dir_reports)
 logfile=mounting_dir_reports+"dockerlog.log"
 max_reports_dir=args.exp_result_dir
 if max_reports_dir[-1:]!="/":
