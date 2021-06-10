@@ -9,7 +9,7 @@ mkdir -p /home/coverageReports/firefox
 cd /home/url-fuzzing/firefox
 
 
-if [[ "$comp_created" == "yes" ]]
+if [[ "$comp_created" == "y" ]]
 then
 	python3 urlfileconversion.py -dir "$input_dir"/firefox
 else

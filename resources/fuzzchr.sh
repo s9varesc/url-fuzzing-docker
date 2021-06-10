@@ -14,7 +14,7 @@ cd /home/url-fuzzing/chromium
 comp_created="$1"
 input_dir="$2"
 
-if [[ "$comp_created" == "yes" ]]
+if [[ "$comp_created" == "y" ]]
 then
 	python3 urlfileconversion.py -dir "$input_dir"/chromium
 else

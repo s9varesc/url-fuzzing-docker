@@ -27,10 +27,10 @@ then
 fi
 
 
-comp_created="yes"
+comp_created="y"
 if [[ "$grammar" != "/home/url-fuzzing/grammars/livingstandard-url.scala" ]]  
 then
-	comp_created="no"
+	comp_created="n"
 	representations="onlyPlain"
 fi
 
