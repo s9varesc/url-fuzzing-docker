@@ -207,6 +207,7 @@ run_details=[]	# execution time, inputs, coverages
 coverages={} 	# list of coverages per parser
 max_coverages={}	# keep track of the max coverage
 for p in parsers:
+	max_coverages[p]={}
 	max_coverages[p]["coverage"]=-1
 	max_coverages[p]["run"]=-1
 	coverages[p]=[]
