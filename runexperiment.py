@@ -6,7 +6,7 @@ import datetime
 from bs4 import BeautifulSoup
 
 def selectTestFiles(test_file_dir, nr_tests):
-	if test_file_dir[-1]!="/":
+	if test_file_dir[:-1]!="/":
 		test_file_dir+="/"
 	selectedFiles=[]
 	for filename in os.listdir(test_file_dir+"plain"):
@@ -27,9 +27,9 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	#			| fileXY
 
 
-	if origin_dir[-1]!= "/":
+	if origin_dir[:-1]!= "/":
 		origin_dir+="/"
-	if destination_dir[-1]!="/":
+	if destination_dir[:-1]!="/":
 		destination_dir+="/"
 	subdirs=["chromium/", "firefox/", "plain/"]
 	for filename in selected_files:
@@ -186,7 +186,7 @@ args = parser.parse_args()
 
 test_set_size=args.t
 test_dir=args.dir
-if test_dir[-1]!="/":
+if test_dir[:-1]!="/":
 	test_dir+="/"
 comp=args.components
 components=""
