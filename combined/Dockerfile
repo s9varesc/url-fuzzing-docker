@@ -65,4 +65,7 @@ RUN /home/prep/prepchr.sh
 VOLUME ["/home/coverageReports"]
 
 ENTRYPOINT ["/home/resources/setupandrun.sh", "all"]
-CMD ["/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30", "y", "y"]
+# commandline arguments to also run tribble: task grammar-location tribble-mode
+CMD ["generateAndTest", "/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30"]
+# commandline arguments to use tests from a directory: task component-files testfile-dir
+# CMD ["test", "yes", "/home/testfiles"]

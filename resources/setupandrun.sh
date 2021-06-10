@@ -1,18 +1,30 @@
 #!/bin/bash
 
-# expected arguments: fuzz_target grammar tribble_mode evaluate time
+# expected arguments: fuzz_target 
 
 fuzz_target="$1"
-grammar="$2"
-tribble_mode="$3"
-tribble_out_dir="/home/URLTestFilesRaw"
-eval="${4:-n}"
-time="${5:-y}"
+task="$2"
 
-
-if [[ "$time" == "y" ]]
+if [[ "$task" == "generateAndTest" ]]
 then
-	/home/resources/executeFuzzing.sh $fuzz_target $grammar "$tribble_mode" $tribble_out_dir $eval | ts -s '[%H:%M:%S]'
+	# interpret remaining args as grammar and mode
+	grammar="$3"
+	tribble_mode="$4" 
+	tribble_out_dir="/home/URLTestFilesRaw"
+	/home/resources/generateAndExecuteFuzzing.sh $fuzz_target $grammar "$tribble_mode" $tribble_out_dir | ts -s '[%H:%M:%S]'
+elif [[ "$task" == "test" ]]
+then 
+	# interpret remaining args as components and test_dir
+	components_created="$2"
+	test_dir="$3"
+	/home/resources/executeFuzzing.sh $fuzz_target $components_created $test_dir | ts -s '[%H:%M:%S]'
 else
-	/home/resources/executeFuzzing.sh $fuzz_target $grammar "$tribble_mode" $tribble_out_dir $eval
+	# unkown task
+	echo "unkown value \"$task\", possible values are \"generateAndTest\" or \"test\" "
 fi
+
+
+
+
+
+
