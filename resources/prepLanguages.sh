@@ -50,7 +50,7 @@ PATH="$PATH"
 export PATH
 
 ##Python
-pip3 install coverage
+pip3 install --force-reinstall coverage==5.5
 
 ## PHP
 echo "preparing PHP"
