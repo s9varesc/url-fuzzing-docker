@@ -7,7 +7,7 @@ test_dir="$3"
 
 
 
-./runtests.sh $fuzz_target $comp_created $tribble_out_dir 
+./runtests.sh $fuzz_target $comp_created $test_dir 
 
 cd /home/resources
 ./finalizeOutput.sh
