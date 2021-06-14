@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # expected arguments: grammar representations tribble_mode tribble_out_dir
+# available representations: allRepresentations onlyPlain onlyFirefox onlyChromium
 grammar="$1"
 representations="$2"
 tribble_mode="$3"
 tribble_out_dir="$4"
 
+mkdir -p /home/tmp/output
 cd /home/url-fuzzing/
 git pull
 
