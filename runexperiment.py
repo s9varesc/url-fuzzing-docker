@@ -218,10 +218,6 @@ for p in parsers:
 	coverages[p]=[]
 	os.system("mkdir -p "+max_reports_dir+"p")
 
-print("coverages")	# only for testing
-print(coverages)
-print("max_coverages")
-print(max_coverages)
 
 
 
