@@ -32,9 +32,6 @@ WORKDIR /home/instrumenting
 COPY ./languagefuzzing/*.sh /home/instrumenting/
 RUN chmod a+rx /home/instrumenting/*.sh  
 
-COPY ./resources/*.sh /home/resources/
-RUN chmod a+rx /home/resources/*.sh  
-
 
 ## prepare languages
 RUN /home/prep/prepLanguages.sh
@@ -59,7 +56,8 @@ RUN cargo install --version 0.5.15 grcov
 RUN apt-get install -y python python-dev python-pip python-setuptools
 RUN /home/prep/prepchr.sh
 
-
+COPY ./resources/*.sh /home/resources/
+RUN chmod a+rx /home/resources/*.sh  
 
 
 VOLUME ["/home/coverageReports"]
