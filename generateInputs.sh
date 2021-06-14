@@ -8,13 +8,13 @@ tribble_mode="$3"
 tribble_out_dir="$4"
 
 mkdir -p /home/tmp/output
+apt-get install -y openjdk-11-jdk openjdk-11-source git
 cd /home/url-fuzzing/
 git pull
 
 #check if there is a  tribble version available or install one
 if [ ! -d "/home/tribble" ]; then
   echo "pulling tribble"
-  apt-get install -y openjdk-11-jdk openjdk-11-source git
   cd /home
   git clone https://github.com/havrikov/tribble.git
   cd /home/tribble
@@ -37,6 +37,7 @@ cp /home/url-fuzzing/tribble-additions/Main.scala /home/tribble/tribble-tool/src
 
 echo "building tribble"
 cd /home/tribble
+update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
 ./gradlew build  >>/home/tmp/output/tribblebuild.txt
 mv ./tribble-tool/build/libs/tribble*.jar tribble.jar
 
