@@ -15,8 +15,8 @@ then
 elif [[ "$task" == "test" ]]
 then 
 	# interpret remaining args as components and test_dir
-	components_created="$2"
-	test_dir="$3"
+	components_created="$3"
+	test_dir="$4"
 	/home/resources/executeFuzzing.sh $fuzz_target $components_created $test_dir | ts -s '[%H:%M:%S]'
 else
 	# unkown task
