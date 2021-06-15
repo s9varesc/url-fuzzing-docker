@@ -155,8 +155,8 @@ def extractRunData(logfile):
 	ft=fe-fb
 	rundata["fuzzing_time"]=str(ft)
 	rundata["seed"]=used_seed
-	print(run_data)
-	return run_data
+	#print(rundata)
+	return rundata
 			
 
 
