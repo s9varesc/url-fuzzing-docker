@@ -227,7 +227,7 @@ for p in parsers:
 
 
 run_nr=0
-while run_nr<=stopcriteria:
+while run_nr +1 <=stopcriteria:
 	# select test files
 	tests=selectTestFiles(test_dir, test_set_size)	
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
@@ -237,7 +237,7 @@ while run_nr<=stopcriteria:
 
 	run_data={}
 	run_data["id"]=run_nr
-	run_data["nr_inputs"]=len(tests)
+	run_data["nr_inputs"]=len(tests)+run_details[-1]["nr_inputs"]
 	# extract the coverages
 	for p in parsers:
 		coverage=extractCoverage(p, mounting_dir_reports)
