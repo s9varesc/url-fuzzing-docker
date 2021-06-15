@@ -32,10 +32,10 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	if destination_dir[-1:]!="/":
 		destination_dir+="/"
 	subdirs=["chromium/", "firefox/", "plain/"]
-	os.system("cp "+origin_dir+"*seed* "+destination_dir)
+	os.system("cp "+origin_dir+"*seed* "+destination_dir+"used_seed")
 	for filename in selected_files:
 		for subdir in subdirs:
-			print("mv "+origin_dir+subdir+"*"+filename +"*_* "+destination_dir+subdir) #for testing
+			#print("mv "+origin_dir+subdir+"*"+filename +"*_* "+destination_dir+subdir) #for testing
 			os.system("mv "+origin_dir+subdir+"*"+filename  +"*_* "+destination_dir+subdir)
 	return
 
