@@ -127,6 +127,7 @@ def extractCoverage(parser, result_dir):
 def extractRunData(logfile):
 	rundata={}
 	f=open(logfile, "r")
+	print(logfile)
 	log=f.read()
 	f.close()
 	full_time=""
@@ -154,6 +155,7 @@ def extractRunData(logfile):
 	ft=fe-fb
 	rundata["fuzzing_time"]=str(ft)
 	rundata["seed"]=used_seed
+	print(run_data)
 	return run_data
 			
 
