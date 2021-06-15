@@ -120,7 +120,7 @@ def extractCoverage(parser, result_dir):
 		cov=extractCoverage(parser, parsed_report)
 		
 	except Exception as e:
-		#print(e)
+		print(e)
 		cov=0
 	return cov
 
@@ -217,7 +217,7 @@ for p in parsers:
 	max_coverages[p]["coverage"]=-1
 	max_coverages[p]["run"]=-1
 	coverages[p]=[]
-	print("mkdir -p "+max_reports_dir+p)
+	#print("mkdir -p "+max_reports_dir+p)
 	os.system("mkdir -p "+max_reports_dir+p)
 
 
