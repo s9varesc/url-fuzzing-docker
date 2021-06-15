@@ -217,8 +217,8 @@ for p in parsers:
 	max_coverages[p]["coverage"]=-1
 	max_coverages[p]["run"]=-1
 	coverages[p]=[]
-	print("mkdir -p "+max_reports_dir+"p")
-	os.system("mkdir -p "+max_reports_dir+"p")
+	print("mkdir -p "+max_reports_dir+p)
+	os.system("mkdir -p "+max_reports_dir+p)
 
 
 
@@ -251,6 +251,7 @@ while run_nr<=stopcriteria:
 			os.system("cp -r "+mounting_dir_reports+"*"+" "+max_reports_dir+p+"/")
 			
 		run_data[p]=coverage
+	print(run_data) # for testing
 	# collect some more run data
 	logdetails=extractRunData(logfile)
 	run_data.update(logdetails)
