@@ -117,7 +117,7 @@ def extractCoverage(parser, result_dir):
 
 		parsed_report=BeautifulSoup(html, "lxml")
 		
-		cov=extractCoverage(parser, parsed_report)
+		cov=extractParsedCoverage(parser, parsed_report)
 		
 	except Exception as e:
 		print(e)
