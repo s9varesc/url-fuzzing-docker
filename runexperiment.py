@@ -229,7 +229,7 @@ for p in parsers:
 run_nr=0
 while run_nr<=stopcriteria:
 	# select test files
-	tests=selectTestFiles(test_dir, test_set_size)
+	tests=selectTestFiles(test_dir, test_set_size)	
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
 	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
@@ -237,7 +237,7 @@ while run_nr<=stopcriteria:
 
 	run_data={}
 	run_data["id"]=run_nr
-	run_data["nr_inputs"]=test_set_size*(run_nr + 1) #TODO last run could be different
+	run_data["nr_inputs"]=len(tests)
 	# extract the coverages
 	for p in parsers:
 		coverage=extractCoverage(p, mounting_dir_reports)
@@ -252,11 +252,11 @@ while run_nr<=stopcriteria:
 			os.system("cp -r "+mounting_dir_reports+"*"+" "+max_reports_dir+p+"/")
 			
 		run_data[p]=coverage
-	print(run_data) # for testing
+	
 	# collect some more run data
 	logdetails=extractRunData(logfile)
-	run_data.update(logdetails)
-
+	run_data.update(logdetails)	
+	print(run_data) # for testing
 	run_details+=[run_data]
 
 	# write result files
