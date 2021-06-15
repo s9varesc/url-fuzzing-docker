@@ -198,7 +198,7 @@ else:
 stopcriteria=args.max_runs
 
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
-os.system("rm -r "++mounting_dir_tests+"*") #remove test files from previous experimments
+os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
 os.system("mkdir -p "+mounting_dir_tests)
 os.system("mkdir -p "+mounting_dir_tests+"firefox")
 os.system("mkdir -p "+mounting_dir_tests+"chromium")
