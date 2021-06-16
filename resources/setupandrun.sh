@@ -5,6 +5,10 @@
 fuzz_target="$1"
 task="$2"
 
+cd /home/url-fuzzing
+git pull
+cd /home/resources
+
 if [[ "$task" == "generateAndTest" ]]
 then
 	# interpret remaining args as grammar and mode
