@@ -179,7 +179,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each run
 parser.add_argument("-dir")		# test file dir
 parser.add_argument("-components", default=False) 	# do the test files contain components
-parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value
+parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value -> check if there are files in dir left after each run and increase max_runs
 parser.add_argument("-exp_result_dir", default="./")
 
 
@@ -236,8 +236,8 @@ while run_nr +1 <=stopcriteria:
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
-	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" /home/test-files/ >"+logfile)
+	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" >"+logfile)
+	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" >"+logfile)
 
 	run_data={}
 	run_data["id"]=run_nr
