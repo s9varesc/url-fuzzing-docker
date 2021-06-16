@@ -30,6 +30,14 @@ if [ -d "/home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/component
 	rm -r /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/componentExtraction
 fi
 
+if [[ "$grammar" != "/home/url-fuzzing/grammars/livingstandard-url.scala" ]]  
+then
+	echo "components are only supported for \"url-fuzzing/grammars/livingstandard-url.scala\""
+	echo "generating plain inputs instead, fuzzing targets are not limited by this"
+	representations="onlyPlain"
+fi
+
+
 mkdir -p /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/componentExtraction
 cp -r /home/url-fuzzing/tribble-additions/componentExtraction/* /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble/componentExtraction
 cp /home/url-fuzzing/tribble-additions/$representations/* /home/tribble/tribble-tool/src/main/scala/de/cispa/se/tribble
