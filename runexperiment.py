@@ -182,7 +182,7 @@ parsers["ruby"]="Ruby/index.html"
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each run
 parser.add_argument("-dir")		# test file dir
-parser.add_argument("-components", default=False) 	# do the test files contain components
+parser.add_argument("-components", default=False, type=bool) 	# do the test files contain components
 parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value -> check if there are files in dir left after each run and increase max_runs
 parser.add_argument("-exp_result_dir", default="./")
 
