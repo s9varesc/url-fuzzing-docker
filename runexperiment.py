@@ -222,16 +222,7 @@ max_reports_dir=args.exp_result_dir
 if max_reports_dir[-1:]!="/":
 	max_reports_dir+="/"
 
-run_details=[]	# execution time, inputs, coverages
-coverages={} 	# list of coverages per parser
-max_coverages={}	# keep track of the max coverage
-for p in parsers:
-	max_coverages[p]={}
-	max_coverages[p]["coverage"]=-1
-	max_coverages[p]["run"]=-1
-	coverages[p]=[]
-	#print("mkdir -p "+max_reports_dir+p)
-	os.system("mkdir -p "+max_reports_dir+p)
+
 
 
 
@@ -248,6 +239,17 @@ elif image == "languages":
 else:
 	print("bad image value")
 	exit()
+
+run_details=[]	# execution time, inputs, coverages
+coverages={} 	# list of coverages per parser
+max_coverages={}	# keep track of the max coverage
+for p in parsers:
+	max_coverages[p]={}
+	max_coverages[p]["coverage"]=-1
+	max_coverages[p]["run"]=-1
+	coverages[p]=[]
+	#print("mkdir -p "+max_reports_dir+p)
+	os.system("mkdir -p "+max_reports_dir+p)
 
 run_nr=0
 nr_inputs=0
