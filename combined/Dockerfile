@@ -64,6 +64,6 @@ VOLUME ["/home/coverageReports"]
 
 ENTRYPOINT ["/home/resources/setupandrun.sh", "all"]
 # commandline arguments to also run tribble: task grammar-location tribble-mode
-CMD ["generateAndTest", "/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path-30"]
+CMD ["generateAndTest", "/home/url-fuzzing/grammars/livingstandard-url.scala", "2-path"]
 # commandline arguments to use tests from a directory: task component-files, mount testfile-dir to /home/test-files
-# CMD ["test", "yes"]
+# CMD ["test", "y"]
