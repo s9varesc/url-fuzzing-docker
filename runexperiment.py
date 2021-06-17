@@ -264,7 +264,6 @@ while run_nr +1 <=stopcriteria:
 	exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t "+image+" test "+components+" >"+logfile)
 	if exit_val != 0 :
 		print("docker execution did not result in success, stopping")
-		print(parsers)
 		break
 
 
