@@ -237,6 +237,9 @@ nr_inputs=0
 while run_nr +1 <=stopcriteria:
 	# select test files
 	tests=selectTestFiles(test_dir, test_set_size)	
+	if len(tests) < 1:
+		print("no more inputs to use, stopping")
+		break
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
@@ -268,10 +271,10 @@ while run_nr +1 <=stopcriteria:
 	run_details+=[run_data]
 
 	# write result files
-	f=open(max_reports_dir+"runDetails", "w")
+	f=open(max_reports_dir+"runDetails", "w")	
 	f.write(str(run_details))
 	f.close()
-	f=open(max_reports_dir+"allCoverages", "w")
+	f=open(max_reports_dir+"allCoverages", "w")			#TODO json dumps!!
 	f.write(str(coverages))
 	f.close()
 	f=open(max_reports_dir+"maxCoverages", "w")
