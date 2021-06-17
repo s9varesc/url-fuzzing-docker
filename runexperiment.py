@@ -9,7 +9,11 @@ def selectTestFiles(test_file_dir, nr_tests):
 	if test_file_dir[-1:]!="/":
 		test_file_dir+="/"
 	selectedFiles=[]
-	for filename in os.listdir(test_file_dir+"plain"):
+	testsubdir=""
+	for sdir in ["chromium/", "firefox/", "plain/"]:	
+		if os.path.isdir(test_file_dir+sdir):
+			testsubdir=sdir
+	for filename in os.listdir(test_file_dir+testsubdir):	
 		if len(selectedFiles) < nr_tests:
 			selectedFiles+=[filename.rsplit("_", 1)[0]]
 		else:
