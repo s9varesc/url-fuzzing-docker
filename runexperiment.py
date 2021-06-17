@@ -170,21 +170,23 @@ def extractRunData(logfile):
 
 
 parsers={}
-parsers["chromium"]="chromium/report.html"
-parsers["firefox"]="firefox/nsURLParsers.cpp.gcov.html" 
-parsers["c"]="C/src/UriParse.c.gcov.html"
-parsers["cpp"]="Cpp/src/URI.cpp.gcov.html"
-parsers["go"]="Go/index.html"
-parsers["java"]="Java/java/net/URL.html" 
-parsers["javascripturijs"]="JavaScript/urijs/URI.js.html"
-parsers["javascriptwhatwg-url"]="JavaScript/whatwg-url/whatwg-url/dist/url-state-machine.js.html"
-parsers["php"]="PHP/index.html"
-parsers["python"]="Python/_usr_lib_python3_6_urllib_parse_py.html"
-parsers["ruby"]="Ruby/index.html"
+pre_parsers={}
+pre_parsers["chromium"]="chromium/report.html"
+pre_parsers["firefox"]="firefox/nsURLParsers.cpp.gcov.html" 
+pre_parsers["c"]="C/src/UriParse.c.gcov.html"
+pre_parsers["cpp"]="Cpp/src/URI.cpp.gcov.html"
+pre_parsers["go"]="Go/index.html"
+pre_parsers["java"]="Java/java/net/URL.html" 
+pre_parsers["javascripturijs"]="JavaScript/urijs/URI.js.html"
+pre_parsers["javascriptwhatwg-url"]="JavaScript/whatwg-url/whatwg-url/dist/url-state-machine.js.html"
+pre_parsers["php"]="PHP/index.html"
+pre_parsers["python"]="Python/_usr_lib_python3_6_urllib_parse_py.html"
+pre_parsers["ruby"]="Ruby/index.html"
   
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each run
+parser.add_argument("-i", default="combined") 	# which docker image to use, values: combined, firefox, chromium, languages
 parser.add_argument("-dir")		# test file dir
 parser.add_argument("-components", default=False, type=bool) 	# do the test files contain components
 parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value -> check if there are files in dir left after each run and increase max_runs
@@ -233,8 +235,19 @@ for p in parsers:
 
 
 
-
-
+image=args.i
+# only check results of contained parsers
+if image == "combined":
+	parsers.update(pre_parsers)
+elif image in ["firefox", "chromium"]:
+	parsers[image]=pre_parsers[image]
+elif image == "languages":
+	for p in pre_parsers:
+		if p not in ["firefox", "chromium"]:
+			parsers[p]=pre_parsers[p]
+else:
+	print("bad image value")
+	exit()
 
 run_nr=0
 nr_inputs=0
@@ -247,8 +260,8 @@ while run_nr +1 <=stopcriteria:
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" >"+logfile)
-	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t combined test "+components+" >"+logfile)
+	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t "+image+" test "+components+" >"+logfile)
+	os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files -t "+image+" test "+components+" >"+logfile)
 
 	run_data={}
 	run_data["id"]=run_nr
