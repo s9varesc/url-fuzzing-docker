@@ -262,7 +262,7 @@ while run_nr +1 <=stopcriteria:
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
+	#print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
 	exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
 	if exit_val != 0 :
 		print("docker execution did not result in success, stopping")
@@ -290,7 +290,7 @@ while run_nr +1 <=stopcriteria:
 	# collect some more run data
 	logdetails=extractRunData(logfile)
 	run_data.update(logdetails)	
-	print(run_data) # for testing
+	#print(run_data) # for testing
 	run_details[run_nr]=run_data
 
 	# write result files
