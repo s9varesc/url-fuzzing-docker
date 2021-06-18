@@ -240,7 +240,7 @@ else:
 	print("bad image value")
 	exit()
 
-run_details=[]	# execution time, inputs, coverages
+run_details={}	# execution time, inputs, coverages
 coverages={} 	# list of coverages per parser
 max_coverages={}	# keep track of the max coverage
 for p in parsers:
@@ -291,17 +291,17 @@ while run_nr +1 <=stopcriteria:
 	logdetails=extractRunData(logfile)
 	run_data.update(logdetails)	
 	print(run_data) # for testing
-	run_details+=[run_data]
+	run_details[run_nr]=run_data
 
 	# write result files
 	f=open(max_reports_dir+"runDetails", "w")	
-	f.write(str(run_details))
+	f.write(json.dumps(run_details))
 	f.close()
-	f=open(max_reports_dir+"allCoverages", "w")			#TODO json dumps!!
-	f.write(str(coverages))
+	f=open(max_reports_dir+"allCoverages", "w")			
+	f.write(json.dumps(coverages))
 	f.close()
 	f=open(max_reports_dir+"maxCoverages", "w")
-	f.write(str(max_coverages))
+	f.write(json.dumps(max_coverages))
 	f.close()
 
 	run_nr+=1
