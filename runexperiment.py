@@ -135,7 +135,7 @@ def extractCoverage(parser, result_dir):
 def extractRunData(logfile):
 	rundata={}
 	f=open(logfile, "r")
-	print(logfile)
+	#print(logfile)
 	log=f.read()
 	f.close()
 	full_time=""
