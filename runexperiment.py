@@ -39,7 +39,7 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	for sdir in ["chromium/", "firefox/", "plain/"]:	# only use existing dirs
 		if os.path.isdir(origin_dir+sdir):
 			subdirs+=[sdir]
-	print(subdirs)
+	
 	os.system("cp "+origin_dir+"*seed* "+destination_dir+"used_seed")
 	for filename in selected_files:
 		for subdir in subdirs:
@@ -212,8 +212,8 @@ stopcriteria=args.max_runs
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
 os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
 os.system("mkdir -p "+mounting_dir_tests)
-os.system("mkdir -p "+mounting_dir_tests+"firefox")
-os.system("mkdir -p "+mounting_dir_tests+"chromium")
+#os.system("mkdir -p "+mounting_dir_tests+"firefox")	#will be created during mv
+#os.system("mkdir -p "+mounting_dir_tests+"chromium")
 os.system("mkdir -p "+mounting_dir_tests+"plain")
 mounting_dir_reports="/home/reports/"		# the docker image writes its results here
 os.system("mkdir -p "+mounting_dir_reports)
