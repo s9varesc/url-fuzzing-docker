@@ -39,7 +39,7 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	for sdir in ["chromium/", "firefox/", "plain/"]:	# only use existing dirs
 		if os.path.isdir(origin_dir+sdir):
 			subdirs+=[sdir]
-
+	print(subdirs)
 	os.system("cp "+origin_dir+"*seed* "+destination_dir+"used_seed")
 	for filename in selected_files:
 		for subdir in subdirs:
