@@ -190,7 +190,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each run
 parser.add_argument("-i", default="combined") 	# which docker image to use, values: combined, firefox, chromium, languages
 parser.add_argument("-dir")		# test file dir
-parser.add_argument("-components", default=False, type=bool) 	# do the test files contain components
+parser.add_argument("-components", default="n") 	# do the test files contain components
 parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value -> check if there are files in dir left after each run and increase max_runs
 parser.add_argument("-exp_result_dir", default="./")
 
@@ -203,12 +203,7 @@ test_set_size=args.t
 test_dir=args.dir
 if test_dir[-1:]!="/":
 	test_dir+="/"
-comp=args.components
-components=""
-if comp:
-	components="y"
-else:
-	components="n"
+components=args.components
 print(components)
 stopcriteria=args.max_runs
 
