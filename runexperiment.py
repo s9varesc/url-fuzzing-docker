@@ -209,6 +209,7 @@ if comp:
 	components="y"
 else:
 	components="n"
+print(components)
 stopcriteria=args.max_runs
 
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
