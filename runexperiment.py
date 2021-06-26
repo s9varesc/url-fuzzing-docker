@@ -3,7 +3,8 @@ import os
 import subprocess
 import json
 import datetime
-from bs4 import BeautifulSoup
+import pandas as pd
+
 
 def selectTestFiles(test_file_dir, nr_tests):
 	if test_file_dir[-1:]!="/":
@@ -50,89 +51,7 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 	return
 
 
-def extractParsedCoverage(parser, parsed_report):
-	if parser=="firefox" or parser=="c" or parser=="cpp":
-		return extractLCOV(parsed_report)
-	elif parser=="chromium":
-		tbody=parsed_report.find("tbody").find("tr", attrs={"class", "light-row"})
-		td=tbody.find_all("td")
-		percent=td[1].find("pre")
-		cov=float((percent.text).split("%")[0])
-		return cov
-	elif parser=="go":
-		op=parsed_report.find("option")
-		cov=float(op.text.split("(")[1].split("%")[0])
-		return cov
-	elif parser=="java":
-		tds=parsed_report.find_all("td", attrs={"class", "reportValue"})
-		cov=float(tds[3].find("b").text)
-		return cov
-	elif parser=="javascripturijs" or parser=="javascriptwhatwg-url":
-		return extractNYC(parsed_report)
-	elif parser=="php":
-		tbody=parsed_report.find("tbody")
-		cov=float(tbody.find("div").find("span").text.split("%")[0])
-		return cov
-	elif parser=="python":
-		cov=float(parsed_report.find("title").text.split(":")[1][:-1])
-		return cov
-	elif parser=="ruby":
-		h=parsed_report.find("h2").find("span", attrs={"class", "covered_percent"})
-		span=h.find("span").text.split("%")[0]
-		cov=float(span)
-		return cov
-	else:
-		return 0
 
-def extractNYC(parsed_report):
-	maindiv=parsed_report.find("div", attrs={"class", "pad1"})
-	divs=maindiv.find_all("div")
-
-	for div in divs:
-		qspan=div.find("span",attrs={"class", "quiet"})
-		if qspan.text == "Lines":
-			cov=div.find("span",attrs={"class", "strong"})
-			return float(cov.text[:-2])
-
-def extractLCOV(parsed_report):
-	table=parsed_report.find("table")
-	table_data=table.find_all("tr")
-
-	for row in table_data:
-	#print(row)
-		if row.find("tr") is not None:
-		#print(row.find_all("tr"))
-			pass
-		else:
-			headers=row.find_all("td", attrs={"class", "headerItem"})
-			thisrow=False
-			for header in headers:
-				if header.text=="Lines:":
-					thisrow=True
-			if thisrow:
-				coverage=0.0
-				attr=["headerCovTableEntryHi", "headerCovTableEntryMed", "headerCovTableEntryLo"]
-				for att in attr:
-					content=row.find("td", attrs={"class",att })
-					if content is not None:
-						coverage+=float(content.text[:-1])
-				return coverage
-
-def extractCoverage(parser, result_dir):
-	cov=0
-	try:
-		html=""
-		with open(result_dir+parsers[parser], encoding='utf-8') as f: 
-				html=f.read()
-
-		parsed_report=BeautifulSoup(html, "lxml")
-		
-		cov=extractParsedCoverage(parser, parsed_report)
-		
-	except Exception as e:
-		print(e)
-		cov=0
-	return cov
 
 def extractRunData(logfile):
 	rundata={}
@@ -171,19 +90,9 @@ def extractRunData(logfile):
 
 
 
-parsers={}
-pre_parsers={}
-pre_parsers["chromium"]="chromium/report.html"
-pre_parsers["firefox"]="firefox/nsURLParsers.cpp.gcov.html" 
-pre_parsers["c"]="C/src/UriParse.c.gcov.html"
-pre_parsers["cpp"]="Cpp/src/URI.cpp.gcov.html"
-pre_parsers["go"]="Go/index.html"
-pre_parsers["java"]="Java/java/net/URL.html" 
-pre_parsers["javascripturijs"]="JavaScript/urijs/URI.js.html"
-pre_parsers["javascriptwhatwg-url"]="JavaScript/whatwg-url/whatwg-url/dist/url-state-machine.js.html"
-pre_parsers["php"]="PHP/index.html"
-pre_parsers["python"]="Python/_usr_lib_python3_6_urllib_parse_py.html"
-pre_parsers["ruby"]="Ruby/index.html"
+parsers=[]
+pre_parsers=["chromium", "firefox", "c", "cpp", "go", "java", "javascripturijs", "javascriptwhatwg-url", "php", "python", "ruby"]
+
   
 
 parser = argparse.ArgumentParser()
@@ -191,8 +100,9 @@ parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each 
 parser.add_argument("-i", default="combined") 	# which docker image to use, values: combined, firefox, chromium, languages
 parser.add_argument("-dir")		# test file dir
 parser.add_argument("-components", default="n") 	# do the test files contain components
-parser.add_argument("-max_runs", default=10000, type=int) #TODO use a reasonable default value -> check if there are files in dir left after each run and increase max_runs
+parser.add_argument("-max_runs", default=10000, type=int) 
 parser.add_argument("-exp_result_dir", default="./")
+#parser.add_argument("-continue_exp", default=False, type=bool)
 
 
 
@@ -204,11 +114,16 @@ test_dir=args.dir
 if test_dir[-1:]!="/":
 	test_dir+="/"
 components=args.components
-print(components)
 stopcriteria=args.max_runs
 
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
-os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
+#cont=args.continue_exp
+cont=False
+if not cont:
+	os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
+else:
+	# continue with the experiment: retrieve last run id etc and use them later on
+	pass
 os.system("mkdir -p "+mounting_dir_tests)
 #os.system("mkdir -p "+mounting_dir_tests+"firefox")	#will be created during mv
 #os.system("mkdir -p "+mounting_dir_tests+"chromium")
@@ -227,29 +142,26 @@ if max_reports_dir[-1:]!="/":
 image=args.i
 # only check results of contained parsers
 if image == "combined":
-	parsers.update(pre_parsers)
+	parsers=pre_parsers
 elif image in ["firefox", "chromium"]:
-	parsers[image]=pre_parsers[image]
+	parsers+=image
 elif image == "languages":
 	for p in pre_parsers:
 		if p not in ["firefox", "chromium"]:
-			parsers[p]=pre_parsers[p]
+			parsers+=p
 else:
 	print("bad image value")
 	exit()
 
-run_details={}	# execution time, inputs, coverages
-coverages={} 	# list of coverages per parser
+
+full_csv=pd.DataFrame()
+
 max_coverages={}	# keep track of the max coverage
 for p in parsers:
-	max_coverages[p]={}
-	max_coverages[p]["coverage"]=-1
-	max_coverages[p]["run"]=-1
-	coverages[p]=[]
-	#print("mkdir -p "+max_reports_dir+p)
+	max_coverages[p]=-1
 	os.system("mkdir -p "+max_reports_dir+p)
 
-run_nr=0
+run_nr=0	
 nr_inputs=0
 while run_nr +1 <=stopcriteria:
 	# select test files
@@ -266,41 +178,40 @@ while run_nr +1 <=stopcriteria:
 		print("docker execution did not result in success, stopping")
 		break
 
+	result_data=pd.read_csv(mounting_dir_reports+"mainresults.csv")
+	result_data.insert(0, "run_nr", run_nr, False)
 
-	run_data={}
-	run_data["id"]=run_nr
-	run_data["nr_inputs"]=nr_inputs
 	# extract the coverages
 	for p in parsers:
-		coverage=extractCoverage(p, mounting_dir_reports)
-		coverages[p]+=[coverage]
-		# check if this is a new maximum
-		if coverage> max_coverages[p]["coverage"]:
+		coverage=result_data.iloc[0][p+"-cov"]
+	
+		# check if this is a new maximum				
+		if coverage> max_coverages[p]:	
 			# update max_coverages
-			max_coverages[p]["coverage"]=coverage
-			max_coverages[p]["run"]=run_nr
+			max_coverages[p]=coverage
 			# update max report
 			os.system("rm -r "+ max_reports_dir+p+"/*")
 			os.system("cp -r "+mounting_dir_reports+"*"+" "+max_reports_dir+p+"/")
 			
-		run_data[p]=coverage
 	
 	# collect some more run data
-	logdetails=extractRunData(logfile)
-	run_data.update(logdetails)	
-	#print(run_data) # for testing
-	run_details[run_nr]=run_data
+	logdetails=extractRunData(logfile)	
+	for logkey in logdetails:	# add log details to dataframe
+		result_data[logkey]=logdetails[logkey]
+	
+	
 
-	# write result files
-	f=open(max_reports_dir+"runDetails", "w")	
-	f.write(json.dumps(run_details))
-	f.close()
-	f=open(max_reports_dir+"allCoverages", "w")			
-	f.write(json.dumps(coverages))
-	f.close()
-	f=open(max_reports_dir+"maxCoverages", "w")
-	f.write(json.dumps(max_coverages))
-	f.close()
+	full_csv=pd.concat([full_csv, result_data], ignore_index=True)
+
+	# write result files 						
+	full_csv.to_csv(max_reports_dir+"experimentResults.csv", index=False)
+	
+
+	try:
+		os.system("/home/url-fuzzing-docker/update-results.sh")
+	except Exception as e:
+		print("updating the results repository failed: "+e)
+		print("will try again after the next run")
 
 	run_nr+=1
 
