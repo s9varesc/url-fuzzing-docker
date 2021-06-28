@@ -83,7 +83,7 @@ def extractRunData(logfile):
 	fe=datetime.datetime.strptime(fuzz_end, '%H:%M:%S')
 	ft=fe-fb
 	rundata["fuzzing_time"]=str(ft)
-	rundata["seed"]=used_seed
+	#rundata["seed"]=used_seed
 	#print(rundata)
 	return rundata
 			
@@ -155,6 +155,7 @@ else:
 
 
 full_csv=pd.DataFrame()
+full_components_csv=pd.DataFrame()
 
 max_coverages={}	# keep track of the max coverage
 for p in parsers:
@@ -180,6 +181,9 @@ while run_nr +1 <=stopcriteria:
 
 	result_data=pd.read_csv(mounting_dir_reports+"mainresults.csv")
 	result_data.insert(0, "run_nr", run_nr, False)
+	comp_result_data=pd.read_csv(mounting_dir_reports+"component_results.csv")
+	comp_result_data.insert(0, "run_nr", run_nr, False)
+	comp_result_data.insert(1, "nr_inputs", nr_inputs, False)
 
 	# extract the coverages
 	for p in parsers:
@@ -202,9 +206,10 @@ while run_nr +1 <=stopcriteria:
 	
 
 	full_csv=pd.concat([full_csv, result_data], ignore_index=True)
-
+	full_components_csv=pd.concat([full_components_csv, comp_result_data], ignore_index=True)
 	# write result files 						
-	full_csv.to_csv(max_reports_dir+"experimentResults.csv", index=False)
+	full_csv.to_csv(max_reports_dir+"experimentResultsMain.csv", index=False)
+	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False)
 	
 
 	try:
