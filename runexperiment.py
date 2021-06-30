@@ -206,12 +206,12 @@ while run_nr +1 <=stopcriteria:
 	
 
 	full_csv=pd.concat([full_csv, result_data], ignore_index=True)
-	full_csv.fillna(0)
+	
 	full_components_csv=pd.concat([full_components_csv, comp_result_data], ignore_index=True)
-	full_components_csv.fillna(0)
+	
 	# write result files 						
-	full_csv.to_csv(max_reports_dir+"experimentResultsMain.csv", index=False)
-	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False)
+	full_csv.to_csv(max_reports_dir+"experimentResultsMain.csv", index=False, na_rep=0)
+	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False, na_rep=0)
 
 	
 
