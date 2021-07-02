@@ -209,7 +209,7 @@ while run_nr +1 <=stopcriteria:
 	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False, na_rep=0)
 
 	
-	if run_nr % update_rate == 0:
+	if run_nr % update_rate == 0 or run_nr+1==stopcriteria:
 		update_success=True
 		try:
 			exit_val=os.system("/home/url-fuzzing-docker/update-results.sh")
@@ -220,7 +220,7 @@ while run_nr +1 <=stopcriteria:
 		
 		if not update_success:
 			print("updating the results repository failed ")
-			print("will try again after the next "+update_rate+" runs")
+			print("will try again after the next "+str(update_rate)+" runs")
 
 	run_nr+=1
 
