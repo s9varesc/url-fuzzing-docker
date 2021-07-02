@@ -102,7 +102,7 @@ parser.add_argument("-dir")		# test file dir
 parser.add_argument("-components", default="n") 	# do the test files contain components
 parser.add_argument("-max_runs", default=10000, type=int) 
 parser.add_argument("-exp_result_dir", default="./")
-#parser.add_argument("-continue_exp", default=False, type=bool)
+parser.add_argument("-update_rate", default=10, type=int)
 
 
 
@@ -115,15 +115,10 @@ if test_dir[-1:]!="/":
 	test_dir+="/"
 components=args.components
 stopcriteria=args.max_runs
+update_rate=args.update_rate
 
 mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
-#cont=args.continue_exp
-cont=False
-if not cont:
-	os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
-else:
-	# continue with the experiment: retrieve last run id etc and use them later on
-	pass
+os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
 os.system("mkdir -p "+mounting_dir_tests)
 #os.system("mkdir -p "+mounting_dir_tests+"firefox")	#will be created during mv
 #os.system("mkdir -p "+mounting_dir_tests+"chromium")
@@ -214,12 +209,18 @@ while run_nr +1 <=stopcriteria:
 	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False, na_rep=0)
 
 	
-
-	try:
-		os.system("/home/url-fuzzing-docker/update-results.sh")
-	except Exception as e:
-		print("updating the results repository failed: "+e)
-		print("will try again after the next run")
+	if run_nr % update_rate == 0:
+		update_success=True
+		try:
+			exit_val=os.system("/home/url-fuzzing-docker/update-results.sh")
+			if exit_val!=0:
+				update_success=False
+		except Exception as e:
+			update_success=False
+		
+		if not update_success:
+			print("updating the results repository failed ")
+			print("will try again after the next "+update_rate+" runs")
 
 	run_nr+=1
 
