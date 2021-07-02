@@ -16,7 +16,7 @@ git pull
 if [ ! -d "/home/tribble" ]; then
   echo "pulling tribble"
   cd /home
-  git clone https://github.com/havrikov/tribble.git
+  git clone https://github.com/havrikov/tribble.git 	#this version does not include incrementing mode
   cd /home/tribble
   git checkout a1cf8cf8d46d5cd5d7e533ada96746bfac50dcc6
   update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java && update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
@@ -32,8 +32,11 @@ fi
 
 if [ "$grammar" != "/home/url-fuzzing/grammars/livingstandard-url.scala" ]  
 then
-	echo "components are only supported for \"url-fuzzing/grammars/livingstandard-url.scala\""
-	echo "generating plain inputs instead, fuzzing targets are not limited by this"
+	if [ "$representations" != "onlyPlain" ]
+	then
+		echo "components are only supported for \"url-fuzzing/grammars/livingstandard-url.scala\""
+		echo "generating plain inputs instead, fuzzing targets are not limited by this"
+	fi
 	representations="onlyPlain"
 fi
 
@@ -51,6 +54,7 @@ mv ./tribble-tool/build/libs/tribble*.jar tribble.jar
 
 
 echo "create inputs from $grammar "
-java -jar tribble.jar generate --mode=$tribble_mode --suffix=.md --grammar-file=$grammar --out-dir=$tribble_out_dir >>/home/tmp/output/tribblegen.txt
+java -Xmx1024m -jar tribble.jar generate --mode=$tribble_mode --unfold-regexes --suffix=.md --grammar-file=$grammar --out-dir=$tribble_out_dir >>/home/tmp/output/tribblegen.txt
 
+echo "finished generating inputs"
 
