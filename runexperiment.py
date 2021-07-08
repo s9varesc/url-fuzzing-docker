@@ -208,6 +208,8 @@ while run_nr +1 <=stopcriteria:
 	full_csv.to_csv(max_reports_dir+"experimentResultsMain.csv", index=False, na_rep=0)
 	full_components_csv.to_csv(max_reports_dir+"experimentResultsComponents.csv", index=False, na_rep=0)
 
+	#keep the results of the last executed run
+	os.system("cp -r "+mounting_dir_reports+"*"+" "+max_reports_dir+"lastRun/")
 	
 	if run_nr % update_rate == 0 or run_nr+1==stopcriteria:
 		update_success=True
