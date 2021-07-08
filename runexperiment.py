@@ -157,6 +157,9 @@ for p in parsers:
 	max_coverages[p]=-1
 	os.system("mkdir -p "+max_reports_dir+p)
 
+os.system("mkdir -p "+max_reports_dir+"lastRun/")
+	
+
 run_nr=0	
 nr_inputs=0
 while run_nr +1 <=stopcriteria:
