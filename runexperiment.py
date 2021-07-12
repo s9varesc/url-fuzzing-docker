@@ -4,6 +4,7 @@ import subprocess
 import json
 import datetime
 import pandas as pd
+import random
 
 
 def selectTestFiles(test_file_dir, nr_tests):
@@ -14,11 +15,13 @@ def selectTestFiles(test_file_dir, nr_tests):
 	for sdir in ["chromium/", "firefox/", "plain/"]:	
 		if os.path.isdir(test_file_dir+sdir):
 			testsubdir=sdir
-	for filename in os.listdir(test_file_dir+testsubdir):	
-		if len(selectedFiles) < nr_tests:
-			selectedFiles+=[filename.rsplit("_", 1)[0]]
-		else:
-			break
+	try:
+		selected=random.sample(os.listdir(test_file_dir+testsubdir), nr_tests)
+	except Exception as e:
+		# nr of available inputs smaller than nr_tests
+		selected=os.listdir(test_file_dir+testsubdir)
+	for filename in selected:	
+		selectedFiles+=[filename.rsplit("_", 1)[0]]
 	return selectedFiles
 
 def moveSelectedTests(origin_dir, destination_dir, selected_files):
