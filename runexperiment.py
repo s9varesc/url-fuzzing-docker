@@ -44,7 +44,7 @@ def moveSelectedTests(origin_dir, destination_dir, selected_files):
 		if os.path.isdir(origin_dir+sdir):
 			subdirs+=[sdir]
 			os.system("mkdir -p "+destination_dir+sdir) #prepare new location
-	
+
 	os.system("cp "+origin_dir+"*seed* "+destination_dir+"used_seed")
 	
 	for filename in selected_files:
@@ -102,6 +102,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-t", default=10, type=int)	# nr of tests selected for each run
 parser.add_argument("-i", default="combined") 	# which docker image to use, values: combined, firefox, chromium, languages
 parser.add_argument("-dir")		# test file dir
+parser.add_argument("-test_mount", default="/home/URLTestFiles/")
 parser.add_argument("-components", default="n") 	# do the test files contain components
 parser.add_argument("-max_runs", default=10000, type=int) 
 parser.add_argument("-exp_result_dir", default="./")
@@ -120,8 +121,10 @@ components=args.components
 stopcriteria=args.max_runs
 update_rate=args.update_rate
 
-mounting_dir_tests="/home/URLTestFiles/"	# test files will be gradually moved here
-os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
+mounting_dir_tests=args.test_mount	# test files will be gradually moved here
+if mounting_dir_tests[-1:]!="/":
+	mounting_dir_tests+="/"
+#os.system("rm -r "+mounting_dir_tests+"*") #remove test files from previous experimments
 os.system("mkdir -p "+mounting_dir_tests)
 #os.system("mkdir -p "+mounting_dir_tests+"firefox")	#will be created during mv
 #os.system("mkdir -p "+mounting_dir_tests+"chromium")
@@ -151,20 +154,37 @@ else:
 	print("bad image value")
 	exit()
 
-
-full_csv=pd.DataFrame()
-full_components_csv=pd.DataFrame()
-
 max_coverages={}	# keep track of the max coverage
 for p in parsers:
 	max_coverages[p]=-1
 	os.system("mkdir -p "+max_reports_dir+p)
 
+
+
+last=-1
+lastinputs=0
+try:
+	full_csv=pd.read_csv(max_reports_dir+"experimentResultsMain.csv")
+	# extract last run nr and nr of inputs to continue
+	last=full_csv['run_nr'].max()
+	lastinputs=full_csv['nr-inputs'].max()
+	for p in parsers:
+		max_coverages[p]=full_csv[p+'-cov'].max()
+except Exception as e:
+	full_csv=pd.DataFrame()
+try:
+	full_components_csv=pd.read_csv(max_reports_dir+"experimentResultsComponents.csv")
+except:
+	full_components_csv=pd.DataFrame()
+
+
+
 os.system("mkdir -p "+max_reports_dir+"lastRun/")
 	
 
-run_nr=0	
-nr_inputs=0
+
+run_nr=last+1	
+nr_inputs=lastinputs
 while run_nr +1 <=stopcriteria:
 	# select test files
 	tests=selectTestFiles(test_dir, test_set_size)	
@@ -174,8 +194,9 @@ while run_nr +1 <=stopcriteria:
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-	#print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
-	exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
+	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
+	exit_val=0
+	#exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
 	if exit_val != 0 :
 		print("docker execution did not result in success, stopping")
 		break
