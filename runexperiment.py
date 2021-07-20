@@ -167,13 +167,14 @@ try:
 	full_csv=pd.read_csv(max_reports_dir+"experimentResultsMain.csv")
 	# extract last run nr and nr of inputs to continue
 	last=full_csv['run_nr'].max()
-	lastinputs=full_csv['nr-inputs'].max()
+	
 	for p in parsers:
 		max_coverages[p]=full_csv[p+'-cov'].max()
 except Exception as e:
 	full_csv=pd.DataFrame()
 try:
 	full_components_csv=pd.read_csv(max_reports_dir+"experimentResultsComponents.csv")
+	lastinputs=full_components_csv['nr_inputs'].max() # this is the nr of input files, full_csv counts distinc inputs
 except:
 	full_components_csv=pd.DataFrame()
 
@@ -182,21 +183,20 @@ except:
 os.system("mkdir -p "+max_reports_dir+"lastRun/")
 	
 
-
 run_nr=last+1	
 nr_inputs=lastinputs
 while run_nr +1 <=stopcriteria:
 	# select test files
 	tests=selectTestFiles(test_dir, test_set_size)	
-	if len(tests) < 1:
+	if len(tests) < 1 and test_set_size>0:
 		print("no more inputs to use, stopping")
 		break
 	nr_inputs+=len(tests)
 	moveSelectedTests(test_dir, mounting_dir_tests, tests)
 	# run the docker image
-	print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
+	#print("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
 	exit_val=0
-	#exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
+	exit_val=os.system("docker run -v "+mounting_dir_reports+":/home/coverageReports -v "+mounting_dir_tests+":/home/test-files --rm -t "+image+" test "+components+" >"+logfile)
 	if exit_val != 0 :
 		print("docker execution did not result in success, stopping")
 		break
