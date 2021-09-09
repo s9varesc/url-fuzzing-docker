@@ -58,9 +58,10 @@ cd /home
 DEBIAN_FRONTEND=noninteractive apt-get install -y php7.2-cli php-xdebug=2.6.0-0ubuntu1 phpunit=6.5.5-1ubuntu2 composer=1.6.3-1 php7.2-intl
 cd /home/url-fuzzing/languagefuzzing/PHPCoverage
 sh -c "echo 'precedence ::ffff:0:0/96 100'>> /etc/gai.conf"
-composer --prefer-source require league/uri
-composer --prefer-source require league/uri-interfaces
-composer --prefer-source require ext-intl
+composer --prefer-source require league/uri 6.4
+composer --prefer-source require league/uri-interfaces 2.2
+composer --prefer-source require ext-intl 1.1
+
 ## Go
 echo "preparing Go" 
 cd /home
